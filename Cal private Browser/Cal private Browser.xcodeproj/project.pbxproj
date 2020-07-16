@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A124C02589006DC218 /* AppDelegate.swift */; };
+		04CF26A424C02589006DC218 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A324C02589006DC218 /* SceneDelegate.swift */; };
+		04CF26A624C02589006DC218 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A524C02589006DC218 /* ViewController.swift */; };
+		04CF26A924C02589006DC218 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CF26A724C02589006DC218 /* Main.storyboard */; };
+		04CF26AB24C0258F006DC218 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04CF26AA24C0258F006DC218 /* Assets.xcassets */; };
+		04CF26AE24C0258F006DC218 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CF26AC24C0258F006DC218 /* LaunchScreen.storyboard */; };
+		04CF26B924C0258F006DC218 /* Cal_private_BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26B824C0258F006DC218 /* Cal_private_BrowserTests.swift */; };
+		04CF26C424C0258F006DC218 /* Cal_private_BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26C324C0258F006DC218 /* Cal_private_BrowserUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04CF26B524C0258F006DC218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04CF269624C02589006DC218 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04CF269D24C02589006DC218;
+			remoteInfo = "Cal private Browser";
+		};
+		04CF26C024C0258F006DC218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04CF269624C02589006DC218 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04CF269D24C02589006DC218;
+			remoteInfo = "Cal private Browser";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04CF269E24C02589006DC218 /* Cal private Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cal private Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04CF26A124C02589006DC218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04CF26A324C02589006DC218 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		04CF26A524C02589006DC218 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04CF26A824C02589006DC218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04CF26AA24C0258F006DC218 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04CF26AD24C0258F006DC218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04CF26AF24C0258F006DC218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04CF26B424C0258F006DC218 /* Cal private BrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cal private BrowserTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04CF26B824C0258F006DC218 /* Cal_private_BrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal_private_BrowserTests.swift; sourceTree = "<group>"; };
+		04CF26BA24C0258F006DC218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04CF26BF24C0258F006DC218 /* Cal private BrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cal private BrowserUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04CF26C324C0258F006DC218 /* Cal_private_BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal_private_BrowserUITests.swift; sourceTree = "<group>"; };
+		04CF26C524C0258F006DC218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04CF269B24C02589006DC218 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04CF26B124C0258F006DC218 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04CF26BC24C0258F006DC218 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04CF269524C02589006DC218 = {
+			isa = PBXGroup;
+			children = (
+				04CF26A024C02589006DC218 /* Cal private Browser */,
+				04CF26B724C0258F006DC218 /* Cal private BrowserTests */,
+				04CF26C224C0258F006DC218 /* Cal private BrowserUITests */,
+				04CF269F24C02589006DC218 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04CF269F24C02589006DC218 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04CF269E24C02589006DC218 /* Cal private Browser.app */,
+				04CF26B424C0258F006DC218 /* Cal private BrowserTests.xctest */,
+				04CF26BF24C0258F006DC218 /* Cal private BrowserUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04CF26A024C02589006DC218 /* Cal private Browser */ = {
+			isa = PBXGroup;
+			children = (
+				04CF26A124C02589006DC218 /* AppDelegate.swift */,
+				04CF26A324C02589006DC218 /* SceneDelegate.swift */,
+				04CF26D124C04556006DC218 /* View Controller */,
+				04CF26D224C04560006DC218 /* Storyboards */,
+				04CF26AA24C0258F006DC218 /* Assets.xcassets */,
+				04CF26AC24C0258F006DC218 /* LaunchScreen.storyboard */,
+				04CF26AF24C0258F006DC218 /* Info.plist */,
+			);
+			path = "Cal private Browser";
+			sourceTree = "<group>";
+		};
+		04CF26B724C0258F006DC218 /* Cal private BrowserTests */ = {
+			isa = PBXGroup;
+			children = (
+				04CF26B824C0258F006DC218 /* Cal_private_BrowserTests.swift */,
+				04CF26BA24C0258F006DC218 /* Info.plist */,
+			);
+			path = "Cal private BrowserTests";
+			sourceTree = "<group>";
+		};
+		04CF26C224C0258F006DC218 /* Cal private BrowserUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04CF26C324C0258F006DC218 /* Cal_private_BrowserUITests.swift */,
+				04CF26C524C0258F006DC218 /* Info.plist */,
+			);
+			path = "Cal private BrowserUITests";
+			sourceTree = "<group>";
+		};
+		04CF26D124C04556006DC218 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04CF26A524C02589006DC218 /* ViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		04CF26D224C04560006DC218 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				04CF26A724C02589006DC218 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04CF269D24C02589006DC218 /* Cal private Browser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04CF26C824C0258F006DC218 /* Build configuration list for PBXNativeTarget "Cal private Browser" */;
+			buildPhases = (
+				04CF269A24C02589006DC218 /* Sources */,
+				04CF269B24C02589006DC218 /* Frameworks */,
+				04CF269C24C02589006DC218 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cal private Browser";
+			productName = "Cal private Browser";
+			productReference = 04CF269E24C02589006DC218 /* Cal private Browser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04CF26B324C0258F006DC218 /* Cal private BrowserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04CF26CB24C0258F006DC218 /* Build configuration list for PBXNativeTarget "Cal private BrowserTests" */;
+			buildPhases = (
+				04CF26B024C0258F006DC218 /* Sources */,
+				04CF26B124C0258F006DC218 /* Frameworks */,
+				04CF26B224C0258F006DC218 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04CF26B624C0258F006DC218 /* PBXTargetDependency */,
+			);
+			name = "Cal private BrowserTests";
+			productName = "Cal private BrowserTests";
+			productReference = 04CF26B424C0258F006DC218 /* Cal private BrowserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04CF26BE24C0258F006DC218 /* Cal private BrowserUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04CF26CE24C0258F006DC218 /* Build configuration list for PBXNativeTarget "Cal private BrowserUITests" */;
+			buildPhases = (
+				04CF26BB24C0258F006DC218 /* Sources */,
+				04CF26BC24C0258F006DC218 /* Frameworks */,
+				04CF26BD24C0258F006DC218 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04CF26C124C0258F006DC218 /* PBXTargetDependency */,
+			);
+			name = "Cal private BrowserUITests";
+			productName = "Cal private BrowserUITests";
+			productReference = 04CF26BF24C0258F006DC218 /* Cal private BrowserUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04CF269624C02589006DC218 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "FGT MAC";
+				TargetAttributes = {
+					04CF269D24C02589006DC218 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					04CF26B324C0258F006DC218 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 04CF269D24C02589006DC218;
+					};
+					04CF26BE24C0258F006DC218 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 04CF269D24C02589006DC218;
+					};
+				};
+			};
+			buildConfigurationList = 04CF269924C02589006DC218 /* Build configuration list for PBXProject "Cal private Browser" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04CF269524C02589006DC218;
+			productRefGroup = 04CF269F24C02589006DC218 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04CF269D24C02589006DC218 /* Cal private Browser */,
+				04CF26B324C0258F006DC218 /* Cal private BrowserTests */,
+				04CF26BE24C0258F006DC218 /* Cal private BrowserUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04CF269C24C02589006DC218 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04CF26AE24C0258F006DC218 /* LaunchScreen.storyboard in Resources */,
+				04CF26AB24C0258F006DC218 /* Assets.xcassets in Resources */,
+				04CF26A924C02589006DC218 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04CF26B224C0258F006DC218 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04CF26BD24C0258F006DC218 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04CF269A24C02589006DC218 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04CF26A624C02589006DC218 /* ViewController.swift in Sources */,
+				04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */,
+				04CF26A424C02589006DC218 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04CF26B024C0258F006DC218 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04CF26B924C0258F006DC218 /* Cal_private_BrowserTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04CF26BB24C0258F006DC218 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04CF26C424C0258F006DC218 /* Cal_private_BrowserUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04CF26B624C0258F006DC218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04CF269D24C02589006DC218 /* Cal private Browser */;
+			targetProxy = 04CF26B524C0258F006DC218 /* PBXContainerItemProxy */;
+		};
+		04CF26C124C0258F006DC218 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04CF269D24C02589006DC218 /* Cal private Browser */;
+			targetProxy = 04CF26C024C0258F006DC218 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04CF26A724C02589006DC218 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04CF26A824C02589006DC218 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04CF26AC24C0258F006DC218 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04CF26AD24C0258F006DC218 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04CF26C624C0258F006DC218 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04CF26C724C0258F006DC218 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04CF26C924C0258F006DC218 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3P8URX7UV;
+				INFOPLIST_FILE = "Cal private Browser/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.productions.fritzgt.Cal-private-Browser";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04CF26CA24C0258F006DC218 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3P8URX7UV;
+				INFOPLIST_FILE = "Cal private Browser/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.productions.fritzgt.Cal-private-Browser";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04CF26CC24C0258F006DC218 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3P8URX7UV;
+				INFOPLIST_FILE = "Cal private BrowserTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.productions.fritzgt.Cal-private-BrowserTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cal private Browser.app/Cal private Browser";
+			};
+			name = Debug;
+		};
+		04CF26CD24C0258F006DC218 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3P8URX7UV;
+				INFOPLIST_FILE = "Cal private BrowserTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.productions.fritzgt.Cal-private-BrowserTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cal private Browser.app/Cal private Browser";
+			};
+			name = Release;
+		};
+		04CF26CF24C0258F006DC218 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3P8URX7UV;
+				INFOPLIST_FILE = "Cal private BrowserUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.productions.fritzgt.Cal-private-BrowserUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Cal private Browser";
+			};
+			name = Debug;
+		};
+		04CF26D024C0258F006DC218 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N3P8URX7UV;
+				INFOPLIST_FILE = "Cal private BrowserUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.productions.fritzgt.Cal-private-BrowserUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Cal private Browser";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04CF269924C02589006DC218 /* Build configuration list for PBXProject "Cal private Browser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04CF26C624C0258F006DC218 /* Debug */,
+				04CF26C724C0258F006DC218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04CF26C824C0258F006DC218 /* Build configuration list for PBXNativeTarget "Cal private Browser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04CF26C924C0258F006DC218 /* Debug */,
+				04CF26CA24C0258F006DC218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04CF26CB24C0258F006DC218 /* Build configuration list for PBXNativeTarget "Cal private BrowserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04CF26CC24C0258F006DC218 /* Debug */,
+				04CF26CD24C0258F006DC218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04CF26CE24C0258F006DC218 /* Build configuration list for PBXNativeTarget "Cal private BrowserUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04CF26CF24C0258F006DC218 /* Debug */,
+				04CF26D024C0258F006DC218 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04CF269624C02589006DC218 /* Project object */;
+}
