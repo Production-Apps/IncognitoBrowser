@@ -12,14 +12,14 @@ import WebKit
 class ViewController: UIViewController {
     
     //MARK: - Properties
-    
+    private var observation: NSKeyValueObservation?
     
     //MARK: - Outlets
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var progressView: UIProgressView!
     
     
     //MARK: - View Life Cycle
@@ -31,8 +31,12 @@ class ViewController: UIViewController {
         webView.allowsBackForwardNavigationGestures = true
         updateViews()
         loadHomePage()
+        observeProgress()
     }
     
+    deinit {
+           observation = nil
+       }
     //MARK: - Actions
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         webView.goBack()
@@ -56,18 +60,23 @@ class ViewController: UIViewController {
     
     
     //MARK: - Private Methods
-    func updateViews() {
+    private func updateViews() {
         
         backButton.isEnabled = webView.canGoBack
         forwardButton.isEnabled = webView.canGoForward
-        
     }
     
-    func loadHomePage() {
+    private func loadHomePage() {
         //TODO: Add user defaults to save 
         let homePageURL = URL(string: "https://www.google.com")!
         let request = URLRequest(url: homePageURL)
         webView.load(request)
+    }
+    
+    private func observeProgress() {
+        observation = webView.observe(\.estimatedProgress, options: [.new]) { _, _ in
+            self.progressView.progress = Float(self.webView.estimatedProgress)
+        }
     }
 
 }
@@ -89,18 +98,18 @@ extension ViewController: UISearchBarDelegate{
 
 //MARK: - WKNavigationDelegate
 extension ViewController: WKUIDelegate {
-    
+
 }
 
 extension ViewController: WKNavigationDelegate{
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         if isViewLoaded{
-            activityIndicator.startAnimating()
+            progressView.isHidden = false
         }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         updateViews()
-        activityIndicator.stopAnimating()
+        progressView.isHidden = true
     }
 }
