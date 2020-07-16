@@ -68,7 +68,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jgh-LE-z3N"/>
-                                    <barButtonItem title="Incognito" id="Rjc-jc-8YZ"/>
+                                    <barButtonItem title="Incognito" image="flame" catalog="system" id="Rjc-jc-8YZ">
+                                        <connections>
+                                            <action selector="terminateSession:" destination="BYZ-38-t0r" id="eEC-H6-iI8"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="K0Y-lV-9Ta"/>
                                     <barButtonItem title="Item" systemItem="bookmarks" id="XDw-zR-kk7">
                                         <connections>
@@ -78,6 +82,13 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SSC-tQ-Jtr">
+                                <rect key="frame" x="165" y="383.66666666666669" width="45" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="ZyN-t8-Fmh"/>
+                                    <constraint firstAttribute="height" constant="45" id="jaP-J4-h6D"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -86,7 +97,9 @@
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4Q3-Yo-YKZ"/>
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7yr-FV-7rP"/>
                             <constraint firstItem="bQP-el-qBP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Ej5-dg-T8h"/>
+                            <constraint firstItem="SSC-tQ-Jtr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K5b-kD-jtU"/>
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="top" secondItem="bQP-el-qBP" secondAttribute="bottom" id="Ldn-wc-i6S"/>
+                            <constraint firstItem="SSC-tQ-Jtr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Sxx-76-Umx"/>
                             <constraint firstItem="Zs1-Gy-k6T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UA3-gL-Dsb"/>
                             <constraint firstItem="Zs1-Gy-k6T" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="aYM-Zf-qU8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gb3-Rc-u0B" secondAttribute="bottom" constant="24" id="n97-qy-OgT"/>
@@ -95,6 +108,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="SSC-tQ-Jtr" id="7Oi-ab-lvG"/>
                         <outlet property="backButton" destination="LDI-XW-frr" id="AbK-YM-Pte"/>
                         <outlet property="forwardButton" destination="LWT-Iu-2fa" id="5dj-Re-MK7"/>
                         <outlet property="searchBar" destination="gOT-T3-Tqj" id="hAK-P1-g6p"/>
@@ -138,5 +152,6 @@
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="flame" catalog="system" width="109" height="128"/>
     </resources>
 </document>

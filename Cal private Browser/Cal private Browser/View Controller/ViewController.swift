@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
     //MARK: - View Life Cycle
@@ -26,8 +27,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         webView.navigationDelegate = self
+        webView.uiDelegate = self
         webView.allowsBackForwardNavigationGestures = true
-            
         updateViews()
         loadHomePage()
     }
@@ -46,8 +47,12 @@ class ViewController: UIViewController {
     
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
         webView.reload()
+        updateViews()
     }
     
+    @IBAction func terminateSession(_ sender: UIBarButtonItem) {
+        //TODO: Take user back to calculator view
+    }
     
     
     //MARK: - Private Methods
@@ -69,12 +74,33 @@ class ViewController: UIViewController {
 
 //MARK: - UISearchBarDelegate
 extension ViewController: UISearchBarDelegate{
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        if let url = URL(string: "http://www.\(searchBar.text!)"){
+            //TODO: Check if url starts with http:// or https:// if not then add it to the string
+            webView.load(URLRequest(url: url))
+        }else{
+            //TODO: Error handleling
+            print("URL could not be loaded!")
+        }
+    }
 }
 
 
 //MARK: - WKNavigationDelegate
-extension ViewController: WKNavigationDelegate {
+extension ViewController: WKUIDelegate {
     
+}
+
+extension ViewController: WKNavigationDelegate{
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        if isViewLoaded{
+            activityIndicator.startAnimating()
+        }
+    }
     
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        updateViews()
+        activityIndicator.stopAnimating()
+    }
 }

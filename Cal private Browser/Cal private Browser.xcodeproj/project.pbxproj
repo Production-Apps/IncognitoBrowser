@@ -15,6 +15,7 @@
 		04CF26AE24C0258F006DC218 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CF26AC24C0258F006DC218 /* LaunchScreen.storyboard */; };
 		04CF26B924C0258F006DC218 /* Cal_private_BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26B824C0258F006DC218 /* Cal_private_BrowserTests.swift */; };
 		04CF26C424C0258F006DC218 /* Cal_private_BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26C324C0258F006DC218 /* Cal_private_BrowserUITests.swift */; };
+		04CF26D524C0A5EA006DC218 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CF26D424C0A5EA006DC218 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		04CF26BF24C0258F006DC218 /* Cal private BrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cal private BrowserUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CF26C324C0258F006DC218 /* Cal_private_BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal_private_BrowserUITests.swift; sourceTree = "<group>"; };
 		04CF26C524C0258F006DC218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04CF26D424C0A5EA006DC218 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CF26D524C0A5EA006DC218 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +86,7 @@
 				04CF26B724C0258F006DC218 /* Cal private BrowserTests */,
 				04CF26C224C0258F006DC218 /* Cal private BrowserUITests */,
 				04CF269F24C02589006DC218 /* Products */,
+				04CF26D324C0A5EA006DC218 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +146,14 @@
 				04CF26A724C02589006DC218 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		04CF26D324C0A5EA006DC218 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04CF26D424C0A5EA006DC218 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
