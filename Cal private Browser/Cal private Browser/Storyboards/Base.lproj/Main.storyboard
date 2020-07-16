@@ -77,7 +77,7 @@
                                     <barButtonItem systemItem="bookmarks" id="XDw-zR-kk7">
                                         <connections>
                                             <action selector="bookmarkButtonPressed:" destination="BYZ-38-t0r" id="Muf-cS-rwK"/>
-                                            <segue destination="E1q-KZ-muK" kind="presentation" id="h50-pT-Yg0"/>
+                                            <segue destination="mpY-aQ-APF" kind="presentation" id="BI9-dh-W52"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -119,33 +119,58 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="113.79310344827587"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="C4T-dM-Yoh">
+        <!--View Controller-->
+        <scene sceneID="pYj-Ko-AXg">
             <objects>
-                <tableViewController id="E1q-KZ-muK" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3Cp-6I-fln">
+                <viewController id="mpY-aQ-APF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jSI-zO-yHt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f4u-FX-2us">
+                                <rect key="frame" x="0.0" y="62" width="375" height="696"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0qg-Jp-Egy">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0qg-Jp-Egy" id="Mwx-CH-hPR">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QQ-rk-bI0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="yv1-8G-yNw"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="add" id="7Vs-Eg-MxA"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="glF-0f-fQB"/>
+                                    <barButtonItem enabled="NO" title="Bookmarks" id="EB7-88-FfB"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PO8-9m-lA3"/>
+                                    <barButtonItem systemItem="edit" id="WHB-qL-wio"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookmarkCell" id="qkZ-Bi-ZYP">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qkZ-Bi-ZYP" id="DHm-5B-rb0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="E1q-KZ-muK" id="uum-V2-bFu"/>
-                            <outlet property="delegate" destination="E1q-KZ-muK" id="PJw-5Z-4tJ"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gr7-nN-LYK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="0QQ-rk-bI0" firstAttribute="leading" secondItem="XCj-lk-bjG" secondAttribute="leading" id="FYa-df-nJz"/>
+                            <constraint firstItem="f4u-FX-2us" firstAttribute="top" secondItem="0QQ-rk-bI0" secondAttribute="bottom" constant="17" id="PCX-t9-4Rg"/>
+                            <constraint firstItem="0QQ-rk-bI0" firstAttribute="trailing" secondItem="XCj-lk-bjG" secondAttribute="trailing" id="PRY-9D-rkk"/>
+                            <constraint firstItem="0QQ-rk-bI0" firstAttribute="top" secondItem="jSI-zO-yHt" secondAttribute="top" id="cVI-eW-sni"/>
+                            <constraint firstItem="f4u-FX-2us" firstAttribute="trailing" secondItem="XCj-lk-bjG" secondAttribute="trailing" id="gJ7-pg-B7T"/>
+                            <constraint firstItem="f4u-FX-2us" firstAttribute="leading" secondItem="XCj-lk-bjG" secondAttribute="leading" id="lnh-ab-NaJ"/>
+                            <constraint firstAttribute="bottom" secondItem="f4u-FX-2us" secondAttribute="bottom" id="r4p-ff-lOW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XCj-lk-bjG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gLF-k3-mC7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="114"/>
+            <point key="canvasLocation" x="1302" y="114"/>
         </scene>
     </scenes>
     <resources>
