@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController {
+class BrowserViewController: UIViewController {
     
     //MARK: - Properties
     private var observation: NSKeyValueObservation?
@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var toolBar: UIToolbar!
     
     
     //MARK: - View Life Cycle
@@ -27,16 +29,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         webView.navigationDelegate = self
-        webView.uiDelegate = self
         webView.allowsBackForwardNavigationGestures = true
+   
         updateViews()
         loadHomePage()
-        observeProgress()
+        observePageLoadProgress()
+        webView.scrollView.delegate = self
+        
     }
     
     deinit {
            observation = nil
        }
+    
+    
     //MARK: - Actions
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         webView.goBack()
@@ -64,16 +70,19 @@ class ViewController: UIViewController {
         
         backButton.isEnabled = webView.canGoBack
         forwardButton.isEnabled = webView.canGoForward
+        
+        searchBar.autocapitalizationType = .none
+ 
     }
     
     private func loadHomePage() {
         //TODO: Add user defaults to save 
-        let homePageURL = URL(string: "https://www.google.com")!
+        let homePageURL = URL(string: "https://www.ebay.com")!
         let request = URLRequest(url: homePageURL)
         webView.load(request)
     }
     
-    private func observeProgress() {
+    private func observePageLoadProgress() {
         observation = webView.observe(\.estimatedProgress, options: [.new]) { _, _ in
             self.progressView.progress = Float(self.webView.estimatedProgress)
         }
@@ -82,26 +91,27 @@ class ViewController: UIViewController {
 }
 
 //MARK: - UISearchBarDelegate
-extension ViewController: UISearchBarDelegate{
+extension BrowserViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
         searchBar.resignFirstResponder()
-        if let url = URL(string: "http://www.\(searchBar.text!)"){
-            //TODO: Check if url starts with http:// or https:// if not then add it to the string
-            webView.load(URLRequest(url: url))
-        }else{
-            //TODO: Error handleling
-            print("URL could not be loaded!")
+        
+        if let urlString = searchBar.text, !urlString.isEmpty {
+            
+            if let url = URL(string: "http://www.\(urlString)"){
+                //TODO: Check if url starts with http:// or https:// if not then add it to the string
+                webView.load(URLRequest(url: url))
+            }else{
+                //TODO: Error handleling
+                print("URL could not be loaded!")
+            }
         }
     }
 }
 
 
 //MARK: - WKNavigationDelegate
-extension ViewController: WKUIDelegate {
-
-}
-
-extension ViewController: WKNavigationDelegate{
+extension BrowserViewController: WKNavigationDelegate{
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         if isViewLoaded{
             progressView.isHidden = false
@@ -111,5 +121,29 @@ extension ViewController: WKNavigationDelegate{
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         updateViews()
         progressView.isHidden = true
+    }
+    
+}
+
+
+extension BrowserViewController: UIScrollViewDelegate{
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if(scrollView.contentOffset.y > 0){
+            searchBar.isHidden = true
+            refreshButton.isHidden = true
+            toolBar.isHidden = true
+        }else{
+            searchBar.isHidden = false
+            refreshButton.isHidden = false
+            toolBar.isHidden = false
+        }
+    }
+    
+    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
+        searchBar.isHidden = false
+        refreshButton.isHidden = false
+        toolBar.isHidden = false
     }
 }

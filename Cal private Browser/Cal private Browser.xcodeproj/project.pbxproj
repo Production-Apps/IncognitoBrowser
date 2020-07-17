@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A124C02589006DC218 /* AppDelegate.swift */; };
 		04CF26A424C02589006DC218 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A324C02589006DC218 /* SceneDelegate.swift */; };
-		04CF26A624C02589006DC218 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A524C02589006DC218 /* ViewController.swift */; };
+		04CF26A624C02589006DC218 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A524C02589006DC218 /* BrowserViewController.swift */; };
 		04CF26A924C02589006DC218 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CF26A724C02589006DC218 /* Main.storyboard */; };
 		04CF26AB24C0258F006DC218 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04CF26AA24C0258F006DC218 /* Assets.xcassets */; };
 		04CF26AE24C0258F006DC218 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04CF26AC24C0258F006DC218 /* LaunchScreen.storyboard */; };
 		04CF26B924C0258F006DC218 /* Cal_private_BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26B824C0258F006DC218 /* Cal_private_BrowserTests.swift */; };
 		04CF26C424C0258F006DC218 /* Cal_private_BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26C324C0258F006DC218 /* Cal_private_BrowserUITests.swift */; };
 		04CF26D524C0A5EA006DC218 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CF26D424C0A5EA006DC218 /* WebKit.framework */; };
+		04CF26D724C0DAC7006DC218 /* BookmarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26D624C0DAC7006DC218 /* BookmarkTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,7 @@
 		04CF269E24C02589006DC218 /* Cal private Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cal private Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CF26A124C02589006DC218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CF26A324C02589006DC218 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04CF26A524C02589006DC218 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04CF26A524C02589006DC218 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
 		04CF26A824C02589006DC218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04CF26AA24C0258F006DC218 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04CF26AD24C0258F006DC218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		04CF26C324C0258F006DC218 /* Cal_private_BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal_private_BrowserUITests.swift; sourceTree = "<group>"; };
 		04CF26C524C0258F006DC218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CF26D424C0A5EA006DC218 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		04CF26D624C0DAC7006DC218 /* BookmarkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +137,8 @@
 		04CF26D124C04556006DC218 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				04CF26A524C02589006DC218 /* ViewController.swift */,
+				04CF26A524C02589006DC218 /* BrowserViewController.swift */,
+				04CF26D624C0DAC7006DC218 /* BookmarkTableViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -287,9 +290,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04CF26A624C02589006DC218 /* ViewController.swift in Sources */,
+				04CF26A624C02589006DC218 /* BrowserViewController.swift in Sources */,
 				04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */,
 				04CF26A424C02589006DC218 /* SceneDelegate.swift in Sources */,
+				04CF26D724C0DAC7006DC218 /* BookmarkTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,19 +7,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Browser View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Cal_private_Browser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BrowserViewController" customModule="Cal_private_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bQP-el-qBP">
-                                <rect key="frame" x="8" y="44" width="359" height="60"/>
+                                <rect key="frame" x="8" y="44" width="359" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sx-Ct-32d">
-                                        <rect key="frame" x="0.0" y="19.333333333333329" width="20" height="19.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="17.333333333333329" width="20" height="19.666666666666671"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="twj-9p-JWr"/>
                                             <constraint firstAttribute="width" constant="20" id="zGZ-k7-4X6"/>
@@ -30,30 +30,27 @@
                                         </connections>
                                     </button>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search or enter URL" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-T3-Tqj">
-                                        <rect key="frame" x="25" y="2" width="334" height="56"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <rect key="frame" x="25" y="0.0" width="334" height="56"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
                                             <string>Title</string>
                                         </scopeButtonTitles>
                                     </searchBar>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="p1M-Xi-Gq7"/>
-                                </constraints>
                             </stackView>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-Rc-u0B">
-                                <rect key="frame" x="0.0" y="104" width="375" height="650"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="654"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Calculator">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zs1-Gy-k6T">
-                                <rect key="frame" x="0.0" y="752" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="747" width="375" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Mrz-yC-Ukp"/>
+                                    <constraint firstAttribute="height" constant="50" id="Mrz-yC-Ukp"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem title="Item" image="chevron.left" catalog="system" id="LDI-XW-frr">
@@ -83,7 +80,7 @@
                                 </items>
                             </toolbar>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-Nt-O83">
-                                <rect key="frame" x="0.0" y="104" width="375" height="2"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="qOv-rN-KTB"/>
                                 </constraints>
@@ -111,7 +108,9 @@
                         <outlet property="backButton" destination="LDI-XW-frr" id="AbK-YM-Pte"/>
                         <outlet property="forwardButton" destination="LWT-Iu-2fa" id="5dj-Re-MK7"/>
                         <outlet property="progressView" destination="Mdf-Nt-O83" id="2V2-PE-SvE"/>
+                        <outlet property="refreshButton" destination="3sx-Ct-32d" id="E8Z-5a-szp"/>
                         <outlet property="searchBar" destination="gOT-T3-Tqj" id="hAK-P1-g6p"/>
+                        <outlet property="toolBar" destination="Zs1-Gy-k6T" id="M9K-70-rjz"/>
                         <outlet property="webView" destination="gb3-Rc-u0B" id="Vj9-WP-puG"/>
                     </connections>
                 </viewController>
@@ -119,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="113.79310344827587"/>
         </scene>
-        <!--View Controller-->
+        <!--Bookmark Table View Controller-->
         <scene sceneID="pYj-Ko-AXg">
             <objects>
-                <viewController id="mpY-aQ-APF" sceneMemberID="viewController">
+                <viewController id="mpY-aQ-APF" customClass="BookmarkTableViewController" customModule="Cal_private_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jSI-zO-yHt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,13 +130,25 @@
                                 <rect key="frame" x="0.0" y="62" width="375" height="696"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0qg-Jp-Egy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BookmarkCell" textLabel="9gv-9k-TIM" style="IBUITableViewCellStyleDefault" id="0qg-Jp-Egy">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0qg-Jp-Egy" id="Mwx-CH-hPR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Folder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9gv-9k-TIM">
+                                                    <rect key="frame" x="15" y="0.0" width="326" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="hrz-Mg-k7j" kind="presentation" id="LOF-xw-syR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -147,7 +158,11 @@
                                     <constraint firstAttribute="height" constant="45" id="yv1-8G-yNw"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="add" id="7Vs-Eg-MxA"/>
+                                    <barButtonItem systemItem="add" id="7Vs-Eg-MxA">
+                                        <connections>
+                                            <segue destination="tHP-Uj-vOX" kind="presentation" id="vem-y5-HnG"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="glF-0f-fQB"/>
                                     <barButtonItem enabled="NO" title="Bookmarks" id="EB7-88-FfB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PO8-9m-lA3"/>
@@ -171,6 +186,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLF-k3-mC7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1302" y="114"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vaV-jV-lgg">
+            <objects>
+                <viewController id="tHP-Uj-vOX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SJl-3w-SPM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JhU-j4-tDk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QnE-gE-PYb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2377" y="-262"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cxT-7q-hrZ">
+            <objects>
+                <viewController id="hrz-Mg-k7j" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UWe-gU-S72">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X0X-Zq-wup">
+                                <rect key="frame" x="0.0" y="62" width="375" height="696"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FolderDetailCell" textLabel="RG8-tL-fcT" style="IBUITableViewCellStyleDefault" id="4YO-WB-8Mt">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4YO-WB-8Mt" id="t2A-Aw-uhI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="google.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RG8-tL-fcT">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vVN-Vj-rtk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="F8c-eq-zDB"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="All" image="chevron.left" catalog="system" id="8T5-KX-ehZ"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="UFY-hy-aLk"/>
+                                    <barButtonItem enabled="NO" title="Bookmarks" id="mBl-6v-GLe"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7iM-bk-xzg"/>
+                                    <barButtonItem systemItem="done" id="BFt-FI-AAW"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="X0X-Zq-wup" secondAttribute="bottom" id="CXp-F6-069"/>
+                            <constraint firstItem="X0X-Zq-wup" firstAttribute="trailing" secondItem="Nea-ah-y0m" secondAttribute="trailing" id="NW7-b6-VBb"/>
+                            <constraint firstItem="X0X-Zq-wup" firstAttribute="top" secondItem="vVN-Vj-rtk" secondAttribute="bottom" constant="17" id="TGm-1X-oY3"/>
+                            <constraint firstItem="X0X-Zq-wup" firstAttribute="leading" secondItem="Nea-ah-y0m" secondAttribute="leading" id="U4D-KL-bh8"/>
+                            <constraint firstItem="vVN-Vj-rtk" firstAttribute="top" secondItem="UWe-gU-S72" secondAttribute="top" id="Upj-KZ-xg9"/>
+                            <constraint firstItem="vVN-Vj-rtk" firstAttribute="leading" secondItem="Nea-ah-y0m" secondAttribute="leading" id="Usw-ON-Uec"/>
+                            <constraint firstItem="vVN-Vj-rtk" firstAttribute="trailing" secondItem="Nea-ah-y0m" secondAttribute="trailing" id="Xvf-AH-eTn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nea-ah-y0m"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eui-2p-yRM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2377" y="434"/>
         </scene>
     </scenes>
     <resources>
