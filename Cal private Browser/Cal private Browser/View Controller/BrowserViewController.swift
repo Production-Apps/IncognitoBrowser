@@ -30,17 +30,16 @@ class BrowserViewController: UIViewController {
         searchBar.delegate = self
         webView.navigationDelegate = self
         webView.allowsBackForwardNavigationGestures = true
-   
+        
         updateViews()
         loadHomePage()
         observePageLoadProgress()
         webView.scrollView.delegate = self
-        
     }
     
     deinit {
-           observation = nil
-       }
+        observation = nil
+    }
     
     
     //MARK: - Actions
@@ -72,12 +71,12 @@ class BrowserViewController: UIViewController {
         forwardButton.isEnabled = webView.canGoForward
         
         searchBar.autocapitalizationType = .none
- 
+        
     }
     
     private func loadHomePage() {
         //TODO: Add user defaults to save 
-        let homePageURL = URL(string: "https://www.ebay.com")!
+        let homePageURL = URL(string: "http://www.fritzgt.com")!
         let request = URLRequest(url: homePageURL)
         webView.load(request)
     }
@@ -87,7 +86,17 @@ class BrowserViewController: UIViewController {
             self.progressView.progress = Float(self.webView.estimatedProgress)
         }
     }
-
+    
+    private func fullScreen(_ isEnable: Bool) {
+        searchBar.isHidden = isEnable
+        refreshButton.isHidden = isEnable
+        toolBar.isHidden = isEnable
+        
+        if isEnable{
+            webView.frame = self.view.frame
+        }
+    }
+    
 }
 
 //MARK: - UISearchBarDelegate
@@ -130,20 +139,15 @@ extension BrowserViewController: UIScrollViewDelegate{
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if(scrollView.contentOffset.y > 0){
-            searchBar.isHidden = true
-            refreshButton.isHidden = true
-            toolBar.isHidden = true
-        }else{
-            searchBar.isHidden = false
-            refreshButton.isHidden = false
-            toolBar.isHidden = false
+        let position = scrollView.contentOffset.y
+        if(position > 200){
+            fullScreen(true)
+        }else if (position < 50 ){
+            fullScreen(false)
         }
     }
     
     func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        searchBar.isHidden = false
-        refreshButton.isHidden = false
-        toolBar.isHidden = false
+//        fullScreen(false)
     }
 }
