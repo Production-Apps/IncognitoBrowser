@@ -63,6 +63,10 @@ class BrowserViewController: UIViewController {
         //TODO: Take user back to calculator view
     }
     
+    @IBAction func moveButton(button: UIButton) {
+ 
+    }
+    
     
     //MARK: - Private Methods
     private func updateViews() {
@@ -88,9 +92,11 @@ class BrowserViewController: UIViewController {
     }
     
     private func fullScreen(_ isEnable: Bool) {
-        searchBar.isHidden = isEnable
-        refreshButton.isHidden = isEnable
-        toolBar.isHidden = isEnable
+        
+        
+        self.searchBar.isHidden = isEnable
+        self.refreshButton.isHidden = isEnable
+        self.toolBar.isHidden = isEnable
         
         if isEnable{
             webView.frame = self.view.frame
@@ -134,20 +140,30 @@ extension BrowserViewController: WKNavigationDelegate{
     
 }
 
+//MARK: - WKUIDelegate
+//extension BrowserViewController: WKUIDelegate{
+//
+//}
 
+
+
+//MARK: - UIScrollViewDelegate
 extension BrowserViewController: UIScrollViewDelegate{
     
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let position = scrollView.contentOffset.y
-        if(position > 200){
+        
+        let currentContentOffset = Int(scrollView.contentOffset.y)
+        
+        if(currentContentOffset > 50){
             fullScreen(true)
-        }else if (position < 50 ){
+        }else if (currentContentOffset < 10 ){
             fullScreen(false)
         }
     }
     
-    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-//        fullScreen(false)
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        print("Going to the top")
+        fullScreen(false)
+        return true
     }
 }

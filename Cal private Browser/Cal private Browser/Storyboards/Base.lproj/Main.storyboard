@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="landscape" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,14 +12,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="BrowserViewController" customModule="Cal_private_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bQP-el-qBP">
-                                <rect key="frame" x="52" y="0.0" width="708" height="56"/>
+                                <rect key="frame" x="8" y="44" width="398" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sx-Ct-32d">
-                                        <rect key="frame" x="0.0" y="17.333333333333329" width="20" height="19.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="17" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="twj-9p-JWr"/>
                                             <constraint firstAttribute="width" constant="20" id="zGZ-k7-4X6"/>
@@ -30,7 +30,7 @@
                                         </connections>
                                     </button>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search or enter URL" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-T3-Tqj">
-                                        <rect key="frame" x="25" y="0.0" width="683" height="56"/>
+                                        <rect key="frame" x="25" y="0.0" width="373" height="56"/>
                                         <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -39,16 +39,22 @@
                                     </searchBar>
                                 </subviews>
                             </stackView>
-                            <wkWebView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-Rc-u0B">
-                                <rect key="frame" x="0.0" y="56" width="812" height="327"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-Nt-O83">
+                                <rect key="frame" x="0.0" y="100" width="414" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="qOv-rN-KTB"/>
+                                </constraints>
+                            </progressView>
+                            <wkWebView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-Rc-u0B">
+                                <rect key="frame" x="0.0" y="100" width="414" height="770"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Calculator">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zs1-Gy-k6T">
-                                <rect key="frame" x="0.0" y="310" width="812" height="50"/>
+                                <rect key="frame" x="0.0" y="831" width="414" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Mrz-yC-Ukp"/>
                                 </constraints>
@@ -79,12 +85,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-Nt-O83">
-                                <rect key="frame" x="0.0" y="56" width="812" height="2"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="qOv-rN-KTB"/>
-                                </constraints>
-                            </progressView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -116,29 +116,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="113.79310344827587"/>
+            <point key="canvasLocation" x="136.23188405797103" y="112.5"/>
         </scene>
         <!--Bookmark Table View Controller-->
         <scene sceneID="pYj-Ko-AXg">
             <objects>
                 <viewController id="mpY-aQ-APF" customClass="BookmarkTableViewController" customModule="Cal_private_Browser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jSI-zO-yHt">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f4u-FX-2us">
-                                <rect key="frame" x="44" y="62" width="724" height="313"/>
+                                <rect key="frame" x="0.0" y="62" width="414" height="780"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BookmarkCell" textLabel="9gv-9k-TIM" style="IBUITableViewCellStyleDefault" id="0qg-Jp-Egy">
-                                        <rect key="frame" x="0.0" y="28" width="724" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0qg-Jp-Egy" id="Mwx-CH-hPR">
-                                            <rect key="frame" x="0.0" y="0.0" width="698" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Folder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9gv-9k-TIM">
-                                                    <rect key="frame" x="15" y="0.0" width="675" height="43.666667938232422"/>
+                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -153,7 +153,7 @@
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QQ-rk-bI0">
-                                <rect key="frame" x="44" y="0.0" width="724" height="45"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="yv1-8G-yNw"/>
                                 </constraints>
@@ -192,7 +192,7 @@
             <objects>
                 <viewController id="tHP-Uj-vOX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SJl-3w-SPM">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="JhU-j4-tDk"/>
@@ -207,22 +207,22 @@
             <objects>
                 <viewController id="hrz-Mg-k7j" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UWe-gU-S72">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X0X-Zq-wup">
-                                <rect key="frame" x="44" y="62" width="724" height="313"/>
+                                <rect key="frame" x="0.0" y="62" width="414" height="780"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FolderDetailCell" textLabel="RG8-tL-fcT" style="IBUITableViewCellStyleDefault" id="4YO-WB-8Mt">
-                                        <rect key="frame" x="0.0" y="28" width="724" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4YO-WB-8Mt" id="t2A-Aw-uhI">
-                                            <rect key="frame" x="0.0" y="0.0" width="724" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="google.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RG8-tL-fcT">
-                                                    <rect key="frame" x="15" y="0.0" width="694" height="43.666667938232422"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -234,7 +234,7 @@
                                 </prototypes>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vVN-Vj-rtk">
-                                <rect key="frame" x="44" y="0.0" width="724" height="45"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="F8c-eq-zDB"/>
                                 </constraints>
