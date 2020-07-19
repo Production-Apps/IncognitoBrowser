@@ -18,19 +18,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bQP-el-qBP">
                                 <rect key="frame" x="8" y="44" width="398" height="56"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sx-Ct-32d">
-                                        <rect key="frame" x="0.0" y="17" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="twj-9p-JWr"/>
-                                            <constraint firstAttribute="width" constant="20" id="zGZ-k7-4X6"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="arrow.clockwise" catalog="system"/>
-                                        <connections>
-                                            <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n4G-46-es0"/>
-                                        </connections>
-                                    </button>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search or enter URL" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-T3-Tqj">
-                                        <rect key="frame" x="25" y="0.0" width="373" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="56"/>
                                         <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
@@ -108,7 +97,6 @@
                         <outlet property="backButton" destination="LDI-XW-frr" id="AbK-YM-Pte"/>
                         <outlet property="forwardButton" destination="LWT-Iu-2fa" id="5dj-Re-MK7"/>
                         <outlet property="progressView" destination="Mdf-Nt-O83" id="2V2-PE-SvE"/>
-                        <outlet property="refreshButton" destination="3sx-Ct-32d" id="E8Z-5a-szp"/>
                         <outlet property="searchBar" destination="gOT-T3-Tqj" id="hAK-P1-g6p"/>
                         <outlet property="toolBar" destination="Zs1-Gy-k6T" id="M9K-70-rjz"/>
                         <outlet property="webView" destination="gb3-Rc-u0B" id="Vj9-WP-puG"/>
@@ -266,7 +254,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="flame" catalog="system" width="109" height="128"/>

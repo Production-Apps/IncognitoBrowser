@@ -20,7 +20,6 @@ class BrowserViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var toolBar: UIToolbar!
     
     
@@ -37,7 +36,9 @@ class BrowserViewController: UIViewController {
         loadHomePage()
         observePageLoadProgress()
 
-        searchBar.setImage(UIImage(named: "tv"), for: .bookmark, state: .normal)
+         searchBar.showsBookmarkButton = true
+        searchBar.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .bookmark, state: .normal)
+       
     }
     
     deinit {
@@ -57,17 +58,8 @@ class BrowserViewController: UIViewController {
     @IBAction func bookmarkButtonPressed(_ sender: UIBarButtonItem) {
     }
     
-    @IBAction func refreshButtonPressed(_ sender: UIButton) {
-        webView.reload()
-        updateViews()
-    }
-    
     @IBAction func terminateSession(_ sender: UIBarButtonItem) {
         //TODO: Take user back to calculator view
-    }
-    
-    @IBAction func moveButton(button: UIButton) {
- 
     }
     
     
@@ -96,9 +88,7 @@ class BrowserViewController: UIViewController {
     
     private func fullScreen(_ isEnable: Bool) {
         
-        
         self.searchBar.isHidden = isEnable
-        self.refreshButton.isHidden = isEnable
         self.toolBar.isHidden = isEnable
         if isEnable{
             webView.frame = self.view.frame
@@ -137,6 +127,7 @@ extension BrowserViewController: UISearchBarDelegate{
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
     }
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
@@ -155,7 +146,6 @@ extension BrowserViewController: WKNavigationDelegate{
         updateViews()
         progressView.isHidden = true
     }
-    
     
 }
 
