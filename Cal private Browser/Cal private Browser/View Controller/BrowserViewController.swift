@@ -29,12 +29,15 @@ class BrowserViewController: UIViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         webView.navigationDelegate = self
+        webView.scrollView.delegate = self
+        
         webView.allowsBackForwardNavigationGestures = true
         
         updateViews()
         loadHomePage()
         observePageLoadProgress()
-        webView.scrollView.delegate = self
+
+        searchBar.setImage(UIImage(named: "tv"), for: .bookmark, state: .normal)
     }
     
     deinit {
@@ -97,9 +100,9 @@ class BrowserViewController: UIViewController {
         self.searchBar.isHidden = isEnable
         self.refreshButton.isHidden = isEnable
         self.toolBar.isHidden = isEnable
-        
         if isEnable{
             webView.frame = self.view.frame
+
         }
     }
     
@@ -122,6 +125,21 @@ extension BrowserViewController: UISearchBarDelegate{
             }
         }
     }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        webView.reload()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }
 
 
@@ -138,13 +156,8 @@ extension BrowserViewController: WKNavigationDelegate{
         progressView.isHidden = true
     }
     
+    
 }
-
-//MARK: - WKUIDelegate
-//extension BrowserViewController: WKUIDelegate{
-//
-//}
-
 
 
 //MARK: - UIScrollViewDelegate
@@ -159,11 +172,5 @@ extension BrowserViewController: UIScrollViewDelegate{
         }else if (currentContentOffset < 10 ){
             fullScreen(false)
         }
-    }
-    
-    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-        print("Going to the top")
-        fullScreen(false)
-        return true
     }
 }
