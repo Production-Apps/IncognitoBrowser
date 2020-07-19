@@ -39,7 +39,7 @@
 
 /* Begin PBXFileReference section */
 		043169C824C4651300006830 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
-		04CF269E24C02589006DC218 /* Cal private Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cal private Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04CF269E24C02589006DC218 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CF26A124C02589006DC218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CF26A324C02589006DC218 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		04CF26A524C02589006DC218 /* BrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		04CF269F24C02589006DC218 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04CF269E24C02589006DC218 /* Cal private Browser.app */,
+				04CF269E24C02589006DC218 /* Calculator.app */,
 				04CF26B424C0258F006DC218 /* Cal private BrowserTests.xctest */,
 				04CF26BF24C0258F006DC218 /* Cal private BrowserUITests.xctest */,
 			);
@@ -179,7 +179,7 @@
 			);
 			name = "Cal private Browser";
 			productName = "Cal private Browser";
-			productReference = 04CF269E24C02589006DC218 /* Cal private Browser.app */;
+			productReference = 04CF269E24C02589006DC218 /* Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 		04CF26B324C0258F006DC218 /* Cal private BrowserTests */ = {
@@ -478,7 +478,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.productions.fritzgt.Cal-private-Browser";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Calculator;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -496,7 +496,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.productions.fritzgt.Cal-private-Browser";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Calculator;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

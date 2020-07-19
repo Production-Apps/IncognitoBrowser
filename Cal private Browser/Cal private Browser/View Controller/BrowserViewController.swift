@@ -64,7 +64,7 @@ class BrowserViewController: UIViewController {
     }
     
     @IBAction func terminateSession(_ sender: UIBarButtonItem) {
-        //TODO: Take user back to calculator view
+        //Take user back to calculator view
         navigationController?.popViewController(animated: true)
     }
     
@@ -94,8 +94,22 @@ class BrowserViewController: UIViewController {
     @objc private func appEnterBackground(){
         
         //TODO: can add feature where the last page is save and can be reload it if user is authenticated
-        loadHomePage()
+        navigationController?.popViewController(animated: true)
+        //Clear all cookies
+        clean()
     }
+    
+    private func clean() {
+           HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+           print("[WebCacheCleaner] All cookies deleted")
+           
+           WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+               records.forEach { record in
+                   WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                   print("[WebCacheCleaner] Record \(record) deleted")
+               }
+           }
+       }
     
     // Observe value
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
