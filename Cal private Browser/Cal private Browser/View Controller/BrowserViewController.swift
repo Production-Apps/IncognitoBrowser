@@ -92,7 +92,6 @@ class BrowserViewController: UIViewController {
         self.toolBar.isHidden = isEnable
         if isEnable{
             webView.frame = self.view.frame
-
         }
     }
     

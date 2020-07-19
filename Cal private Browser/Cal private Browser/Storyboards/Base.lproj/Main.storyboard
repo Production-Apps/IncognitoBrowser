@@ -49,27 +49,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bQP-el-qBP">
-                                <rect key="frame" x="8" y="44" width="398" height="56"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bQP-el-qBP">
+                                <rect key="frame" x="8" y="44" width="398" height="63"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search or enter URL" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-T3-Tqj">
-                                        <rect key="frame" x="0.0" y="0.0" width="398" height="56"/>
+                                        <rect key="frame" x="8" y="0.0" width="382" height="56"/>
                                         <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
                                             <string>Title</string>
                                         </scopeButtonTitles>
                                     </searchBar>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" insetsLayoutMarginsFromSafeArea="NO" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-Nt-O83">
+                                        <rect key="frame" x="0.0" y="61" width="398" height="2"/>
+                                    </progressView>
                                 </subviews>
-                            </stackView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-Nt-O83">
-                                <rect key="frame" x="0.0" y="100" width="414" height="2"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="qOv-rN-KTB"/>
+                                    <constraint firstItem="gOT-T3-Tqj" firstAttribute="leading" secondItem="bQP-el-qBP" secondAttribute="leading" constant="8" id="KEi-Cc-0RZ"/>
+                                    <constraint firstItem="Mdf-Nt-O83" firstAttribute="leading" secondItem="bQP-el-qBP" secondAttribute="leading" id="M30-Se-wjt"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mdf-Nt-O83" secondAttribute="trailing" id="NR8-SM-Z6h"/>
+                                    <constraint firstAttribute="trailing" secondItem="gOT-T3-Tqj" secondAttribute="trailing" constant="8" id="hq3-eW-GFE"/>
                                 </constraints>
-                            </progressView>
+                            </stackView>
                             <wkWebView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-Rc-u0B">
-                                <rect key="frame" x="0.0" y="100" width="414" height="770"/>
+                                <rect key="frame" x="0.0" y="107" width="414" height="763"/>
                                 <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Calculator">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
@@ -117,12 +120,9 @@
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="7yr-FV-7rP"/>
                             <constraint firstItem="bQP-el-qBP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Ej5-dg-T8h"/>
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="top" secondItem="bQP-el-qBP" secondAttribute="bottom" id="Ldn-wc-i6S"/>
-                            <constraint firstAttribute="trailing" secondItem="Mdf-Nt-O83" secondAttribute="trailing" id="Oei-cP-vF9"/>
                             <constraint firstItem="Zs1-Gy-k6T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UA3-gL-Dsb"/>
                             <constraint firstItem="Zs1-Gy-k6T" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="aYM-Zf-qU8"/>
-                            <constraint firstItem="Mdf-Nt-O83" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fqy-5s-2R0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gb3-Rc-u0B" secondAttribute="bottomMargin" id="n97-qy-OgT"/>
-                            <constraint firstItem="Mdf-Nt-O83" firstAttribute="top" secondItem="bQP-el-qBP" secondAttribute="bottom" id="qHo-o9-p0F"/>
                             <constraint firstAttribute="bottom" secondItem="Zs1-Gy-k6T" secondAttribute="bottom" constant="15" id="qmf-Ky-kEq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
