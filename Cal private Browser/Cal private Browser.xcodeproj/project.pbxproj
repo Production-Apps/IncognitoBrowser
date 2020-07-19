@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043169C924C4651300006830 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043169C824C4651300006830 /* CalculatorViewController.swift */; };
 		04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A124C02589006DC218 /* AppDelegate.swift */; };
 		04CF26A424C02589006DC218 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A324C02589006DC218 /* SceneDelegate.swift */; };
 		04CF26A624C02589006DC218 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A524C02589006DC218 /* BrowserViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043169C824C4651300006830 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		04CF269E24C02589006DC218 /* Cal private Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cal private Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CF26A124C02589006DC218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CF26A324C02589006DC218 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		04CF26D124C04556006DC218 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				043169C824C4651300006830 /* CalculatorViewController.swift */,
 				04CF26A524C02589006DC218 /* BrowserViewController.swift */,
 				04CF26D624C0DAC7006DC218 /* BookmarkTableViewController.swift */,
 			);
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043169C924C4651300006830 /* CalculatorViewController.swift in Sources */,
 				04CF26A624C02589006DC218 /* BrowserViewController.swift in Sources */,
 				04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */,
 				04CF26A424C02589006DC218 /* SceneDelegate.swift in Sources */,

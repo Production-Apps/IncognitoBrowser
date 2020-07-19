@@ -35,10 +35,9 @@ class BrowserViewController: UIViewController {
         updateViews()
         loadHomePage()
         observePageLoadProgress()
-
-         searchBar.showsBookmarkButton = true
+        
+        searchBar.showsBookmarkButton = true
         searchBar.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .bookmark, state: .normal)
-       
     }
     
     deinit {
@@ -60,6 +59,7 @@ class BrowserViewController: UIViewController {
     
     @IBAction func terminateSession(_ sender: UIBarButtonItem) {
         //TODO: Take user back to calculator view
+        navigationController?.popViewController(animated: true)
     }
     
     
@@ -74,9 +74,11 @@ class BrowserViewController: UIViewController {
     }
     
     private func loadHomePage() {
-        //TODO: Add user defaults to save 
-        let homePageURL = URL(string: "http://www.fritzgt.com")!
+        //TODO: Add user defaults to save
+        let homePageString = "fritzgt.com"
+        let homePageURL = URL(string: "http://www.\(homePageString)")!
         let request = URLRequest(url: homePageURL)
+        searchBar.text = homePageString
         webView.load(request)
     }
     
@@ -85,6 +87,15 @@ class BrowserViewController: UIViewController {
             self.progressView.progress = Float(self.webView.estimatedProgress)
         }
     }
+    
+//    func observeAppEnterBackground()  {
+//        NotificationCenter.default.addObserver(self, selector: #selector("appBecomeActive"), name: NSNotification.Name.UIApplication.willEnterForegroundNotification, object: nil )
+//
+//    }
+//    
+//     func appBecomeActive() {
+//        print("background")
+//    }
     
     private func fullScreen(_ isEnable: Bool) {
         
