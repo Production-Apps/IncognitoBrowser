@@ -50,7 +50,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bQP-el-qBP">
-                                <rect key="frame" x="8" y="44" width="398" height="63"/>
+                                <rect key="frame" x="8" y="44" width="398" height="62.5"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search or enter URL" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-T3-Tqj">
                                         <rect key="frame" x="8" y="0.0" width="382" height="56"/>
@@ -60,8 +60,8 @@
                                             <string>Title</string>
                                         </scopeButtonTitles>
                                     </searchBar>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" insetsLayoutMarginsFromSafeArea="NO" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-Nt-O83">
-                                        <rect key="frame" x="0.0" y="61" width="398" height="2"/>
+                                    <progressView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" insetsLayoutMarginsFromSafeArea="NO" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-Nt-O83">
+                                        <rect key="frame" x="0.0" y="61" width="398" height="2.5"/>
                                     </progressView>
                                 </subviews>
                                 <constraints>
@@ -72,7 +72,7 @@
                                 </constraints>
                             </stackView>
                             <wkWebView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-Rc-u0B">
-                                <rect key="frame" x="0.0" y="107" width="414" height="763"/>
+                                <rect key="frame" x="0.0" y="106.5" width="414" height="763.5"/>
                                 <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Calculator">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
