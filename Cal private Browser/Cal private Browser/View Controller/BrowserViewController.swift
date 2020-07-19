@@ -34,7 +34,6 @@ class BrowserViewController: UIViewController {
         
         updateViews()
         loadHomePage()
-        observePageLoadProgress()
         
         searchBar.showsBookmarkButton = true
         searchBar.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .bookmark, state: .normal)
@@ -48,10 +47,12 @@ class BrowserViewController: UIViewController {
     //MARK: - Actions
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         webView.goBack()
+        searchBar.text = webView.url?.absoluteString
     }
     
     @IBAction func forwardButtonPressed(_ sender: UIBarButtonItem) {
         webView.goForward()
+        searchBar.text = webView.url?.absoluteString
     }
     
     @IBAction func bookmarkButtonPressed(_ sender: UIBarButtonItem) {
@@ -70,7 +71,11 @@ class BrowserViewController: UIViewController {
         forwardButton.isEnabled = webView.canGoForward
         
         searchBar.autocapitalizationType = .none
-        
+    }
+    
+    private func progressBar() {
+        progressView.isHidden = !webView.isLoading
+        progressView.progress = Float(webView.estimatedProgress)
     }
     
     private func loadHomePage() {
@@ -78,24 +83,8 @@ class BrowserViewController: UIViewController {
         let homePageString = "fritzgt.com"
         let homePageURL = URL(string: "http://www.\(homePageString)")!
         let request = URLRequest(url: homePageURL)
-        searchBar.text = homePageString
         webView.load(request)
     }
-    
-    private func observePageLoadProgress() {
-        observation = webView.observe(\.estimatedProgress, options: [.new]) { _, _ in
-            self.progressView.progress = Float(self.webView.estimatedProgress)
-        }
-    }
-    
-//    func observeAppEnterBackground()  {
-//        NotificationCenter.default.addObserver(self, selector: #selector("appBecomeActive"), name: NSNotification.Name.UIApplication.willEnterForegroundNotification, object: nil )
-//
-//    }
-//    
-//     func appBecomeActive() {
-//        print("background")
-//    }
     
     private func fullScreen(_ isEnable: Bool) {
         
@@ -148,14 +137,15 @@ extension BrowserViewController: UISearchBarDelegate{
 //MARK: - WKNavigationDelegate
 extension BrowserViewController: WKNavigationDelegate{
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        if isViewLoaded{
-            progressView.isHidden = false
-        }
+        progressBar()
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         updateViews()
-        progressView.isHidden = true
+        progressBar()
+        
+        //Set searchbar text to the current url
+        searchBar.text = webView.url?.absoluteString
     }
     
 }
