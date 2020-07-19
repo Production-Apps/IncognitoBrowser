@@ -60,7 +60,7 @@
                                             <string>Title</string>
                                         </scopeButtonTitles>
                                     </searchBar>
-                                    <progressView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" insetsLayoutMarginsFromSafeArea="NO" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-Nt-O83">
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" insetsLayoutMarginsFromSafeArea="NO" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="Mdf-Nt-O83">
                                         <rect key="frame" x="0.0" y="61" width="398" height="2.5"/>
                                     </progressView>
                                 </subviews>
@@ -71,7 +71,7 @@
                                     <constraint firstAttribute="trailing" secondItem="gOT-T3-Tqj" secondAttribute="trailing" constant="8" id="hq3-eW-GFE"/>
                                 </constraints>
                             </stackView>
-                            <wkWebView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-Rc-u0B">
+                            <wkWebView contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-Rc-u0B">
                                 <rect key="frame" x="0.0" y="106.5" width="414" height="763.5"/>
                                 <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Calculator">

@@ -30,7 +30,6 @@ class BrowserViewController: UIViewController {
         searchBar.delegate = self
         webView.navigationDelegate = self
         webView.scrollView.delegate = self
-        
         webView.allowsBackForwardNavigationGestures = true
         
         updateViews()
@@ -41,12 +40,14 @@ class BrowserViewController: UIViewController {
         
         //add observer to get estimated progress value
         self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil);
+        //Check if app will resign to go to homepage so no unwanted previews show on relaunch
+        let notification = NotificationCenter.default
+        notification.addObserver(self, selector: #selector(appEnterBackground), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
     deinit {
         observation = nil
     }
-    
     
     //MARK: - Actions
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
@@ -73,7 +74,6 @@ class BrowserViewController: UIViewController {
         
         backButton.isEnabled = webView.canGoBack
         forwardButton.isEnabled = webView.canGoForward
-        
         searchBar.autocapitalizationType = .none
     }
     
@@ -89,6 +89,12 @@ class BrowserViewController: UIViewController {
         if isEnable{
             webView.frame = self.view.frame
         }
+    }
+    
+    @objc private func appEnterBackground(){
+        
+        //TODO: can add feature where the last page is save and can be reload it if user is authenticated
+        loadHomePage()
     }
     
     // Observe value
@@ -138,14 +144,13 @@ extension BrowserViewController: UISearchBarDelegate{
 //MARK: - WKNavigationDelegate
 extension BrowserViewController: WKNavigationDelegate{
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        progressView.isHidden = !webView.isLoading
         fullScreen(false)
+        progressView.isHidden = !webView.isLoading
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         updateViews()
         progressView.isHidden = !webView.isLoading
-        
         //Set searchbar text to the current url
         searchBar.text = webView.url?.absoluteString
     }
