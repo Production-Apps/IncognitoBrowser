@@ -14,6 +14,7 @@ class BrowserViewController: UIViewController {
     //MARK: - Properties
     private var observation: NSKeyValueObservation?
     private var homePage: String?
+    private let notification = NotificationCenter.default
     
     //MARK: - Outlets
     @IBOutlet weak var webView: WKWebView!
@@ -23,26 +24,22 @@ class BrowserViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var toolBar: UIToolbar!
     
+    @IBOutlet weak var dragButtonView: UIView!
+    @IBOutlet weak var dragButton: UIButton!
+    
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
-        webView.navigationDelegate = self
-        webView.scrollView.delegate = self
-        webView.allowsBackForwardNavigationGestures = true
+        setupDelegates()
         
+        setupUI()
         updateViews()
         loadHomePage()
         
-        searchBar.showsBookmarkButton = true
-        searchBar.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .bookmark, state: .normal)
-        
-        //add observer to get estimated progress value
-        self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil);
-        //Check if app will resign to go to homepage so no unwanted previews show on relaunch
-        let notification = NotificationCenter.default
-        notification.addObserver(self, selector: #selector(appEnterBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        setupObservers()
+        setupNotifications()
+        //        dragButtonView.addGestureRecognizer(UIPanGestureRecognizer(target: Selector("relocate"), action: ))
     }
     
     deinit {
@@ -64,12 +61,16 @@ class BrowserViewController: UIViewController {
     }
     
     @IBAction func terminateSession(_ sender: UIBarButtonItem) {
-        //Take user back to calculator view
-        navigationController?.popViewController(animated: true)
+        cleanData()
     }
     
     
     //MARK: - Private Methods
+    private func setupDelegates(){
+        searchBar.delegate = self
+        webView.navigationDelegate = self
+        webView.scrollView.delegate = self
+    }
     private func updateViews() {
         
         backButton.isEnabled = webView.canGoBack
@@ -92,31 +93,51 @@ class BrowserViewController: UIViewController {
     }
     
     @objc private func appEnterBackground(){
-        
-        //TODO: can add feature where the last page is save and can be reload it if user is authenticated
-        navigationController?.popViewController(animated: true)
         //Clear all cookies
-        clean()
+        cleanData()
     }
     
-    private func clean() {
-           HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-           print("[WebCacheCleaner] All cookies deleted")
-           
-           WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
-               records.forEach { record in
-                   WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-                   print("[WebCacheCleaner] Record \(record) deleted")
-               }
-           }
+    private func cleanData() {
+        navigationController?.popViewController(animated: true)
+        
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        print("[WebCacheCleaner] All cookies deleted")
+        
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                print("[WebCacheCleaner] Record \(record) deleted")
+            }
+        }
        }
     
+    private func setupObservers(){
+        //add observer to get estimated progress value
+        self.webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil);
+    }
+    
+    private func setupNotifications(){
+        //Check if app will resign to go to homepage so no unwanted previews show on relaunch
+        notification.addObserver(self, selector: #selector(appEnterBackground), name: UIApplication.willResignActiveNotification, object: nil)
+    }
+    
+    private func setupUI(){
+        
+        webView.allowsBackForwardNavigationGestures = true
+        
+        searchBar.showsBookmarkButton = true
+        searchBar.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .bookmark, state: .normal)
+    }
+    
+    
+    //MARK: - General overwrite methods
     // Observe value
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
             self.progressView.progress = Float(self.webView.estimatedProgress);
         }
     }
+    
 }
 
 //MARK: - UISearchBarDelegate

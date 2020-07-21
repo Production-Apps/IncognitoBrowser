@@ -74,6 +74,7 @@
                             <wkWebView contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-Rc-u0B">
                                 <rect key="frame" x="0.0" y="106.5" width="414" height="763.5"/>
                                 <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Calculator">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -111,6 +112,29 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxV-br-7BO">
+                                <rect key="frame" x="8" y="427" width="47" height="42"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwa-YB-sIG">
+                                        <rect key="frame" x="7.5" y="8" width="30" height="29"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="VqM-jy-Bde"/>
+                                            <constraint firstAttribute="height" constant="30" id="rgG-QP-FRd"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="ellipsis.circle" catalog="system">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="08f-BE-3ad"/>
+                                    <constraint firstItem="Mwa-YB-sIG" firstAttribute="centerY" secondItem="sxV-br-7BO" secondAttribute="centerY" id="Jcs-RL-30M"/>
+                                    <constraint firstItem="Mwa-YB-sIG" firstAttribute="centerX" secondItem="sxV-br-7BO" secondAttribute="centerX" id="W2Q-HL-V1m"/>
+                                    <constraint firstAttribute="height" constant="45" id="tWE-mZ-tcO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -130,6 +154,8 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="gab-hy-Jbr"/>
                     <connections>
                         <outlet property="backButton" destination="LDI-XW-frr" id="AbK-YM-Pte"/>
+                        <outlet property="dragButton" destination="Mwa-YB-sIG" id="srz-vS-Tba"/>
+                        <outlet property="dragButtonView" destination="sxV-br-7BO" id="erf-88-V5j"/>
                         <outlet property="forwardButton" destination="LWT-Iu-2fa" id="5dj-Re-MK7"/>
                         <outlet property="progressView" destination="Mdf-Nt-O83" id="2V2-PE-SvE"/>
                         <outlet property="searchBar" destination="gOT-T3-Tqj" id="hAK-P1-g6p"/>
@@ -308,6 +334,7 @@
     <resources>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="flame" catalog="system" width="109" height="128"/>
     </resources>
 </document>
