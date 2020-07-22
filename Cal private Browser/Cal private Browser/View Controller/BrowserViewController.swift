@@ -15,6 +15,7 @@ class BrowserViewController: UIViewController {
     private var observation: NSKeyValueObservation?
     private var homePage: String?
     private let notification = NotificationCenter.default
+    private var dragViewOrigin: CGPoint?
     
     //MARK: - Outlets
     @IBOutlet weak var webView: WKWebView!
@@ -26,6 +27,8 @@ class BrowserViewController: UIViewController {
     
     @IBOutlet weak var dragButtonView: UIView!
     @IBOutlet weak var dragButton: UIButton!
+    @IBOutlet weak var forwardDragButton: UIButton!
+    @IBOutlet weak var backDragButton: UIButton!
     
     
     //MARK: - View Life Cycle
@@ -39,7 +42,7 @@ class BrowserViewController: UIViewController {
         
         setupObservers()
         setupNotifications()
-        //        dragButtonView.addGestureRecognizer(UIPanGestureRecognizer(target: Selector("relocate"), action: ))
+//        setupPanGestures(view: dragButtonView)
     }
     
     deinit {
@@ -64,6 +67,46 @@ class BrowserViewController: UIViewController {
         cleanData()
     }
     
+    @IBAction func dragGesture(_ sender: UIPanGestureRecognizer) {
+        
+        let translation = sender.translation(in: self.view)
+        
+        if let viewToDrag = sender.view{
+            viewToDrag.center = CGPoint(x: viewToDrag.center.x + translation.x, y: viewToDrag.center.y + translation.y)
+            sender.setTranslation(CGPoint.zero, in: dragButtonView)
+            
+            if sender.state == .ended{
+                dragViewOrigin = viewToDrag.center
+                print("Save origin \(dragViewOrigin!)")
+            }
+        }
+        
+        
+    }
+    
+    @IBAction func showDragButtons(_ sender: UIButton) {
+        forwardDragButton.isHidden.toggle()
+        forwardDragButton.isEnabled = webView.canGoForward
+        
+        backDragButton.isHidden.toggle()
+        backDragButton.isEnabled = webView.canGoBack
+        
+        
+    }
+    
+    @IBAction func backDragButton(_ sender: UIButton) {
+        webView.goBack()
+        forwardDragButton.isHidden = true
+        backDragButton.isHidden = true
+    }
+    
+    @IBAction func forwardDragButton(_ sender: Any) {
+        webView.goForward()
+        forwardDragButton.isHidden = true
+        backDragButton.isHidden = true
+    }
+    
+    
     
     //MARK: - Private Methods
     private func setupDelegates(){
@@ -71,11 +114,52 @@ class BrowserViewController: UIViewController {
         webView.navigationDelegate = self
         webView.scrollView.delegate = self
     }
-    private func updateViews() {
+    
+    private func setupUI(){
+        view.bringSubviewToFront(dragButtonView)
         
+        forwardDragButton.isHidden = true
+        backDragButton.isHidden = true
+        
+        webView.allowsBackForwardNavigationGestures = true
+        
+        searchBar.showsBookmarkButton = true
+        searchBar.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .bookmark, state: .normal)
+    }
+    
+    private func setupPanGestures(view: UIView){
+        //TODO: Position at the middle of the screen
+//        dragButtonView.frame =  self.view.center
+        
+        self.view.bringSubviewToFront(dragButtonView)
+        
+        let pan = UIPanGestureRecognizer(target: self, action: #selector( BrowserViewController.handlePanGesture(sender:)))
+        dragButtonView.isUserInteractionEnabled = true
+        view.addGestureRecognizer(pan)
+    }
+    
+    @objc private func handlePanGesture(sender: UIPanGestureRecognizer){
+        
+        let dragView = sender.view!
+        let translation = sender.translation(in: self.view)
+        
+        switch sender.state {
+        case .began, .changed:
+            dragView.center = CGPoint(x: dragView.center.x + translation.x, y: dragView.center.y + translation.y)
+            sender.setTranslation(CGPoint.zero, in: self.view)
+        case .ended:
+            //Save the last position to user defaults to always start at the last position
+            break
+        default:
+            break
+        }
+    }
+    
+    private func updateViews() {
         backButton.isEnabled = webView.canGoBack
         forwardButton.isEnabled = webView.canGoForward
         searchBar.autocapitalizationType = .none
+        
     }
     
     private func loadHomePage() {
@@ -121,14 +205,11 @@ class BrowserViewController: UIViewController {
         notification.addObserver(self, selector: #selector(appEnterBackground), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
-    private func setupUI(){
-        
-        webView.allowsBackForwardNavigationGestures = true
-        
-        searchBar.showsBookmarkButton = true
-        searchBar.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .bookmark, state: .normal)
+    func trackDragButton() {
+        guard let dvOrigin = dragViewOrigin else { return }
+        dragButtonView.center = CGPoint(x: dvOrigin.x, y: dvOrigin.y)
+        print("Updated view \(dvOrigin)")
     }
-    
     
     //MARK: - General overwrite methods
     // Observe value
