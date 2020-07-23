@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		043169C924C4651300006830 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043169C824C4651300006830 /* CalculatorViewController.swift */; };
 		04C29C0424C8520B00625C15 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0324C8520B00625C15 /* Bookmark.swift */; };
+		04C29C0724C9DCFB00625C15 /* BookmarkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0624C9DCFB00625C15 /* BookmarkHandler.swift */; };
 		04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A124C02589006DC218 /* AppDelegate.swift */; };
 		04CF26A424C02589006DC218 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A324C02589006DC218 /* SceneDelegate.swift */; };
 		04CF26A624C02589006DC218 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A524C02589006DC218 /* BrowserViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		043169C824C4651300006830 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		04C29C0324C8520B00625C15 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		04C29C0624C9DCFB00625C15 /* BookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkHandler.swift; sourceTree = "<group>"; };
 		04CF269E24C02589006DC218 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CF26A124C02589006DC218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CF26A324C02589006DC218 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		04C29C0824C9DCFF00625C15 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04C29C0624C9DCFB00625C15 /* BookmarkHandler.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
 		04CF269524C02589006DC218 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				04CF26A124C02589006DC218 /* AppDelegate.swift */,
+				04C29C0824C9DCFF00625C15 /* Model Controller */,
 				04CF26A324C02589006DC218 /* SceneDelegate.swift */,
 				04CF26D124C04556006DC218 /* View Controller */,
 				04CF26D224C04560006DC218 /* Storyboards */,
@@ -307,6 +318,7 @@
 				043169C924C4651300006830 /* CalculatorViewController.swift in Sources */,
 				04CF26A624C02589006DC218 /* BrowserViewController.swift in Sources */,
 				04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */,
+				04C29C0724C9DCFB00625C15 /* BookmarkHandler.swift in Sources */,
 				04CF26A424C02589006DC218 /* SceneDelegate.swift in Sources */,
 				04CF26D724C0DAC7006DC218 /* BookmarkTableViewController.swift in Sources */,
 				04C29C0424C8520B00625C15 /* Bookmark.swift in Sources */,
