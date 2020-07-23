@@ -10,6 +10,8 @@
 		043169C924C4651300006830 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043169C824C4651300006830 /* CalculatorViewController.swift */; };
 		04C29C0724C9DCFB00625C15 /* BookmarkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0624C9DCFB00625C15 /* BookmarkController.swift */; };
 		04C29C0B24C9F74B00625C15 /* PrivateBrowser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0924C9F74B00625C15 /* PrivateBrowser.xcdatamodeld */; };
+		04C29C0D24CA03E300625C15 /* Bookmark+Conviniece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0C24CA03E300625C15 /* Bookmark+Conviniece.swift */; };
+		04C29C0F24CA04D600625C15 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0E24CA04D600625C15 /* CoreDataStack.swift */; };
 		04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A124C02589006DC218 /* AppDelegate.swift */; };
 		04CF26A424C02589006DC218 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A324C02589006DC218 /* SceneDelegate.swift */; };
 		04CF26A624C02589006DC218 /* BrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26A524C02589006DC218 /* BrowserViewController.swift */; };
@@ -43,6 +45,8 @@
 		043169C824C4651300006830 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		04C29C0624C9DCFB00625C15 /* BookmarkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkController.swift; sourceTree = "<group>"; };
 		04C29C0A24C9F74B00625C15 /* PrivateBrowser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrivateBrowser.xcdatamodel; sourceTree = "<group>"; };
+		04C29C0C24CA03E300625C15 /* Bookmark+Conviniece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bookmark+Conviniece.swift"; sourceTree = "<group>"; };
+		04C29C0E24CA04D600625C15 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		04CF269E24C02589006DC218 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04CF26A124C02589006DC218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04CF26A324C02589006DC218 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 			children = (
 				04CF26A124C02589006DC218 /* AppDelegate.swift */,
 				04CF26A324C02589006DC218 /* SceneDelegate.swift */,
+				04C29C0C24CA03E300625C15 /* Bookmark+Conviniece.swift */,
+				04C29C0E24CA04D600625C15 /* CoreDataStack.swift */,
 				04CF26D124C04556006DC218 /* View Controller */,
 				04CF26D224C04560006DC218 /* Storyboards */,
 				04C29C0824C9DCFF00625C15 /* Model Controller */,
@@ -316,7 +322,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				043169C924C4651300006830 /* CalculatorViewController.swift in Sources */,
+				04C29C0D24CA03E300625C15 /* Bookmark+Conviniece.swift in Sources */,
 				04CF26A624C02589006DC218 /* BrowserViewController.swift in Sources */,
+				04C29C0F24CA04D600625C15 /* CoreDataStack.swift in Sources */,
 				04C29C0B24C9F74B00625C15 /* PrivateBrowser.xcdatamodeld in Sources */,
 				04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */,
 				04C29C0724C9DCFB00625C15 /* BookmarkController.swift in Sources */,
