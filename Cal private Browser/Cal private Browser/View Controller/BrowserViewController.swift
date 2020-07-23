@@ -205,11 +205,6 @@ class BrowserViewController: UIViewController {
         notification.addObserver(self, selector: #selector(appEnterBackground), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
-    func trackDragButton() {
-        guard let dvOrigin = dragViewOrigin else { return }
-        dragButtonView.center = CGPoint(x: dvOrigin.x, y: dvOrigin.y)
-        print("Updated view \(dvOrigin)")
-    }
     
     //MARK: - General overwrite methods
     // Observe value

@@ -9,6 +9,10 @@
 import UIKit
 
 class BookmarkTableViewController: UITableViewController {
+    
+    //MARK: - Properties
+    var targetURL: URL?
+    private var bookmarks: [Bookmark]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
