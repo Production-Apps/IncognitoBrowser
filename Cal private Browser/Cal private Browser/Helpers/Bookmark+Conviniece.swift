@@ -10,11 +10,11 @@ import Foundation
 import CoreData
 
 extension Bookmark {
-    convenience init(title: String, url: URL, cat: String, context:
+    convenience init(title: String, url: URL, folder: String, context:
         NSManagedObjectContext = CoreDataStack.shared.mainContext ) {
         self.init(context: context)
         self.title = title
         self.url = url
-        self.cat = cat
+        self.folder = folder
     }
 }

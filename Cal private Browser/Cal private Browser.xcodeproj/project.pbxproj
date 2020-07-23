@@ -107,6 +107,15 @@
 			path = "Model Controller";
 			sourceTree = "<group>";
 		};
+		04C29C1024CA219300625C15 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				04C29C0C24CA03E300625C15 /* Bookmark+Conviniece.swift */,
+				04C29C0E24CA04D600625C15 /* CoreDataStack.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		04CF269524C02589006DC218 = {
 			isa = PBXGroup;
 			children = (
@@ -133,12 +142,11 @@
 			children = (
 				04CF26A124C02589006DC218 /* AppDelegate.swift */,
 				04CF26A324C02589006DC218 /* SceneDelegate.swift */,
-				04C29C0C24CA03E300625C15 /* Bookmark+Conviniece.swift */,
-				04C29C0E24CA04D600625C15 /* CoreDataStack.swift */,
 				04CF26D124C04556006DC218 /* View Controller */,
 				04CF26D224C04560006DC218 /* Storyboards */,
 				04C29C0824C9DCFF00625C15 /* Model Controller */,
 				04C29C0524C9DBF900625C15 /* Model */,
+				04C29C1024CA219300625C15 /* Helpers */,
 				04CF26AA24C0258F006DC218 /* Assets.xcassets */,
 				04CF26AC24C0258F006DC218 /* LaunchScreen.storyboard */,
 				04CF26AF24C0258F006DC218 /* Info.plist */,
