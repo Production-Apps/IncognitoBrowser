@@ -12,7 +12,8 @@ class BookmarkViewController: UIViewController {
     
     //MARK: - Properties
     private let bookmarkController = BookmarkController()
-    private var isEditingEnable: Bool = false
+    private var isEditingMode: Bool = false
+    var bookmark: (title: String, url: URL)?
     
     
     //MARK: - Outlets
@@ -32,13 +33,13 @@ class BookmarkViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func editMode(_ sender: UIBarButtonItem) {
-        isEditingEnable.toggle()
+        isEditingMode.toggle()
         toggleEditMode()
     }
     
     //MARK: - Private methods
     private func toggleEditMode() {
-        if isEditingEnable{
+        if isEditingMode{
             editButton.title = "Done"
             createButton.image = nil
             createButton.title = "New Folder"
@@ -47,6 +48,16 @@ class BookmarkViewController: UIViewController {
             editButton.title = "Edit"
             createButton.image = UIImage(systemName: "plus")
             tableView.setEditing(false, animated: true)
+        }
+    }
+    
+    //MARK: - Overwrite methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NewBMSegue"{
+            if let createBookmarkVC = segue.destination as? CreateBookmarkViewController{
+                createBookmarkVC.bookmark = bookmark
+                createBookmarkVC.newFolderMode = isEditingMode
+            }
         }
     }
 }

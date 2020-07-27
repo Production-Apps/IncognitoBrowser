@@ -214,6 +214,17 @@ class BrowserViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "bookmarkSegue"{
+            if let bookmarkVC = segue.destination as?
+                BookmarkViewController{
+                
+                guard let webData = webView, let title = webData.title, let url = webData.url else {return}
+                bookmarkVC.bookmark = (title: title, url: url.absoluteURL)
+            }
+        }
+    }
+    
 }
 
 //MARK: - UISearchBarDelegate

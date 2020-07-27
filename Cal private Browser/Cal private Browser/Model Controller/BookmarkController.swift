@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 class BookmarkController {
     
     //Create a array to hold the bookmarks
