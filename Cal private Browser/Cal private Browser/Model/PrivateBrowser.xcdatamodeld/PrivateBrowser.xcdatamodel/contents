@@ -8,7 +8,7 @@
     </entity>
     <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="class">
         <attribute name="title" attributeType="String" defaultValueString="New Folder"/>
-        <relationship name="bookmarks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bookmark" inverseName="folders" inverseEntity="Bookmark"/>
+        <relationship name="bookmarks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bookmark" inverseName="folders" inverseEntity="Bookmark"/>
     </entity>
     <elements>
         <element name="Bookmark" positionX="1051.17578125" positionY="1118.38671875" width="128" height="103"/>

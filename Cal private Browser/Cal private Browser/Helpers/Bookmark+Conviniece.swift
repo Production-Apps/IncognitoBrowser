@@ -14,7 +14,7 @@ extension Bookmark {
         NSManagedObjectContext = CoreDataStack.shared.mainContext ) {
         self.init(context: context)
         self.title = title
-        self.url = url
+        self.url  = url
         self.folder = folder
     }
 }
