@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="1171.0144927536232" y="112.5"/>
         </scene>
-        <!--Bookmark Table View Controller-->
+        <!--Bookmark View Controller-->
         <scene sceneID="pYj-Ko-AXg">
             <objects>
-                <viewController id="mpY-aQ-APF" customClass="BookmarkTableViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mpY-aQ-APF" customClass="BookmarkViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jSI-zO-yHt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,7 +217,7 @@
                                 <rect key="frame" x="0.0" y="62" width="414" height="780"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BookmarkCell" textLabel="9gv-9k-TIM" style="IBUITableViewCellStyleDefault" id="0qg-Jp-Egy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BookmarkCell" textLabel="9gv-9k-TIM" detailTextLabel="Aq6-cO-VET" imageView="uiA-lU-OQ9" style="IBUITableViewCellStyleValue1" id="0qg-Jp-Egy">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0qg-Jp-Egy" id="Mwx-CH-hPR">
@@ -225,12 +225,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Folder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9gv-9k-TIM">
-                                                    <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
+                                                    <rect key="frame" x="59" y="12" width="48.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Aq6-cO-VET">
+                                                    <rect key="frame" x="331" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="folder" catalog="system" id="uiA-lU-OQ9">
+                                                    <rect key="frame" x="20.25" y="12.5" width="23.5" height="17.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -238,6 +249,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mpY-aQ-APF" id="cet-CX-Wwi"/>
+                                    <outlet property="delegate" destination="mpY-aQ-APF" id="cqc-gV-u40"/>
+                                </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QQ-rk-bI0">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
@@ -269,6 +284,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XCj-lk-bjG"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="f4u-FX-2us" id="n6i-yJ-2KZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLF-k3-mC7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -374,5 +392,6 @@
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="flame" catalog="system" width="109" height="128"/>
+        <image name="folder" catalog="system" width="128" height="95"/>
     </resources>
 </document>
