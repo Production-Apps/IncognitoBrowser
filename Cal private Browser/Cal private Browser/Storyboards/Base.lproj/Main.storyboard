@@ -260,7 +260,7 @@
                                     <constraint firstAttribute="height" constant="45" id="yv1-8G-yNw"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="add" id="7Vs-Eg-MxA">
+                                    <barButtonItem image="plus" catalog="system" id="7Vs-Eg-MxA">
                                         <connections>
                                             <segue destination="tHP-Uj-vOX" kind="presentation" id="vem-y5-HnG"/>
                                         </connections>
@@ -268,7 +268,11 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="glF-0f-fQB"/>
                                     <barButtonItem enabled="NO" title="Bookmarks" id="EB7-88-FfB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PO8-9m-lA3"/>
-                                    <barButtonItem systemItem="edit" id="WHB-qL-wio"/>
+                                    <barButtonItem title="Edit" id="WHB-qL-wio">
+                                        <connections>
+                                            <action selector="editMode:" destination="mpY-aQ-APF" id="qvz-GU-qPn"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -285,6 +289,8 @@
                         <viewLayoutGuide key="safeArea" id="XCj-lk-bjG"/>
                     </view>
                     <connections>
+                        <outlet property="createButton" destination="7Vs-Eg-MxA" id="6Pn-d4-KRM"/>
+                        <outlet property="editButton" destination="WHB-qL-wio" id="mdx-J3-mTr"/>
                         <outlet property="tableView" destination="f4u-FX-2us" id="n6i-yJ-2KZ"/>
                     </connections>
                 </viewController>
@@ -393,5 +399,6 @@
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="flame" catalog="system" width="109" height="128"/>
         <image name="folder" catalog="system" width="128" height="95"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

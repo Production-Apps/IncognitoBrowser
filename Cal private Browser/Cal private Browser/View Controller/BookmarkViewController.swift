@@ -12,10 +12,14 @@ class BookmarkViewController: UIViewController {
     
     //MARK: - Properties
     private let bookmarkController = BookmarkController()
+    private var isEditingEnable: Bool = false
     
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var createButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
     
     
     //MARK: - View Lifecycle
@@ -25,7 +29,26 @@ class BookmarkViewController: UIViewController {
         tableView.dataSource = self
     }
     
-
+    //MARK: - Actions
+    
+    @IBAction func editMode(_ sender: UIBarButtonItem) {
+        isEditingEnable.toggle()
+        toggleEditMode()
+    }
+    
+    //MARK: - Private methods
+    private func toggleEditMode() {
+        if isEditingEnable{
+            editButton.title = "Done"
+            createButton.image = nil
+            createButton.title = "New Folder"
+            tableView.setEditing(true, animated: true)
+        }else{
+            editButton.title = "Edit"
+            createButton.image = UIImage(systemName: "plus")
+            tableView.setEditing(false, animated: true)
+        }
+    }
 }
 
 
