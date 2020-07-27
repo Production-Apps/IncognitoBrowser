@@ -298,16 +298,83 @@
             </objects>
             <point key="canvasLocation" x="2211.594202898551" y="113.83928571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Bookmark View Controller-->
         <scene sceneID="vaV-jV-lgg">
             <objects>
-                <viewController id="tHP-Uj-vOX" sceneMemberID="viewController">
+                <viewController id="tHP-Uj-vOX" customClass="CreateBookmarkViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SJl-3w-SPM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="wpL-dm-fy8">
+                                <rect key="frame" x="8" y="20" width="398" height="400"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8j8-IK-OsN">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="aKn-de-3vG"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem systemItem="cancel" id="LT1-Hd-cNT">
+                                                <connections>
+                                                    <action selector="cancelButtonPressed:" destination="tHP-Uj-vOX" id="9LP-cL-dhR"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="2Fj-Ff-kUj"/>
+                                            <barButtonItem enabled="NO" title="New Bookmark" id="aWZ-rV-Gvh"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="59Z-2P-WFh"/>
+                                            <barButtonItem systemItem="save" id="SHy-yY-pev">
+                                                <connections>
+                                                    <action selector="saveButtonPressed:" destination="tHP-Uj-vOX" id="mFL-1M-UCP"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sPy-9z-VMl">
+                                        <rect key="frame" x="8" y="68" width="382" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="Url-SQ-Os5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="McI-Yv-WZr">
+                                        <rect key="frame" x="8" y="125" width="382" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgI-pu-Det">
+                                        <rect key="frame" x="8" y="182" width="382" height="218"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="218" id="BVK-gp-exq"/>
+                                        </constraints>
+                                    </pickerView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="McI-Yv-WZr" firstAttribute="width" secondItem="sPy-9z-VMl" secondAttribute="width" id="2Zg-kb-BUF"/>
+                                    <constraint firstAttribute="trailing" secondItem="8j8-IK-OsN" secondAttribute="trailing" id="4jG-bI-kLX"/>
+                                    <constraint firstItem="SgI-pu-Det" firstAttribute="leading" secondItem="wpL-dm-fy8" secondAttribute="leading" constant="8" id="7m6-kr-MDe"/>
+                                    <constraint firstAttribute="trailing" secondItem="sPy-9z-VMl" secondAttribute="trailing" constant="8" id="JlY-fq-DwY"/>
+                                    <constraint firstItem="McI-Yv-WZr" firstAttribute="height" secondItem="sPy-9z-VMl" secondAttribute="height" id="SPM-ey-sR7"/>
+                                    <constraint firstItem="sPy-9z-VMl" firstAttribute="leading" secondItem="wpL-dm-fy8" secondAttribute="leading" constant="8" id="b9G-4o-ajQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="SgI-pu-Det" secondAttribute="trailing" constant="8" id="snf-g5-6FM"/>
+                                    <constraint firstItem="8j8-IK-OsN" firstAttribute="leading" secondItem="wpL-dm-fy8" secondAttribute="leading" id="xa5-bs-RFR"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wpL-dm-fy8" firstAttribute="leading" secondItem="JhU-j4-tDk" secondAttribute="leading" constant="8" id="VEs-Lm-31t"/>
+                            <constraint firstItem="JhU-j4-tDk" firstAttribute="trailing" secondItem="wpL-dm-fy8" secondAttribute="trailing" constant="8" id="cIC-mb-E1W"/>
+                            <constraint firstItem="wpL-dm-fy8" firstAttribute="top" secondItem="JhU-j4-tDk" secondAttribute="top" constant="20" id="usm-Wu-z6u"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JhU-j4-tDk"/>
                     </view>
+                    <connections>
+                        <outlet property="folderPicker" destination="SgI-pu-Det" id="7Rx-hO-3qm"/>
+                        <outlet property="titleLabel" destination="sPy-9z-VMl" id="YWS-Vr-vwZ"/>
+                        <outlet property="urlLabel" destination="McI-Yv-WZr" id="ZdE-a5-0d6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QnE-gE-PYb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

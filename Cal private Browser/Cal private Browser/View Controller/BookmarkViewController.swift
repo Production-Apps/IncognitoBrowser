@@ -51,11 +51,12 @@ class BookmarkViewController: UIViewController {
     }
 }
 
-
+//MARK: - UITableViewDelegate
 extension BookmarkViewController: UITableViewDelegate{
     
 }
 
+//MARK: - UITableViewDataSource
 extension BookmarkViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookmarkController.bookmarks.count
