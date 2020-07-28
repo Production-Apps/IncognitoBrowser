@@ -220,6 +220,8 @@ class BrowserViewController: UIViewController {
                 BookmarkViewController{
                 
                 guard let webData = webView, let title = webData.title, let url = webData.url else {return}
+                
+                bookmarkVC.delegate = self
                 bookmarkVC.bookmark = (title: title, url: url.absoluteURL)
             }
         }
@@ -302,4 +304,12 @@ extension BrowserViewController: UIScrollViewDelegate{
             fullScreen(false)
         }
     }
+}
+
+extension BrowserViewController: SelectedBookmarkDelegate{
+    func loadSelectedURL(url: URL) {
+        webView.load(URLRequest(url: url))
+    }
+    
+    
 }

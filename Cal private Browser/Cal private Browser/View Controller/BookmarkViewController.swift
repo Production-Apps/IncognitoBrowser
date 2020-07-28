@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SelectedBookmarkDelegate {
+    func loadSelectedURL(url: URL)
+}
+
 class BookmarkViewController: UIViewController {
     
     //MARK: - Properties
@@ -21,6 +25,7 @@ class BookmarkViewController: UIViewController {
     }
     private var isEditingMode: Bool = false
     var bookmark: (title: String, url: URL)?
+    var delegate: SelectedBookmarkDelegate?
     
     
     //MARK: - Outlets
@@ -111,6 +116,23 @@ extension BookmarkViewController: UITableViewDataSource{
             }
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            if let bookmarkArray = bookmarkArray{
+                let item = bookmarkArray[indexPath.row]
+                bookmarkController.delete(item)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let bookmarkArray = bookmarkArray, let selectedURL = bookmarkArray[indexPath.row].url{
+            delegate?.loadSelectedURL(url: selectedURL)
+            dismiss(animated: true, completion: nil)
+        }
     }
 }
 

@@ -31,9 +31,9 @@ class BookmarkController {
     }
     
     
-    func delete(index: IndexPath) {
-        //guard var bookmarks = bookmarks else { return }
-         
+    func delete(_ item: Bookmark) {
+        CoreDataStack.shared.mainContext.delete(item)
+        saveToPersistentStore()
     }
     
     func saveBookmark(title: String, url: URL, folder: String) {
