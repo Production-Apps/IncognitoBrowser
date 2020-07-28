@@ -9,35 +9,40 @@
 import Foundation
 import CoreData
 
+protocol CreateBookmarkDelegate {
+    func stateDidChange()
+}
+
 class BookmarkController {
     
-    //Create a array to hold the bookmarks
-    var bookmarks: [Bookmark]{
-        loadFromPersistentStore()
-    }
-    
+    var delegate: CreateBookmarkDelegate?
     
     //Fetch Method with closure to load array from CoreData
-    func loadFromPersistentStore() -> [Bookmark] {
+    func loadFromPersistentStore(completion: @escaping ([Bookmark]?,Error?) -> Void) {
         
         let fetchRequest:NSFetchRequest<Bookmark> = Bookmark.fetchRequest()
-        
         do {
            //Return the fetch request which will be add it to the bookmarks array above due to the computed property
-           return try CoreDataStack.shared.mainContext.fetch(fetchRequest)
+           let data = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
+            completion(data,nil)
         } catch {
-            print("Error fetching data \(error)")
-            return []
+            completion(nil,error)
         }
     }
+    
     
     func delete(index: IndexPath) {
         //guard var bookmarks = bookmarks else { return }
          
     }
     
-    func save(title: String, url: URL, folder: String) {
+    func saveBookmark(title: String, url: URL, folder: String) {
         let _ = Bookmark(title: title, url: url, folder: folder)
+        saveToPersistentStore()
+    }
+    
+    func saveFolder(title: String) {
+        let _ = Folder(title: title)
         saveToPersistentStore()
     }
     
@@ -46,6 +51,7 @@ class BookmarkController {
     private func saveToPersistentStore() {
         do{
             try CoreDataStack.shared.mainContext.save()
+            delegate?.stateDidChange()
         }catch{
             print("Error saving data to CoreData \(error)")
         }

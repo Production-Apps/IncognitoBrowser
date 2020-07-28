@@ -17,7 +17,7 @@ class CoreDataStack {
     
     lazy var container: NSPersistentContainer = {
         
-        let container = NSPersistentContainer(name: "Bookmark")
+        let container = NSPersistentContainer(name: "PrivateBrowser")
         
         container.loadPersistentStores { (_, error) in
             if let error = error {

@@ -12,6 +12,13 @@ class BookmarkViewController: UIViewController {
     
     //MARK: - Properties
     private let bookmarkController = BookmarkController()
+    private var bookmarkArray: [Bookmark]?{
+        didSet{
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     private var isEditingMode: Bool = false
     var bookmark: (title: String, url: URL)?
     
@@ -28,6 +35,8 @@ class BookmarkViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        bookmarkController.delegate = self
+        fetch()
     }
     
     //MARK: - Actions
@@ -51,10 +60,24 @@ class BookmarkViewController: UIViewController {
         }
     }
     
+    func fetch() {
+        bookmarkController.loadFromPersistentStore(completion: { (data, error) in
+            if let error = error  {
+                print("Error fetching \(error)")
+                return
+            }
+            
+            if let data = data{
+                self.bookmarkArray = data
+            }
+        })
+    }
+    
     //MARK: - Overwrite methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewBMSegue"{
             if let createBookmarkVC = segue.destination as? CreateBookmarkViewController{
+                createBookmarkVC.bookmarkController = bookmarkController
                 createBookmarkVC.bookmark = bookmark
                 createBookmarkVC.newFolderMode = isEditingMode
             }
@@ -70,24 +93,30 @@ extension BookmarkViewController: UITableViewDelegate{
 //MARK: - UITableViewDataSource
 extension BookmarkViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookmarkController.bookmarks.count
+        return bookmarkArray?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookmarkCell", for: indexPath)
-        
-        let data = bookmarkController.bookmarks[indexPath.row]
-        
-        //Data is a folder or is an actual url
-        if data.folder == nil{
-            cell.imageView?.image = UIImage(systemName: "folder")
-            cell.textLabel?.text = data.title
-        }else{
-            cell.textLabel?.text = data.title
-            cell.detailTextLabel?.text = data.title
+
+        if let bookmarkArray = bookmarkArray{
+            let data =  bookmarkArray[indexPath.row]
+            //Data is a folder or is an actual url
+            if data.folder == nil{
+                cell.imageView?.image = UIImage(systemName: "folder")
+                cell.textLabel?.text = data.title
+            }else{
+                cell.textLabel?.text = data.title
+                cell.detailTextLabel?.text = data.title
+            }
         }
         return cell
     }
-    
-    
+}
+
+
+extension BookmarkViewController: CreateBookmarkDelegate{
+    func stateDidChange() {
+        fetch()
+    }
 }

@@ -1,8 +1,8 @@
 //
-//  Folder+Conviniece.swift
+//  Folder+Convenience.swift
 //  Cal private Browser
 //
-//  Created by FGT MAC on 7/23/20.
+//  Created by FGT MAC on 7/27/20.
 //  Copyright © 2020 FGT MAC. All rights reserved.
 //
 

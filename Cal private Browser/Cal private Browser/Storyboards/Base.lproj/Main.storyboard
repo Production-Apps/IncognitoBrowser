@@ -373,6 +373,7 @@
                     <connections>
                         <outlet property="folderPicker" destination="SgI-pu-Det" id="7Rx-hO-3qm"/>
                         <outlet property="titleLabel" destination="sPy-9z-VMl" id="YWS-Vr-vwZ"/>
+                        <outlet property="toolbarTitle" destination="aWZ-rV-Gvh" id="epI-pz-gEE"/>
                         <outlet property="urlLabel" destination="McI-Yv-WZr" id="ZdE-a5-0d6"/>
                     </connections>
                 </viewController>
