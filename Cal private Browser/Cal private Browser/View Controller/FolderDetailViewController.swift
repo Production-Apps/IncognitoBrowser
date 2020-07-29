@@ -94,13 +94,19 @@ extension FolderDetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let bookmarkArray = bookmarkArray, let selectedURL = bookmarkArray[indexPath.row].url{
             delegate?.loadSelectedURL(url: selectedURL)
-            dismiss(animated: true, completion: nil)
+            //dismiss the two viewcontrollers currently on the top
+            presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            //delete logic
+            if let bookmarkArray = bookmarkArray{
+                let item = bookmarkArray[indexPath.row]
+                bookmarkController.delete(item)
+                //TODO: Fix index error
+                //tableView.deleteRows(at: [indexPath], with: .fade)
+            }
         }
     }
     

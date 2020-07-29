@@ -436,17 +436,17 @@
                                     <constraint firstAttribute="height" constant="45" id="lba-in-9xN"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="done" id="IDl-VM-crV">
+                                    <barButtonItem systemItem="edit" id="IDl-VM-crV">
                                         <connections>
-                                            <action selector="doneButtonPressed:" destination="1kV-Zp-sxU" id="R9f-tm-Xk2"/>
+                                            <action selector="editButtonPressed:" destination="1kV-Zp-sxU" id="r3T-kG-BRL"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bdH-yT-9Hr"/>
                                     <barButtonItem enabled="NO" title="Bookmarks" id="iJS-fp-xlX"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GV0-rx-Lwm"/>
-                                    <barButtonItem title="Edit" id="kGS-mJ-d7Z">
+                                    <barButtonItem systemItem="done" id="kGS-mJ-d7Z">
                                         <connections>
-                                            <action selector="editButtonPressed:" destination="1kV-Zp-sxU" id="MIg-az-kX2"/>
+                                            <action selector="doneButtonPressed:" destination="1kV-Zp-sxU" id="ogY-Ne-ezk"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -465,8 +465,8 @@
                         <viewLayoutGuide key="safeArea" id="qcR-aI-a06"/>
                     </view>
                     <connections>
-                        <outlet property="doneButton" destination="IDl-VM-crV" id="X5O-gs-5xR"/>
-                        <outlet property="editButton" destination="kGS-mJ-d7Z" id="BZl-EH-dUp"/>
+                        <outlet property="doneButton" destination="kGS-mJ-d7Z" id="WaY-LB-VnG"/>
+                        <outlet property="editButton" destination="IDl-VM-crV" id="Qkw-iV-yyf"/>
                         <outlet property="tableView" destination="UJS-j3-XD8" id="e6B-2f-1sF"/>
                     </connections>
                 </viewController>

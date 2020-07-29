@@ -42,7 +42,6 @@ class BrowserViewController: UIViewController {
         
         setupObservers()
         setupNotifications()
-//        setupPanGestures(view: dragButtonView)
     }
     
     deinit {
@@ -221,9 +220,7 @@ class BrowserViewController: UIViewController {
                 guard let webData = webView, let title = webData.title, let url = webData.url else {return}
                 //bookmarkVC.delegate = self
                 bookmarkVC.bookmark = (title: title, url: url.absoluteURL)
-            }else if let detailVC = segue.destination as? FolderDetailViewController{
-                //Todo: Fix to get teh instance and set as delegate
-                detailVC.delegate = self
+                bookmarkVC.browserVC = self
             }
         }
     }

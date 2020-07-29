@@ -22,6 +22,7 @@ class BookmarkViewController: UIViewController {
     private var isEditingMode: Bool = false
     
     var bookmark: (title: String, url: URL)?
+    var browserVC: BrowserViewController?
     
     
     //MARK: - Outlets
@@ -81,9 +82,11 @@ class BookmarkViewController: UIViewController {
             }
         }else if segue.identifier == "FolderDetailSegue"{
             if let detailVC = segue.destination as? FolderDetailViewController{
-                guard let folders = folderArray, let indexPath = tableView.indexPathForSelectedRow else { return }
+                guard let folders = folderArray, let indexPath = tableView.indexPathForSelectedRow, let browserVC = browserVC else { return }
                 let selectedFolder = folders[indexPath.row]
                 detailVC.folder = selectedFolder
+                //Pass the incetance of browserVC as delegate to load the selected URL
+                detailVC.delegate = browserVC
             }
         }
     }
