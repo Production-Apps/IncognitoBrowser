@@ -11,10 +11,11 @@ import UIKit
 class CreateBookmarkViewController: UIViewController {
     
     //MARK: - Properties
+    private var folders: [Folder]?
+    
     var bookmarkController: BookmarkController?
     var bookmark: (title: String, url: URL)?
     var newFolderMode = false
-    private var folders: [Folder]?
     
      //MARK: - Outlets
     @IBOutlet weak var titleLabel: UITextField!
@@ -67,7 +68,6 @@ class CreateBookmarkViewController: UIViewController {
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
-        //TODO: Reset Manage object context
     }
 }
 

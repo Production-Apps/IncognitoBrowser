@@ -4,11 +4,11 @@
         <attribute name="folder" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="url" attributeType="URI"/>
-        <relationship name="folders" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Folder" inverseName="bookmarks" inverseEntity="Folder"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Folder" inverseName="bookmarks" inverseEntity="Folder"/>
     </entity>
     <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="class">
         <attribute name="title" attributeType="String" defaultValueString="New Folder"/>
-        <relationship name="bookmarks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bookmark" inverseName="folders" inverseEntity="Bookmark"/>
+        <relationship name="bookmarks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bookmark" inverseName="location" inverseEntity="Bookmark"/>
     </entity>
     <elements>
         <element name="Bookmark" positionX="1051.17578125" positionY="1118.38671875" width="128" height="103"/>
