@@ -78,6 +78,7 @@ class BookmarkViewController: UIViewController {
             if let createBookmarkVC = segue.destination as? CreateBookmarkViewController{
                 createBookmarkVC.bookmarkController = bookmarkController
                 createBookmarkVC.bookmark = bookmark
+                createBookmarkVC.folders = folderArray
                 createBookmarkVC.newFolderMode = isEditingMode
             }
         }else if segue.identifier == "FolderDetailSegue"{
@@ -99,6 +100,7 @@ extension BookmarkViewController: UITableViewDelegate{
 
 //MARK: - UITableViewDataSource
 extension BookmarkViewController: UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return folderArray?.count ?? 1
     }

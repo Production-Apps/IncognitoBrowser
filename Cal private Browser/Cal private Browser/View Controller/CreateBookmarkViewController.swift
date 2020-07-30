@@ -11,11 +11,12 @@ import UIKit
 class CreateBookmarkViewController: UIViewController {
     
     //MARK: - Properties
-    private var folders: [Folder]?
-    
+    var folders: [Folder]?
     var bookmarkController: BookmarkController?
     var bookmark: (title: String, url: URL)?
     var newFolderMode = false
+    
+    private var folderName: Folder?
     
      //MARK: - Outlets
     @IBOutlet weak var titleLabel: UITextField!
@@ -30,6 +31,7 @@ class CreateBookmarkViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         folderPicker.delegate = self
+        folderPicker.dataSource = self
         updateViews()
     }
     
@@ -59,9 +61,8 @@ class CreateBookmarkViewController: UIViewController {
             bookmarkController?.saveFolder(title: title)
         }else{
             //create bookmark
-            if let urlString = urlLabel.text, let url = URL(string: urlString){
-                
-                bookmarkController?.saveBookmark(title: title, url: url, folder: "")
+            if let urlString = urlLabel.text, let url = URL(string: urlString),let folderName = folderName {
+                bookmarkController?.saveBookmark(title: title, url: url, folder: folderName)
             }
         }
     }
@@ -72,6 +73,30 @@ class CreateBookmarkViewController: UIViewController {
 }
 
     //MARK: - UIPickerViewDelegate
+
 extension CreateBookmarkViewController: UIPickerViewDelegate{
-    //Setup picker
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        guard let folders = folders else { return "" }
+        let data = folders[row]
+        return data.title
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard let folders = folders else { return }
+        folderName = folders[row]
+    }
+}
+
+
+//MARK: - UIPickerViewDataSource
+
+extension CreateBookmarkViewController: UIPickerViewDataSource{
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return folders?.count ?? 1
+    }
 }

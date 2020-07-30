@@ -17,6 +17,7 @@ class FolderDetailViewController: UIViewController {
     //MARK: - Properties
     var folder: Folder?
     var delegate: SelectedBookmarkDelegate?
+    
     private let bookmarkController =  BookmarkController()
     private var bookmarkArray: [Bookmark]?{
         didSet{
@@ -34,8 +35,7 @@ class FolderDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
-        fetchBookmarks()
-        // Do any additional setup after loading the view.
+        loadBookmarks()
     }
     
     //MARK: - Actions
@@ -53,16 +53,9 @@ class FolderDetailViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    private func fetchBookmarks(){
-        bookmarkController.loadBookmarksFromPersistentStore { (data, error) in
-            if let error = error {
-                print("Error loading bookmarks \(error)")
-            }
-            
-            if let data = data{
-                self.bookmarkArray = data
-                self.tableView.reloadData()
-            }
+    private func loadBookmarks() {
+        if let bookmarks = folder?.bookmarks, let data = bookmarks.allObjects as? [Bookmark]{
+            bookmarkArray = data
         }
     }
 
@@ -76,25 +69,25 @@ extension FolderDetailViewController: UITableViewDelegate{
 //MARK: - UITableViewDataSource
 extension FolderDetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bookmarkArray?.count ?? 1
+        return folder?.bookmarks?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BookmarkCell", for: indexPath)
         
         if let bookmarkArray = bookmarkArray {
-            let data = bookmarkArray[indexPath.row]
-            //TODO: Create logic to show only bookmarks from the selected folder
-            cell.textLabel?.text = data.title
+            let bookmark = bookmarkArray[indexPath.row]
+            cell.textLabel?.text = bookmark.title
         }
         
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if let bookmarkArray = bookmarkArray, let selectedURL = bookmarkArray[indexPath.row].url{
             delegate?.loadSelectedURL(url: selectedURL)
-            //dismiss the two viewcontrollers currently on the top
+            //Dismiss the two viewcontrollers currently on the top
             presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         }
     }
@@ -104,8 +97,7 @@ extension FolderDetailViewController: UITableViewDataSource{
             if let bookmarkArray = bookmarkArray{
                 let item = bookmarkArray[indexPath.row]
                 bookmarkController.delete(item)
-                //TODO: Fix index error
-                //tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.deleteRows(at: [indexPath], with: .fade)
             }
         }
     }

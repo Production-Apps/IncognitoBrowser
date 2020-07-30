@@ -17,19 +17,7 @@ class BookmarkController {
     
     var delegate: CreateBookmarkDelegate?
     
-    //Fetch Method with closure to load array from CoreData
-    func loadBookmarksFromPersistentStore(completion: @escaping ([Bookmark]?,Error?) -> Void) {
-        
-        let fetchRequest:NSFetchRequest<Bookmark> = Bookmark.fetchRequest()
-        do {
-           //Return the fetch request which will be add it to the bookmarks array above due to the computed property
-           let data = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
-            completion(data,nil)
-        } catch {
-            completion(nil,error)
-        }
-    }
-    
+    //Fetch Method with closure to load array from CoreData    
     func loadFoldersFromPersistentStore(completion: @escaping ([Folder]?,Error?) -> Void) {
         
         let fetchRequest:NSFetchRequest<Folder> = Folder.fetchRequest()
@@ -47,8 +35,10 @@ class BookmarkController {
         saveToPersistentStore()
     }
     
-    func saveBookmark(title: String, url: URL, folder: String) {
-        let _ = Bookmark(title: title, url: url, folder: folder)
+    func saveBookmark(title: String, url: URL, folder: Folder) {
+        let bookmark = Bookmark(title: title, url: url)
+        //Save with a relationship to the specific folder
+        bookmark.location = folder
         saveToPersistentStore()
     }
     

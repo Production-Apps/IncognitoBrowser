@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Bookmark" representedClassName="Bookmark" syncable="YES" codeGenerationType="class">
-        <attribute name="folder" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
         <attribute name="url" attributeType="URI"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="Folder" inverseName="bookmarks" inverseEntity="Folder"/>
     </entity>
     <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="class">
         <attribute name="title" attributeType="String" defaultValueString="New Folder"/>
-        <relationship name="bookmarks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bookmark" inverseName="location" inverseEntity="Bookmark"/>
+        <relationship name="bookmarks" toMany="YES" deletionRule="Cascade" destinationEntity="Bookmark" inverseName="location" inverseEntity="Bookmark"/>
     </entity>
     <elements>
-        <element name="Bookmark" positionX="1051.17578125" positionY="1118.38671875" width="128" height="103"/>
+        <element name="Bookmark" positionX="1051.17578125" positionY="1118.38671875" width="128" height="88"/>
         <element name="Folder" positionX="742.7421875" positionY="689.75390625" width="128" height="73"/>
     </elements>
 </model>
