@@ -204,7 +204,15 @@ class BrowserViewController: UIViewController {
         notification.addObserver(self, selector: #selector(appEnterBackground), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
-    
+    private func loadURLString(urlString: String) {
+        if let url = URL(string: urlString){
+            webView.load(URLRequest(url: url))
+        }else{
+            //TODO: Error handleling
+            print("URL could not be loaded!")
+        }
+    }
+
     //MARK: - General overwrite methods
     // Observe value
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -218,7 +226,6 @@ class BrowserViewController: UIViewController {
             if let bookmarkVC = segue.destination as?
                 BookmarkViewController{
                 guard let webData = webView, let title = webData.title, let url = webData.url else {return}
-                //bookmarkVC.delegate = self
                 bookmarkVC.bookmark = (title: title, url: url.absoluteURL)
                 bookmarkVC.browserVC = self
             }
@@ -235,12 +242,19 @@ extension BrowserViewController: UISearchBarDelegate{
         
         if let urlString = searchBar.text, !urlString.isEmpty {
             
-            if let url = URL(string: "http://www.\(urlString)"){
-                //TODO: Check if url starts with http:// or https:// if not then add it to the string
-                webView.load(URLRequest(url: url))
+            if urlString.hasPrefix("http://"){
+                print("Starts with: http://")
+                loadURLString(urlString: urlString)
+            }else if urlString.hasPrefix("www."){
+                print("Starts with: www.")
+                loadURLString(urlString: "http://\(urlString)")
+            }else if urlString.contains("."){
+                print("Ends with: .")
+                loadURLString(urlString: "http://www.\(urlString)")
             }else{
-                //TODO: Error handleling
-                print("URL could not be loaded!")
+                print("Search google")
+                let sanitizedQuery = urlString.replacingOccurrences(of: " ", with: "+")
+                loadURLString(urlString: "http://www.google.com/search?q=\(sanitizedQuery)")
             }
         }
     }
@@ -258,6 +272,7 @@ extension BrowserViewController: UISearchBarDelegate{
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        webView.stopLoading()
         searchBar.resignFirstResponder()
     }
 }

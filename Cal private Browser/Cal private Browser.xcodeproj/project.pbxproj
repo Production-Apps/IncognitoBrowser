@@ -185,8 +185,8 @@
 				043169C824C4651300006830 /* CalculatorViewController.swift */,
 				04CF26A524C02589006DC218 /* BrowserViewController.swift */,
 				04C29C1524CEF45800625C15 /* BookmarkViewController.swift */,
-				04C29C1724CF0B8900625C15 /* CreateBookmarkViewController.swift */,
 				04C29C5B24D1732500625C15 /* FolderDetailViewController.swift */,
+				04C29C1724CF0B8900625C15 /* CreateBookmarkViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";

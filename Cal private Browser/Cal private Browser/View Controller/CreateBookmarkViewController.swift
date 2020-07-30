@@ -12,10 +12,10 @@ class CreateBookmarkViewController: UIViewController {
     
     //MARK: - Properties
     var folders: [Folder]?
-    var bookmarkController: BookmarkController?
     var bookmark: (title: String, url: URL)?
     var newFolderMode = false
     
+    private var bookmarkController = BookmarkController()
     private var folderName: Folder?
     
      //MARK: - Outlets
@@ -58,11 +58,11 @@ class CreateBookmarkViewController: UIViewController {
         guard let title = titleLabel.text else{return}
         if newFolderMode{
             //create folder
-            bookmarkController?.saveFolder(title: title)
+            bookmarkController.saveFolder(title: title)
         }else{
             //create bookmark
             if let urlString = urlLabel.text, let url = URL(string: urlString),let folderName = folderName {
-                bookmarkController?.saveBookmark(title: title, url: url, folder: folderName)
+                bookmarkController.saveBookmark(title: title, url: url, folder: folderName)
             }
         }
     }

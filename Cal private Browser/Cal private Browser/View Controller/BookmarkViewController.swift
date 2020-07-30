@@ -22,7 +22,7 @@ class BookmarkViewController: UIViewController {
     private var isEditingMode: Bool = false
     
     var bookmark: (title: String, url: URL)?
-    var browserVC: BrowserViewController?
+    var browserVC: BrowserViewController?//Use to set as delegate to load web url when bookmark is selected
     
     
     //MARK: - Outlets
@@ -76,7 +76,6 @@ class BookmarkViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewBMSegue"{
             if let createBookmarkVC = segue.destination as? CreateBookmarkViewController{
-                createBookmarkVC.bookmarkController = bookmarkController
                 createBookmarkVC.bookmark = bookmark
                 createBookmarkVC.folders = folderArray
                 createBookmarkVC.newFolderMode = isEditingMode
