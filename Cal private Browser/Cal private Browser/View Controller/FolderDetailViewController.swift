@@ -98,6 +98,7 @@ extension FolderDetailViewController: UITableViewDataSource{
                 let item = bookmarkArray[indexPath.row]
                 bookmarkController.delete(item)
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                loadBookmarks()
             }
         }
     }

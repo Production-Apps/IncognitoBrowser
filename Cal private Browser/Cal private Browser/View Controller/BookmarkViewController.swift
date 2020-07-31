@@ -76,9 +76,10 @@ class BookmarkViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewBMSegue"{
             if let createBookmarkVC = segue.destination as? CreateBookmarkViewController{
-                createBookmarkVC.bookmark = bookmark
-                createBookmarkVC.folders = folderArray
+                createBookmarkVC.newBookmarkData = bookmark
                 createBookmarkVC.newFolderMode = isEditingMode
+                //Pass incetance to be delegate
+                createBookmarkVC.bookmarkController = bookmarkController
             }
         }else if segue.identifier == "FolderDetailSegue"{
             if let detailVC = segue.destination as? FolderDetailViewController{

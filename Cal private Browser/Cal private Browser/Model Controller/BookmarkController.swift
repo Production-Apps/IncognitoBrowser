@@ -47,6 +47,10 @@ class BookmarkController {
         saveToPersistentStore()
     }
     
+    func resetContext() {
+        CoreDataStack.shared.mainContext.reset()
+    }
+    
     //Save Method the array to CoreData
     private func saveToPersistentStore() {
         do{

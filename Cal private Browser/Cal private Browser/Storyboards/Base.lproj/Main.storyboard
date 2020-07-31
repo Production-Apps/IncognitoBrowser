@@ -16,13 +16,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWA-V5-aQT">
-                                <rect key="frame" x="177.5" y="425" width="59" height="46"/>
+                                <rect key="frame" x="184.5" y="426" width="45" height="43.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="59" id="RvR-dq-kSC"/>
-                                    <constraint firstAttribute="height" constant="46" id="sob-0s-sN6"/>
+                                    <constraint firstAttribute="width" constant="45" id="RvR-dq-kSC"/>
+                                    <constraint firstAttribute="height" constant="45" id="sob-0s-sN6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <state key="normal" title="Start"/>
+                                <state key="normal" backgroundImage="lock" catalog="system"/>
+                                <state key="selected" backgroundImage="lock.open" catalog="system"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="o6p-S2-qeD"/>
                                 </connections>
@@ -482,6 +483,8 @@
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="flame" catalog="system" width="109" height="128"/>
         <image name="folder" catalog="system" width="128" height="95"/>
+        <image name="lock" catalog="system" width="128" height="128"/>
+        <image name="lock.open" catalog="system" width="128" height="112"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

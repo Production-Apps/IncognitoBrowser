@@ -204,8 +204,23 @@ class BrowserViewController: UIViewController {
         notification.addObserver(self, selector: #selector(appEnterBackground), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
-    private func loadURLString(urlString: String) {
-        if let url = URL(string: urlString){
+    private func sanitizeURLString(urlString: String) {
+        
+        var sanitizedURL: String = ""
+        
+        if urlString.hasPrefix("http://"){
+            sanitizedURL = urlString
+        }else if urlString.hasPrefix("www."){
+            sanitizedURL = "http://\(urlString)"
+        }else if urlString.contains("."){
+            sanitizedURL = "http://www.\(urlString)"
+        }else{
+            //Create a google query
+            let cleanQuery = urlString.replacingOccurrences(of: " ", with: "+")
+            sanitizedURL =  "http://www.google.com/search?q=\(cleanQuery)"
+        }
+        
+        if let url = URL(string: sanitizedURL){
             webView.load(URLRequest(url: url))
         }else{
             //TODO: Error handleling
@@ -239,23 +254,8 @@ extension BrowserViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         searchBar.resignFirstResponder()
-        
         if let urlString = searchBar.text, !urlString.isEmpty {
-            
-            if urlString.hasPrefix("http://"){
-                print("Starts with: http://")
-                loadURLString(urlString: urlString)
-            }else if urlString.hasPrefix("www."){
-                print("Starts with: www.")
-                loadURLString(urlString: "http://\(urlString)")
-            }else if urlString.contains("."){
-                print("Ends with: .")
-                loadURLString(urlString: "http://www.\(urlString)")
-            }else{
-                print("Search google")
-                let sanitizedQuery = urlString.replacingOccurrences(of: " ", with: "+")
-                loadURLString(urlString: "http://www.google.com/search?q=\(sanitizedQuery)")
-            }
+            sanitizeURLString(urlString: urlString)
         }
     }
     
@@ -282,14 +282,15 @@ extension BrowserViewController: UISearchBarDelegate{
 extension BrowserViewController: WKNavigationDelegate{
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         fullScreen(false)
+        //Set searchbar text to the current url
+        searchBar.text = webView.url?.absoluteString
         progressView.isHidden = !webView.isLoading
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         updateViews()
         progressView.isHidden = !webView.isLoading
-        //Set searchbar text to the current url
-        searchBar.text = webView.url?.absoluteString
+        
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
