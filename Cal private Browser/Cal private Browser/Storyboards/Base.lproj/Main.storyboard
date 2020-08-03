@@ -205,7 +205,7 @@
                                     <constraint firstAttribute="height" constant="45" id="yv1-8G-yNw"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem image="plus" catalog="system" id="7Vs-Eg-MxA">
+                                    <barButtonItem image="plus" catalog="system" width="47.5" id="7Vs-Eg-MxA">
                                         <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="tHP-Uj-vOX" kind="presentation" identifier="NewBMSegue" id="vem-y5-HnG"/>

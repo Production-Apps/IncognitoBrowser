@@ -74,32 +74,36 @@ class BookmarkViewController: UIViewController {
         })
     }
     
-    private func renameFolder(for indexPath: IndexPath){
-        let alert = UIAlertController(title: "Rename Folder", message: "Enter Title below", preferredStyle: .alert)
+    private func manageFolder(for folder: Folder?){
+        
+        
+        let alert = UIAlertController(title: folder != nil ? "Rename Folder" : "New Folder" , message: "Enter title below", preferredStyle: .alert)
         var titleTextField: UITextField?
         
-        guard let folderArray = folderArray else {return}
-        let selectedFolder = folderArray[indexPath.row]
-        
         alert.addTextField { (textField) in
-            textField.text = selectedFolder.title//Set the title to current title
+            textField.text = folder?.title//Set the title to current title
             textField.placeholder = "Please enter a title"
             titleTextField = textField
         }
         
-        let renameTitleAction =  UIAlertAction(title: "Save", style: .default) { (_) in
+        let setTitleAction =  UIAlertAction(title: "Save", style: .default) { (_) in
             
             guard let titleTextField = titleTextField,let title = titleTextField.text, !title.isEmpty else {return}
             
             //Save the title to context
-            self.bookmarkController.updateFolder(title: title, folder: selectedFolder)
+            if let folder = folder{
+                self.bookmarkController.updateFolder(title: title, folder: folder)
+            }else{
+                self.bookmarkController.saveFolder(title: title)
+            }
+            
             //Reload tableview
             self.tableView.reloadData()
         }
         
         let addCancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alert.addAction(renameTitleAction)
+        alert.addAction(setTitleAction)
         alert.addAction(addCancelAction)
         
         present(alert, animated: true, completion: nil)
@@ -127,6 +131,9 @@ class BookmarkViewController: UIViewController {
     
     //Prevent segue if editing mode is enable
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if isEditModeEnable && identifier == "NewBMSegue"{
+            manageFolder(for: nil)
+        }
         return !tableView.isEditing
     }
 }
@@ -165,7 +172,9 @@ extension BookmarkViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isEditModeEnable{
             //Show alert to with current folder name to rename folder
-            renameFolder(for: indexPath)
+            guard let folderArray = folderArray else {return}
+            let selectedFolder = folderArray[indexPath.row]
+            manageFolder(for: selectedFolder)
         }
     }
 }
