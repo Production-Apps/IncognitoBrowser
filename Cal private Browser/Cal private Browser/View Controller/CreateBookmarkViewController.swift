@@ -12,7 +12,6 @@ class CreateBookmarkViewController: UIViewController {
     
     //MARK: - Properties
     var newBookmarkData: (title: String, url: URL)?
-    var newFolderMode = false
     var bookmarkController: BookmarkController?
     
     //private var folderName: Folder?
@@ -45,22 +44,15 @@ class CreateBookmarkViewController: UIViewController {
     
     //MARK: - Private Methods
     private func updateViews() {
-        if newFolderMode{
-            titleLabel.placeholder = "Enter New Folder"
-            urlLabel.isHidden = true
-            folderPicker.isHidden = true
-            toolbarTitle.title = "New Folder"
-        }else{
-            if folderArray!.count < 1{
-                folderArray?.append(Folder(title: "New Folder"))//If no folders exist create one
-            }
-            //preselect first folder
-            folderPicker.selectRow(0, inComponent: 0, animated: true)
-            //automatically fillout all fields
-            titleLabel.text = newBookmarkData?.title
-            urlLabel.text = newBookmarkData?.url.absoluteString
-            toolbarTitle.title = "New Bookmark"
+        if folderArray!.count < 1{
+            folderArray?.append(Folder(title: "New Folder"))//If no folders exist create one
         }
+        //preselect first folder
+        folderPicker.selectRow(0, inComponent: 0, animated: true)
+        //automatically fillout all fields
+        titleLabel.text = newBookmarkData?.title
+        urlLabel.text = newBookmarkData?.url.absoluteString
+        toolbarTitle.title = "New Bookmark"
     }
     
     private func loadFolders()  {
@@ -78,20 +70,14 @@ class CreateBookmarkViewController: UIViewController {
             titleLabel.attributedPlaceholder = NSAttributedString(string: "Please specify a title.", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
             return
         }
+        didSaveChanges = true
+        //create bookmark
+        let selectedFolderIndex = folderPicker.selectedRow(inComponent: 0)//Index of selected folder
         
-        if newFolderMode{
-            //create folder
-            bookmarkController?.saveFolder(title: title)
-        }else{
-            didSaveChanges = true
-            //create bookmark
-            let selectedFolderIndex = folderPicker.selectedRow(inComponent: 0)//Index of selected folder
-            
-            if let urlString = urlLabel.text, let url = URL(string: urlString),let folderArray = folderArray {
-                //TODO:Check if a folder is selected if not default to folder at index 0
-                let folderName = folderArray[selectedFolderIndex]
-                bookmarkController?.saveBookmark(title: title, url: url, folder: folderName)
-            }
+        if let urlString = urlLabel.text, let url = URL(string: urlString),let folderArray = folderArray {
+            //TODO:Check if a folder is selected if not default to folder at index 0
+            let folderName = folderArray[selectedFolderIndex]
+            bookmarkController?.saveBookmark(title: title, url: url, folder: folderName)
         }
         dismiss(animated: true, completion: nil)
     }

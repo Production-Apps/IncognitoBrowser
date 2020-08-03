@@ -114,7 +114,6 @@ class BookmarkViewController: UIViewController {
         if segue.identifier == "NewBMSegue"{
             if let createBookmarkVC = segue.destination as? CreateBookmarkViewController{
                 createBookmarkVC.newBookmarkData = bookmark
-                createBookmarkVC.newFolderMode = isEditModeEnable
                 //Pass incetance to be delegate
                 createBookmarkVC.bookmarkController = bookmarkController
             }
