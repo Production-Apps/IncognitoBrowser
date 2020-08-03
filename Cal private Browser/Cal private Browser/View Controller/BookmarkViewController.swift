@@ -37,6 +37,7 @@ class BookmarkViewController: UIViewController {
         tableView.dataSource = self
         bookmarkController.delegate = self
         fetchFolders()
+        
     }
     
     //MARK: - Actions
@@ -73,6 +74,37 @@ class BookmarkViewController: UIViewController {
         })
     }
     
+    private func renameFolder(for indexPath: IndexPath){
+        let alert = UIAlertController(title: "Rename Folder", message: "Enter Title below", preferredStyle: .alert)
+        var titleTextField: UITextField?
+        
+        guard let folderArray = folderArray else {return}
+        let selectedFolder = folderArray[indexPath.row]
+        
+        alert.addTextField { (textField) in
+            textField.text = selectedFolder.title//Set the title to current title
+            textField.placeholder = "Please enter a title"
+            titleTextField = textField
+        }
+        
+        let renameTitleAction =  UIAlertAction(title: "Save", style: .default) { (_) in
+            
+            guard let titleTextField = titleTextField,let title = titleTextField.text, !title.isEmpty else {return}
+            
+            //Save the title to context
+            self.bookmarkController.updateFolder(title: title, folder: selectedFolder)
+            //Reload tableview
+            self.tableView.reloadData()
+        }
+        
+        let addCancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(renameTitleAction)
+        alert.addAction(addCancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     //MARK: - Overwrite methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewBMSegue"{
@@ -91,6 +123,11 @@ class BookmarkViewController: UIViewController {
                 detailVC.delegate = browserVC
             }
         }
+    }
+    
+    //Prevent segue if editing mode is enable
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return !tableView.isEditing
     }
 }
 
@@ -122,6 +159,13 @@ extension BookmarkViewController: UITableViewDataSource{
                 bookmarkController.delete(item)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if isEditModeEnable{
+            //Show alert to with current folder name to rename folder
+            renameFolder(for: indexPath)
         }
     }
 }

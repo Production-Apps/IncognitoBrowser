@@ -82,23 +82,23 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gDO-kP-dqV">
-                                <rect key="frame" x="8" y="385.5" width="20" height="125"/>
+                                <rect key="frame" x="8" y="385.5" width="25" height="125"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ff-KT-tlm">
-                                        <rect key="frame" x="0.0" y="4.5" width="20" height="15.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ff-KT-tlm">
+                                        <rect key="frame" x="0.0" y="4.5" width="25" height="15.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="aU6-8M-Rz2"/>
-                                            <constraint firstAttribute="width" constant="20" id="hbo-qX-FJ2"/>
+                                            <constraint firstAttribute="width" constant="25" id="hbo-qX-FJ2"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="chevron.up" catalog="system"/>
                                         <connections>
                                             <action selector="goUpOptionalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CGd-Yt-3GB"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8A-KV-yC4">
-                                        <rect key="frame" x="0.0" y="52" width="20" height="21.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8A-KV-yC4">
+                                        <rect key="frame" x="0.0" y="52" width="25" height="21.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="BLZ-7f-Qgn"/>
+                                            <constraint firstAttribute="width" constant="25" id="BLZ-7f-Qgn"/>
                                             <constraint firstAttribute="height" constant="25" id="Lch-lA-Tzp"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="chevron.left" catalog="system"/>
@@ -106,11 +106,11 @@
                                             <action selector="backOptionalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5Z-FP-jsH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-VZ-ICW">
-                                        <rect key="frame" x="0.0" y="102" width="20" height="21.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-VZ-ICW">
+                                        <rect key="frame" x="0.0" y="102" width="25" height="21.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Wfj-e1-4ge"/>
-                                            <constraint firstAttribute="width" constant="20" id="e2w-m9-MJj"/>
+                                            <constraint firstAttribute="width" constant="25" id="e2w-m9-MJj"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="chevron.right" catalog="system"/>
                                         <connections>
@@ -188,7 +188,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Zey-tj-gFJ"/>
             </objects>
             <point key="canvasLocation" x="1171.0144927536232" y="112.5"/>
         </scene>
@@ -223,8 +222,8 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f4u-FX-2us">
-                                <rect key="frame" x="0.0" y="62" width="414" height="780"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f4u-FX-2us">
+                                <rect key="frame" x="0.0" y="45" width="414" height="797"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="FolderCell" textLabel="9gv-9k-TIM" imageView="uiA-lU-OQ9" style="IBUITableViewCellStyleDefault" id="0qg-Jp-Egy">
@@ -259,10 +258,9 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="0QQ-rk-bI0" firstAttribute="leading" secondItem="XCj-lk-bjG" secondAttribute="leading" id="FYa-df-nJz"/>
-                            <constraint firstItem="f4u-FX-2us" firstAttribute="top" secondItem="0QQ-rk-bI0" secondAttribute="bottom" constant="17" id="PCX-t9-4Rg"/>
+                            <constraint firstItem="f4u-FX-2us" firstAttribute="top" secondItem="0QQ-rk-bI0" secondAttribute="bottom" id="PCX-t9-4Rg"/>
                             <constraint firstItem="0QQ-rk-bI0" firstAttribute="trailing" secondItem="XCj-lk-bjG" secondAttribute="trailing" id="PRY-9D-rkk"/>
                             <constraint firstItem="0QQ-rk-bI0" firstAttribute="top" secondItem="jSI-zO-yHt" secondAttribute="top" id="cVI-eW-sni"/>
                             <constraint firstItem="f4u-FX-2us" firstAttribute="trailing" secondItem="XCj-lk-bjG" secondAttribute="trailing" id="gJ7-pg-B7T"/>

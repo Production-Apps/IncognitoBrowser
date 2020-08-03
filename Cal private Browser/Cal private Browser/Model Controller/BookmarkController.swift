@@ -47,6 +47,11 @@ class BookmarkController {
         saveToPersistentStore()
     }
     
+    func updateFolder(title: String, folder: Folder) {
+        folder.title = title
+        saveToPersistentStore()
+    }
+    
     func resetContext() {
         CoreDataStack.shared.mainContext.reset()
     }
