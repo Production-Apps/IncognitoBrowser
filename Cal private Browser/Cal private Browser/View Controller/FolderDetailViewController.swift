@@ -18,6 +18,7 @@ class FolderDetailViewController: UIViewController {
     var folder: Folder?
     var delegate: SelectedBookmarkDelegate?
     
+    private var isEditModeEnable: Bool = false
     private let bookmarkController =  BookmarkController()
     private var bookmarkArray: [Bookmark]?{
         didSet{
@@ -27,7 +28,7 @@ class FolderDetailViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     
     
@@ -39,12 +40,12 @@ class FolderDetailViewController: UIViewController {
     }
     
     //MARK: - Actions
-    @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
-        tableView.isEditing.toggle()
+        toggleEditMode()
     }
     
     //MARK: - Private Methods
@@ -59,6 +60,18 @@ class FolderDetailViewController: UIViewController {
         }
     }
 
+    private func toggleEditMode() {
+        isEditModeEnable.toggle()
+        if isEditModeEnable{
+            editButton.title = "Done"
+            cancelButton.isEnabled = false
+            tableView.setEditing(true, animated: true)
+        }else{
+            editButton.title = "Edit"
+            cancelButton.isEnabled = true
+            tableView.setEditing(false, animated: true)
+        }
+    }
 }
 
 //MARK: - UITableViewDelegate

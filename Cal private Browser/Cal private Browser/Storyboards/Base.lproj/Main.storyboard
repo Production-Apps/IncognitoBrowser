@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q1T-8G-3Hb">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -81,57 +81,44 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxV-br-7BO">
-                                <rect key="frame" x="8" y="425.5" width="50" height="150"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="gDO-kP-dqV">
+                                <rect key="frame" x="8" y="385.5" width="20" height="125"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gDO-kP-dqV">
-                                        <rect key="frame" x="4" y="16.5" width="35" height="115"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBi-Ef-wft">
-                                                <rect key="frame" x="0.0" y="0.5" width="35" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="p2s-ct-gY5"/>
-                                                    <constraint firstAttribute="width" constant="35" id="vGo-d2-xD8"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="ellipsis.circle" catalog="system"/>
-                                                <connections>
-                                                    <action selector="showDragButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x7h-e0-9p4"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8A-KV-yC4">
-                                                <rect key="frame" x="0.0" y="42" width="35" height="31.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="35" id="BLZ-7f-Qgn"/>
-                                                    <constraint firstAttribute="height" constant="35" id="Lch-lA-Tzp"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="chevron.left" catalog="system"/>
-                                                <connections>
-                                                    <action selector="backDragButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5Z-FP-jsH"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-VZ-ICW">
-                                                <rect key="frame" x="0.0" y="82" width="35" height="31.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="Wfj-e1-4ge"/>
-                                                    <constraint firstAttribute="width" constant="35" id="e2w-m9-MJj"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="chevron.right" catalog="system"/>
-                                                <connections>
-                                                    <action selector="forwardDragButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JFD-aG-eQY"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ff-KT-tlm">
+                                        <rect key="frame" x="0.0" y="4.5" width="20" height="15.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="aU6-8M-Rz2"/>
+                                            <constraint firstAttribute="width" constant="20" id="hbo-qX-FJ2"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="chevron.up" catalog="system"/>
+                                        <connections>
+                                            <action selector="goUpOptionalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CGd-Yt-3GB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8A-KV-yC4">
+                                        <rect key="frame" x="0.0" y="52" width="20" height="21.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="BLZ-7f-Qgn"/>
+                                            <constraint firstAttribute="height" constant="25" id="Lch-lA-Tzp"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="chevron.left" catalog="system"/>
+                                        <connections>
+                                            <action selector="backOptionalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5Z-FP-jsH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-VZ-ICW">
+                                        <rect key="frame" x="0.0" y="102" width="20" height="21.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Wfj-e1-4ge"/>
+                                            <constraint firstAttribute="width" constant="20" id="e2w-m9-MJj"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="chevron.right" catalog="system"/>
+                                        <connections>
+                                            <action selector="forwardOptinalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JFD-aG-eQY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="08f-BE-3ad"/>
-                                    <constraint firstAttribute="height" constant="150" id="tWE-mZ-tcO"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Zey-tj-gFJ" appends="YES" id="aqC-yz-YIe"/>
-                                </connections>
-                            </view>
+                            </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zs1-Gy-k6T">
                                 <rect key="frame" x="0.0" y="831" width="414" height="50"/>
                                 <constraints>
@@ -139,33 +126,38 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem title="Item" image="chevron.left" catalog="system" id="LDI-XW-frr">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="backButtonPressed:" destination="BYZ-38-t0r" id="1gJ-dA-HYb"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="11P-Bd-SKL"/>
                                     <barButtonItem image="chevron.right" catalog="system" id="LWT-Iu-2fa">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="forwardButtonPressed:" destination="BYZ-38-t0r" id="ywo-wh-F6t"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jgh-LE-z3N"/>
-                                    <barButtonItem title="Incognito" image="flame" catalog="system" id="Rjc-jc-8YZ">
+                                    <barButtonItem title="Incognito" image="lock" catalog="system" id="Rjc-jc-8YZ">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="terminateSession:" destination="BYZ-38-t0r" id="eEC-H6-iI8"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="K0Y-lV-9Ta"/>
                                     <barButtonItem systemItem="bookmarks" id="XDw-zR-kk7">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="bookmarkButtonPressed:" destination="BYZ-38-t0r" id="Muf-cS-rwK"/>
                                             <segue destination="mpY-aQ-APF" kind="presentation" identifier="bookmarkSegue" id="BI9-dh-W52"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.019607843137254902" green="0.035294117647058823" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.019607843137254902" green="0.035294117647058823" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="bQP-el-qBP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0M8-Tt-0W0"/>
@@ -173,11 +165,11 @@
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4Q3-Yo-YKZ"/>
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="7yr-FV-7rP"/>
                             <constraint firstItem="bQP-el-qBP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Ej5-dg-T8h"/>
-                            <constraint firstItem="sxV-br-7BO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="LYJ-FA-d7X"/>
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="top" secondItem="bQP-el-qBP" secondAttribute="bottom" id="Ldn-wc-i6S"/>
                             <constraint firstItem="Zs1-Gy-k6T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UA3-gL-Dsb"/>
-                            <constraint firstItem="sxV-br-7BO" firstAttribute="top" secondItem="bQP-el-qBP" secondAttribute="bottom" constant="319" id="Zhh-yi-NYa"/>
                             <constraint firstItem="Zs1-Gy-k6T" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="aYM-Zf-qU8"/>
+                            <constraint firstItem="gDO-kP-dqV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="dIF-EH-fQh"/>
+                            <constraint firstItem="gDO-kP-dqV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="h9S-mE-Lwp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gb3-Rc-u0B" secondAttribute="bottomMargin" id="n97-qy-OgT"/>
                             <constraint firstAttribute="bottom" secondItem="Zs1-Gy-k6T" secondAttribute="bottom" constant="15" id="qmf-Ky-kEq"/>
                         </constraints>
@@ -187,8 +179,6 @@
                     <connections>
                         <outlet property="backButton" destination="LDI-XW-frr" id="AbK-YM-Pte"/>
                         <outlet property="backDragButton" destination="l8A-KV-yC4" id="cAP-3t-4Ea"/>
-                        <outlet property="dragButton" destination="vBi-Ef-wft" id="qYm-dw-7ck"/>
-                        <outlet property="dragButtonView" destination="sxV-br-7BO" id="erf-88-V5j"/>
                         <outlet property="forwardButton" destination="LWT-Iu-2fa" id="5dj-Re-MK7"/>
                         <outlet property="forwardDragButton" destination="Qbv-VZ-ICW" id="4GZ-xh-n1E"/>
                         <outlet property="progressView" destination="Mdf-Nt-O83" id="2V2-PE-SvE"/>
@@ -198,11 +188,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Zey-tj-gFJ">
-                    <connections>
-                        <action selector="dragGesture:" destination="BYZ-38-t0r" id="Xdv-bF-X4q"/>
-                    </connections>
-                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Zey-tj-gFJ"/>
             </objects>
             <point key="canvasLocation" x="1171.0144927536232" y="112.5"/>
         </scene>
@@ -214,6 +200,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QQ-rk-bI0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="yv1-8G-yNw"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem image="plus" catalog="system" id="7Vs-Eg-MxA">
+                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="tHP-Uj-vOX" kind="presentation" identifier="NewBMSegue" id="vem-y5-HnG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="glF-0f-fQB"/>
+                                    <barButtonItem enabled="NO" title="Bookmarks" id="EB7-88-FfB"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PO8-9m-lA3"/>
+                                    <barButtonItem title="Edit" id="WHB-qL-wio">
+                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="editMode:" destination="mpY-aQ-APF" id="qvz-GU-qPn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f4u-FX-2us">
                                 <rect key="frame" x="0.0" y="62" width="414" height="780"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -235,6 +244,7 @@
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="folder" catalog="system" id="uiA-lU-OQ9">
                                                     <rect key="frame" x="20.25" y="12.5" width="23.5" height="17.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -248,27 +258,6 @@
                                     <outlet property="delegate" destination="mpY-aQ-APF" id="cqc-gV-u40"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0QQ-rk-bI0">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="yv1-8G-yNw"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem image="plus" catalog="system" id="7Vs-Eg-MxA">
-                                        <connections>
-                                            <segue destination="tHP-Uj-vOX" kind="presentation" identifier="NewBMSegue" id="vem-y5-HnG"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="glF-0f-fQB"/>
-                                    <barButtonItem enabled="NO" title="Bookmarks" id="EB7-88-FfB"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PO8-9m-lA3"/>
-                                    <barButtonItem title="Edit" id="WHB-qL-wio">
-                                        <connections>
-                                            <action selector="editMode:" destination="mpY-aQ-APF" id="qvz-GU-qPn"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -301,7 +290,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="wpL-dm-fy8">
-                                <rect key="frame" x="8" y="20" width="398" height="400"/>
+                                <rect key="frame" x="8" y="20" width="398" height="444"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8j8-IK-OsN">
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="45"/>
@@ -310,6 +299,7 @@
                                         </constraints>
                                         <items>
                                             <barButtonItem systemItem="cancel" id="LT1-Hd-cNT">
+                                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="cancelButtonPressed:" destination="tHP-Uj-vOX" id="9LP-cL-dhR"/>
                                                 </connections>
@@ -318,6 +308,7 @@
                                             <barButtonItem enabled="NO" title="New Bookmark" id="aWZ-rV-Gvh"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="59Z-2P-WFh"/>
                                             <barButtonItem systemItem="save" id="SHy-yY-pev">
+                                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="saveButtonPressed:" destination="tHP-Uj-vOX" id="mFL-1M-UCP"/>
                                                 </connections>
@@ -337,14 +328,21 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose folder below:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drk-sc-i1z">
+                                        <rect key="frame" x="8" y="182" width="382" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgI-pu-Det">
-                                        <rect key="frame" x="8" y="182" width="382" height="218"/>
+                                        <rect key="frame" x="8" y="229" width="382" height="215"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="218" id="BVK-gp-exq"/>
+                                            <constraint firstAttribute="height" constant="215" id="BVK-gp-exq"/>
                                         </constraints>
                                     </pickerView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Drk-sc-i1z" firstAttribute="leading" secondItem="wpL-dm-fy8" secondAttribute="leading" constant="8" id="1oA-7v-TZF"/>
                                     <constraint firstItem="McI-Yv-WZr" firstAttribute="width" secondItem="sPy-9z-VMl" secondAttribute="width" id="2Zg-kb-BUF"/>
                                     <constraint firstAttribute="trailing" secondItem="8j8-IK-OsN" secondAttribute="trailing" id="4jG-bI-kLX"/>
                                     <constraint firstItem="SgI-pu-Det" firstAttribute="leading" secondItem="wpL-dm-fy8" secondAttribute="leading" constant="8" id="7m6-kr-MDe"/>
@@ -352,6 +350,7 @@
                                     <constraint firstItem="McI-Yv-WZr" firstAttribute="height" secondItem="sPy-9z-VMl" secondAttribute="height" id="SPM-ey-sR7"/>
                                     <constraint firstItem="sPy-9z-VMl" firstAttribute="leading" secondItem="wpL-dm-fy8" secondAttribute="leading" constant="8" id="b9G-4o-ajQ"/>
                                     <constraint firstAttribute="trailing" secondItem="SgI-pu-Det" secondAttribute="trailing" constant="8" id="snf-g5-6FM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Drk-sc-i1z" secondAttribute="trailing" constant="8" id="vo1-3E-glw"/>
                                     <constraint firstItem="8j8-IK-OsN" firstAttribute="leading" secondItem="wpL-dm-fy8" secondAttribute="leading" id="xa5-bs-RFR"/>
                                 </constraints>
                             </stackView>
@@ -421,6 +420,7 @@
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="book" catalog="system" id="AMo-xK-9sz">
                                                     <rect key="frame" x="21.25" y="13" width="21.5" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -437,17 +437,19 @@
                                     <constraint firstAttribute="height" constant="45" id="lba-in-9xN"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="edit" id="IDl-VM-crV">
+                                    <barButtonItem title="Cancel" id="IDl-VM-crV">
+                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="editButtonPressed:" destination="1kV-Zp-sxU" id="r3T-kG-BRL"/>
+                                            <action selector="cancelButtonPressed:" destination="1kV-Zp-sxU" id="ywH-UI-spC"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bdH-yT-9Hr"/>
                                     <barButtonItem enabled="NO" title="Bookmarks" id="iJS-fp-xlX"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GV0-rx-Lwm"/>
-                                    <barButtonItem systemItem="done" id="kGS-mJ-d7Z">
+                                    <barButtonItem title="Edit" id="kGS-mJ-d7Z">
+                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="doneButtonPressed:" destination="1kV-Zp-sxU" id="ogY-Ne-ezk"/>
+                                            <action selector="editButtonPressed:" destination="1kV-Zp-sxU" id="Wo8-ZV-euw"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -466,8 +468,8 @@
                         <viewLayoutGuide key="safeArea" id="qcR-aI-a06"/>
                     </view>
                     <connections>
-                        <outlet property="doneButton" destination="kGS-mJ-d7Z" id="WaY-LB-VnG"/>
-                        <outlet property="editButton" destination="IDl-VM-crV" id="Qkw-iV-yyf"/>
+                        <outlet property="cancelButton" destination="IDl-VM-crV" id="jQb-UK-NJP"/>
+                        <outlet property="editButton" destination="kGS-mJ-d7Z" id="vF9-1F-BHa"/>
                         <outlet property="tableView" destination="UJS-j3-XD8" id="e6B-2f-1sF"/>
                     </connections>
                 </viewController>
@@ -480,8 +482,7 @@
         <image name="book" catalog="system" width="128" height="101"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
-        <image name="flame" catalog="system" width="109" height="128"/>
+        <image name="chevron.up" catalog="system" width="128" height="72"/>
         <image name="folder" catalog="system" width="128" height="95"/>
         <image name="lock" catalog="system" width="128" height="128"/>
         <image name="lock.open" catalog="system" width="128" height="112"/>

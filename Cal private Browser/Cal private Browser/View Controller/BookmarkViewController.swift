@@ -19,7 +19,7 @@ class BookmarkViewController: UIViewController {
             }
         }
     }
-    private var isEditingMode: Bool = false
+    private var isEditModeEnable: Bool = false
     
     var bookmark: (title: String, url: URL)?
     var browserVC: BrowserViewController?//Use to set as delegate to load web url when bookmark is selected
@@ -42,13 +42,14 @@ class BookmarkViewController: UIViewController {
     //MARK: - Actions
     
     @IBAction func editMode(_ sender: UIBarButtonItem) {
-        isEditingMode.toggle()
         toggleEditMode()
     }
     
     //MARK: - Private methods
     private func toggleEditMode() {
-        if isEditingMode{
+        isEditModeEnable.toggle()
+        
+        if isEditModeEnable{
             editButton.title = "Done"
             createButton.image = nil
             createButton.title = "New Folder"
@@ -77,7 +78,7 @@ class BookmarkViewController: UIViewController {
         if segue.identifier == "NewBMSegue"{
             if let createBookmarkVC = segue.destination as? CreateBookmarkViewController{
                 createBookmarkVC.newBookmarkData = bookmark
-                createBookmarkVC.newFolderMode = isEditingMode
+                createBookmarkVC.newFolderMode = isEditModeEnable
                 //Pass incetance to be delegate
                 createBookmarkVC.bookmarkController = bookmarkController
             }
