@@ -48,6 +48,7 @@ class BrowserViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        webView.stopLoading()
         webView.goBack()
         searchBar.text = webView.url?.absoluteString
     }
@@ -65,7 +66,9 @@ class BrowserViewController: UIViewController {
     }
     
     @IBAction func backOptionalButton(_ sender: UIButton) {
+        webView.stopLoading()
         webView.goBack()
+        searchBar.text = webView.url?.absoluteString
     }
     
     @IBAction func forwardOptinalButton(_ sender: UIButton) {
@@ -89,7 +92,7 @@ class BrowserViewController: UIViewController {
         webView.allowsBackForwardNavigationGestures = true
         
         searchBar.showsBookmarkButton = true
-        searchBar.setImage(UIImage(systemName: "arrow.counterclockwise"), for: .bookmark, state: .normal)
+        
     }
     
     private func updateViews() {
@@ -143,7 +146,7 @@ class BrowserViewController: UIViewController {
     
     private func setupNotifications(){
         //Check if app will resign to go to homepage so no unwanted previews show on relaunch
-        notification.addObserver(self, selector: #selector(appEnterBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        notification.addObserver(self, selector: #selector(appEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     private func sanitizeURLString(urlString: String) {
@@ -202,7 +205,12 @@ extension BrowserViewController: UISearchBarDelegate{
     }
     
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-        webView.reload()
+        if webView.isLoading{
+            webView.stopLoading()
+            progressView.isHidden = true
+        }else{
+            webView.reload()
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -227,12 +235,13 @@ extension BrowserViewController: WKNavigationDelegate{
         //Set searchbar text to the current url
         searchBar.text = webView.url?.absoluteString
         progressView.isHidden = !webView.isLoading
-        
+         searchBar.setImage(UIImage(systemName: webView.isLoading ? "xmark" : "arrow.counterclockwise"), for: .bookmark, state: .normal)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         updateViews()
         progressView.isHidden = !webView.isLoading
+        searchBar.setImage(UIImage(systemName: webView.isLoading ? "xmark" : "arrow.counterclockwise"), for: .bookmark, state: .normal)
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
