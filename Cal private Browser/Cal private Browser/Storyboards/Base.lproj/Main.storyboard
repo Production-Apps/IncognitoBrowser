@@ -238,7 +238,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0y1-m2-zs1">
                                                         <rect key="frame" x="0.0" y="0.0" width="103" height="135.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
-                                                        <state key="normal" title="·">
+                                                        <state key="normal" title=".">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
