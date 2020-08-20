@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		043169C924C4651300006830 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043169C824C4651300006830 /* CalculatorViewController.swift */; };
+		0457B8F124EE6E5300A05761 /* CalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457B8F024EE6E5300A05761 /* CalculatorController.swift */; };
 		04C29C0724C9DCFB00625C15 /* BookmarkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0624C9DCFB00625C15 /* BookmarkController.swift */; };
 		04C29C0B24C9F74B00625C15 /* PrivateBrowser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0924C9F74B00625C15 /* PrivateBrowser.xcdatamodeld */; };
 		04C29C0D24CA03E300625C15 /* Bookmark+Conviniece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0C24CA03E300625C15 /* Bookmark+Conviniece.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		043169C824C4651300006830 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		0457B8F024EE6E5300A05761 /* CalculatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorController.swift; sourceTree = "<group>"; };
 		04C29C0624C9DCFB00625C15 /* BookmarkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkController.swift; sourceTree = "<group>"; };
 		04C29C0A24C9F74B00625C15 /* PrivateBrowser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrivateBrowser.xcdatamodel; sourceTree = "<group>"; };
 		04C29C0C24CA03E300625C15 /* Bookmark+Conviniece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bookmark+Conviniece.swift"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		04C29C0824C9DCFF00625C15 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0457B8F024EE6E5300A05761 /* CalculatorController.swift */,
 				04C29C0624C9DCFB00625C15 /* BookmarkController.swift */,
 			);
 			path = "Model Controller";
@@ -339,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C29C1624CEF45800625C15 /* BookmarkViewController.swift in Sources */,
+				0457B8F124EE6E5300A05761 /* CalculatorController.swift in Sources */,
 				043169C924C4651300006830 /* CalculatorViewController.swift in Sources */,
 				04C29C0D24CA03E300625C15 /* Bookmark+Conviniece.swift in Sources */,
 				04CF26A624C02589006DC218 /* BrowserViewController.swift in Sources */,

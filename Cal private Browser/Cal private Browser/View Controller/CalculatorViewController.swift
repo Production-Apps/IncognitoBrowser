@@ -14,12 +14,21 @@ class CalculatorViewController: UIViewController {
     @IBOutlet weak var displayLabel: UILabel!
     
     //MARK: - Properties
+    private var calculatorController = CalculatorController()
+    
     private var isFinishTypingNumber: Bool = true
     
     private var displayValue: Double {
         get{
             guard let doubleValue = Double(displayLabel.text!) else { return 0.0 }
             return doubleValue
+        }
+        
+        set{
+            displayLabel.text = String(newValue)
+            //Instead of saying everytime we set the label:
+            //Old: displayLabel.text = String(displayValue * 2)
+            //New: displayValue *= -1
         }
     }
 
@@ -35,30 +44,9 @@ class CalculatorViewController: UIViewController {
     @IBAction func calcButtonPressed(_ sender: UIButton){
         //Set to true to clear the textfield the next time user start typing
         isFinishTypingNumber = true
-        
-        if let calcMethod = sender.currentTitle {
-            switch calcMethod {
-            case "+/-":
-                displayLabel.text = String(displayValue * -1)
-            case "AC":
-                displayLabel.text = "0"
-            case "%":
-                displayLabel.text = String(displayValue * 0.01)
-            case "÷":
-            //Do something
-                displayLabel.text = "0"
-            case "×":
-            //Do something
-                displayLabel.text = "0"
-            case "+":
-            //Do something
-                displayLabel.text = "0"
-            case "=":
-            //Do something
-                displayLabel.text = "0"
-            default:
-                print("Case not found")
-            }
+
+        if let result = calculatorController.calculateResult(for: displayValue, symbol: sender.currentTitle){
+            displayValue = result
         }
         
     }

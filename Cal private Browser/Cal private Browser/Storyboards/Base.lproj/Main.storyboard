@@ -253,7 +253,6 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="calcButtonPressed:" destination="GDy-cp-EzI" eventType="touchUpInside" id="lOG-Qy-ysJ"/>
-                                                            <segue destination="BYZ-38-t0r" kind="show" id="zdP-sU-yWd"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
