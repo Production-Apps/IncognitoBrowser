@@ -21,11 +21,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="WCD-FK-Q2v">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTf-9c-7L8">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTf-9c-7L8" userLabel="LabelView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="135.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gRW-Rx-jnG">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="135.5"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="70"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -273,13 +274,22 @@
                             <constraint firstItem="3bo-re-E0z" firstAttribute="trailing" secondItem="JMt-5F-rzv" secondAttribute="trailing" id="uHt-Nt-9pu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JMt-5F-rzv"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6Yu-Ml-J0Z" appends="YES" id="ckh-8U-4Dj"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="lnm-zr-luQ"/>
                     <connections>
                         <outlet property="displayLabel" destination="gRW-Rx-jnG" id="T0p-wq-zlC"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="BrowserSegue" id="vkz-uN-LXF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDX-rh-Uzz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="6Yu-Ml-J0Z">
+                    <connections>
+                        <action selector="SwipeActionTriggered:" destination="GDy-cp-EzI" id="a1s-vo-EB0"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="211.59420289855075" y="112.5"/>
         </scene>
