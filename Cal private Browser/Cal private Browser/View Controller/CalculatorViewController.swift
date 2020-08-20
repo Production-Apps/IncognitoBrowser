@@ -25,10 +25,17 @@ class CalculatorViewController: UIViewController {
         }
         
         set{
-            displayLabel.text = String(newValue)
-            //Instead of saying everytime we set the label:
-            //Old: displayLabel.text = String(displayValue * 2)
-            //New: displayValue *= -1
+            //Check if the double number is an Int (has a decimal zero)
+            let isInt = floor(newValue) == newValue
+            //If so convert to Int to prevent having decimal zeros
+            if isInt{
+                displayLabel.text = String(Int(newValue))
+            }else{
+                displayLabel.text = String(newValue)
+                //Instead of saying everytime we set the label:
+                //Old: displayLabel.text = String(displayValue * 2)
+                //New: displayValue *= -1
+            }
         }
     }
 
@@ -50,7 +57,6 @@ class CalculatorViewController: UIViewController {
         }
         
     }
-    
     
     @IBAction func numButtonPressed(_ sender: UIButton){
         if let numVal = sender.currentTitle {
