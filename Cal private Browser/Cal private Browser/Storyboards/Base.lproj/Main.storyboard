@@ -333,7 +333,7 @@
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gDO-kP-dqV">
-                                <rect key="frame" x="8" y="311" width="30" height="120"/>
+                                <rect key="frame" x="8" y="301" width="30" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ff-KT-tlm">
                                         <rect key="frame" x="0.0" y="4.5" width="30" height="20.5"/>
@@ -371,9 +371,9 @@
                                 </subviews>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zs1-Gy-k6T">
-                                <rect key="frame" x="0.0" y="831" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="821" width="414" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Mrz-yC-Ukp"/>
+                                    <constraint firstAttribute="height" constant="60" id="Mrz-yC-Ukp"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem title="Item" image="chevron.left" catalog="system" id="LDI-XW-frr">
@@ -457,7 +457,6 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem systemItem="cancel" id="7Vs-Eg-MxA">
-                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="cancelButtonPressed:" destination="mpY-aQ-APF" id="dBp-6M-JyF"/>
                                         </connections>
@@ -466,7 +465,6 @@
                                     <barButtonItem enabled="NO" title="Bookmarks" id="EB7-88-FfB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PO8-9m-lA3"/>
                                     <barButtonItem title="Edit" id="WHB-qL-wio">
-                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="editMode:" destination="mpY-aQ-APF" id="qvz-GU-qPn"/>
                                         </connections>
@@ -494,7 +492,6 @@
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="folder" catalog="system" id="uiA-lU-OQ9">
                                                     <rect key="frame" x="20.25" y="12.5" width="23.5" height="17.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -511,17 +508,15 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="juI-qA-dX3" userLabel="BottomToolbar">
                                 <rect key="frame" x="0.0" y="759" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="New Folder" id="yTK-fw-IzY">
-                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <barButtonItem systemItem="add" id="zmU-81-KU2">
                                         <connections>
-                                            <action selector="NewFolderButton:" destination="mpY-aQ-APF" id="ZHy-ev-H7p"/>
+                                            <segue destination="tHP-Uj-vOX" kind="show" identifier="NewBMSegue" id="eX6-og-9OR"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="OAI-8z-Gdh"/>
-                                    <barButtonItem systemItem="add" id="zmU-81-KU2">
-                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <barButtonItem title="New Folder" id="yTK-fw-IzY">
                                         <connections>
-                                            <segue destination="tHP-Uj-vOX" kind="show" identifier="NewBMSegue" id="eX6-og-9OR"/>
+                                            <action selector="NewFolderButton:" destination="mpY-aQ-APF" id="ZHy-ev-H7p"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -568,7 +563,6 @@
                                         </constraints>
                                         <items>
                                             <barButtonItem systemItem="cancel" id="LT1-Hd-cNT">
-                                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="cancelButtonPressed:" destination="tHP-Uj-vOX" id="9LP-cL-dhR"/>
                                                 </connections>
@@ -577,7 +571,6 @@
                                             <barButtonItem enabled="NO" title="New Bookmark" id="aWZ-rV-Gvh"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="59Z-2P-WFh"/>
                                             <barButtonItem systemItem="save" id="SHy-yY-pev">
-                                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="saveButtonPressed:" destination="tHP-Uj-vOX" id="mFL-1M-UCP"/>
                                                 </connections>
@@ -676,7 +669,6 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem title="Cancel" id="IDl-VM-crV">
-                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="cancelButtonPressed:" destination="1kV-Zp-sxU" id="ywH-UI-spC"/>
                                         </connections>
@@ -685,7 +677,6 @@
                                     <barButtonItem enabled="NO" title="Bookmarks" id="iJS-fp-xlX"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="GV0-rx-Lwm"/>
                                     <barButtonItem title="Edit" id="kGS-mJ-d7Z">
-                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="editButtonPressed:" destination="1kV-Zp-sxU" id="Wo8-ZV-euw"/>
                                         </connections>
@@ -713,7 +704,6 @@
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="book" catalog="system" id="AMo-xK-9sz">
                                                     <rect key="frame" x="21.25" y="13" width="21.5" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>

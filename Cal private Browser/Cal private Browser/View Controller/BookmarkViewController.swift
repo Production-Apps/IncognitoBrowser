@@ -132,6 +132,14 @@ class BookmarkViewController: UIViewController {
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        //Prevent segue if editing is true and you click on a folder, so instead you can rename a folder
+        if tableView.isEditing && identifier == "FolderDetailSegue"{
+            return false
+        }
+        return true
+    }
+    
 }
 
 //MARK: - UITableViewDelegate
