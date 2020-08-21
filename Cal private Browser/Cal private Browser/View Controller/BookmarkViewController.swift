@@ -27,7 +27,6 @@ class BookmarkViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var createButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     
     //MARK: - View Lifecycle
@@ -46,18 +45,23 @@ class BookmarkViewController: UIViewController {
         toggleEditMode()
     }
     
+    @IBAction func NewFolderButton(_ sender: UIBarButtonItem) {
+        manageFolder(for: nil)
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     //MARK: - Private methods
     private func toggleEditMode() {
         isEditModeEnable.toggle()
         
         if isEditModeEnable{
             editButton.title = "Done"
-            createButton.image = nil
-            createButton.title = "New Folder"
             tableView.setEditing(true, animated: true)
         }else{
             editButton.title = "Edit"
-            createButton.image = UIImage(systemName: "plus")
             tableView.setEditing(false, animated: true)
         }
     }
@@ -128,13 +132,6 @@ class BookmarkViewController: UIViewController {
         }
     }
     
-    //Prevent segue if editing mode is enable
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if isEditModeEnable && identifier == "NewBMSegue"{
-            manageFolder(for: nil)
-        }
-        return !tableView.isEditing
-    }
 }
 
 //MARK: - UITableViewDelegate

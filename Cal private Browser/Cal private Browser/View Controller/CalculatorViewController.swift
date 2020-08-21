@@ -31,7 +31,7 @@ class CalculatorViewController: UIViewController {
             if isInt{
                 displayLabel.text = String(Int(newValue))
             }else{
-                displayLabel.text = String(newValue)
+                displayLabel.text = String(format:"%.2f",newValue)
                 //Instead of saying everytime we set the label:
                 //Old: displayLabel.text = String(displayValue * 2)
                 //New: displayValue *= -1
