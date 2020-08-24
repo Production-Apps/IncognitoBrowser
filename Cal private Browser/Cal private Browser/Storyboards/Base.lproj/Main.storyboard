@@ -464,9 +464,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="glF-0f-fQB"/>
                                     <barButtonItem enabled="NO" title="Bookmarks" id="EB7-88-FfB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PO8-9m-lA3"/>
-                                    <barButtonItem title="Edit" id="WHB-qL-wio">
+                                    <barButtonItem systemItem="add" id="zmU-81-KU2">
                                         <connections>
-                                            <action selector="editMode:" destination="mpY-aQ-APF" id="qvz-GU-qPn"/>
+                                            <segue destination="tHP-Uj-vOX" kind="show" identifier="NewBMSegue" id="eX6-og-9OR"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -508,9 +508,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="juI-qA-dX3" userLabel="BottomToolbar">
                                 <rect key="frame" x="0.0" y="759" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem systemItem="add" id="zmU-81-KU2">
+                                    <barButtonItem title="Edit" id="WHB-qL-wio">
                                         <connections>
-                                            <segue destination="tHP-Uj-vOX" kind="show" identifier="NewBMSegue" id="eX6-og-9OR"/>
+                                            <action selector="editMode:" destination="mpY-aQ-APF" id="qvz-GU-qPn"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="OAI-8z-Gdh"/>
