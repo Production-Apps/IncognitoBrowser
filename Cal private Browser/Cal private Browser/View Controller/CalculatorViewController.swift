@@ -13,31 +13,24 @@ class CalculatorViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var displayLabel: UILabel!
     
-    //MARK: - Properties
+    //MARK: - Propertieslet numberFormatter = NumberFormatter()
     private var calculatorController = CalculatorController()
     
     private var isFinishTypingNumber: Bool = true
     
     private var displayValue: Double {
         get{
-            guard let doubleValue = Double(displayLabel.text!) else { return 0.0 }
+            let cleanVal = displayLabel.text!.replacingOccurrences(of: ",", with: "")
+            guard let doubleValue = Double(cleanVal) else { return 0.0 }
             return doubleValue
         }
         
         set{
-            //Check if the double number is an Int (has a decimal zero)
-            let isInt = floor(newValue) == newValue
-            //If so convert to Int to prevent having decimal zeros
-            if isInt{
-                displayLabel.text = String(Int(newValue))
-            }else{
-                displayLabel.text = String(format:"%.2f",newValue)
-                //Instead of saying everytime we set the label:
-                //Old: displayLabel.text = String(displayValue * 2)
-                //New: displayValue *= -1
-            }
+            
+            displayLabel.text = newValue.withCommas()
         }
     }
+    private var tempValue: String = ""
 
     //MARK: - View Lifecyle
     
@@ -62,13 +55,14 @@ class CalculatorViewController: UIViewController {
         if let numVal = sender.currentTitle {
             
             if isFinishTypingNumber{
-                displayLabel.text = numVal
+                tempValue = numVal
                 //Set to signal that we just start typing so the following numbers will be appended to the string in the else statement below
                 isFinishTypingNumber = false
             }else{
+                numberFormatter.alwaysShowsDecimalSeparator = false
                 //prevent more than one decimal to be type by user
                 if numVal == "."{
-                    
+                    numberFormatter.alwaysShowsDecimalSeparator = true
                     //Check if the rounded value is equal to the current value
                     //EX: on label 8.2 --- rounded 8 = isInt is False
                     //EX: on label 8 --- rounded 8 = isInt is True
@@ -82,8 +76,12 @@ class CalculatorViewController: UIViewController {
                     }
                     
                 }
-                
+                tempValue += numVal
                 displayLabel.text?.append(numVal)
+            }
+            if let totalDouble = Double(tempValue){
+                
+                displayValue = totalDouble
             }
         }
         
@@ -103,5 +101,18 @@ class CalculatorViewController: UIViewController {
                 print("Incorrect passcode")
             }
         }
+    }
+}
+
+let numberFormatter = NumberFormatter()
+
+extension Double {
+    func withCommas() -> String {
+        
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.decimalSeparator = "."
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.groupingSeparator = ","
+        return numberFormatter.string(from: NSNumber(value:self))!
     }
 }
