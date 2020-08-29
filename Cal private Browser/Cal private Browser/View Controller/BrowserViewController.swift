@@ -40,6 +40,8 @@ class BrowserViewController: UIViewController {
         
         setupObservers()
         setupNotifications()
+        
+        
     }
     
     deinit {
@@ -48,9 +50,7 @@ class BrowserViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-        webView.stopLoading()
-        webView.goBack()
-        searchBar.text = webView.url?.absoluteString
+        goBack()
     }
     
     @IBAction func forwardButtonPressed(_ sender: UIBarButtonItem) {
@@ -66,9 +66,8 @@ class BrowserViewController: UIViewController {
     }
     
     @IBAction func backOptionalButton(_ sender: UIButton) {
-        webView.stopLoading()
-        webView.goBack()
-        searchBar.text = webView.url?.absoluteString
+        goBack()
+        
     }
     
     @IBAction func forwardOptinalButton(_ sender: UIButton) {
@@ -120,6 +119,13 @@ class BrowserViewController: UIViewController {
         }
     }
     
+    func goBack() {
+        webView.evaluateJavaScript("window.removeEventListener('beforeunload")
+        webView.stopLoading()
+        webView.goBack()
+        searchBar.text = webView.url?.absoluteString
+    }
+    
     @objc private func appEnterBackground(){
         //Clear all cookies
         cleanData()
@@ -129,12 +135,12 @@ class BrowserViewController: UIViewController {
         navigationController?.popViewController(animated: true)
         
         HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
-        print("[WebCacheCleaner] All cookies deleted")
+        //print("[WebCacheCleaner] All cookies deleted")
         
         WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
             records.forEach { record in
                 WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
-                print("[WebCacheCleaner] Record \(record) deleted")
+                //print("[WebCacheCleaner] Record \(record) deleted")
             }
         }
        }
@@ -246,10 +252,13 @@ extension BrowserViewController: WKNavigationDelegate{
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = navigationAction.request.url else { return }
+        
         if navigationAction.navigationType == .linkActivated{
+            //When user click on a link
             webView.load(URLRequest(url: url))
             decisionHandler(.allow)
         }else{
+            //When user explicitly types an URL
             decisionHandler(.allow)
         }
     }
