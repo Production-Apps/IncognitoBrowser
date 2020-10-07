@@ -90,7 +90,7 @@ class CalculatorViewController: UIViewController {
     @IBAction func SwipeActionTriggered(_ sender: UISwipeGestureRecognizer) {
         
         //TODO: Implement userdefaults to save password and retrive it
-        let passCode = "1234"
+        let passCode = "1,234"
         
         if sender.state == .ended {
             if displayLabel.text == passCode {
