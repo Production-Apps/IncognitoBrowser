@@ -87,6 +87,8 @@ class CalculatorViewController: UIViewController {
         
     }
     
+    
+    //Triggered to enter browser upon correct PIN
     @IBAction func SwipeActionTriggered(_ sender: UISwipeGestureRecognizer) {
         
         //TODO: Implement userdefaults to save password and retrive it

@@ -26,6 +26,7 @@
 		04CF26B924C0258F006DC218 /* Cal_private_BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26B824C0258F006DC218 /* Cal_private_BrowserTests.swift */; };
 		04CF26C424C0258F006DC218 /* Cal_private_BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF26C324C0258F006DC218 /* Cal_private_BrowserUITests.swift */; };
 		04CF26D524C0A5EA006DC218 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CF26D424C0A5EA006DC218 /* WebKit.framework */; };
+		04DF445725371ADB006ED846 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04DF445625371ADB006ED846 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		04CF26C324C0258F006DC218 /* Cal_private_BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cal_private_BrowserUITests.swift; sourceTree = "<group>"; };
 		04CF26C524C0258F006DC218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CF26D424C0A5EA006DC218 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		04DF445625371ADB006ED846 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				043169C824C4651300006830 /* CalculatorViewController.swift */,
+				04DF445625371ADB006ED846 /* Settings.bundle */,
 				04CF26A524C02589006DC218 /* BrowserViewController.swift */,
 				04C29C1524CEF45800625C15 /* BookmarkViewController.swift */,
 				04C29C5B24D1732500625C15 /* FolderDetailViewController.swift */,
@@ -314,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DF445725371ADB006ED846 /* Settings.bundle in Resources */,
 				04CF26AE24C0258F006DC218 /* LaunchScreen.storyboard in Resources */,
 				04CF26AB24C0258F006DC218 /* Assets.xcassets in Resources */,
 				04CF26A924C02589006DC218 /* Main.storyboard in Resources */,
