@@ -155,6 +155,7 @@
 				04CF26A124C02589006DC218 /* AppDelegate.swift */,
 				04CF26A324C02589006DC218 /* SceneDelegate.swift */,
 				04CF26D124C04556006DC218 /* View Controller */,
+				04DF445625371ADB006ED846 /* Settings.bundle */,
 				04CF26D224C04560006DC218 /* Storyboards */,
 				04C29C0824C9DCFF00625C15 /* Model Controller */,
 				04C29C0524C9DBF900625C15 /* Model */,
@@ -188,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				043169C824C4651300006830 /* CalculatorViewController.swift */,
-				04DF445625371ADB006ED846 /* Settings.bundle */,
 				04CF26A524C02589006DC218 /* BrowserViewController.swift */,
 				04C29C1524CEF45800625C15 /* BookmarkViewController.swift */,
 				04C29C5B24D1732500625C15 /* FolderDetailViewController.swift */,

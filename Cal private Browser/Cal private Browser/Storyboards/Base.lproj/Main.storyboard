@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -378,6 +378,21 @@
                                     <constraint firstAttribute="height" constant="60" id="Mrz-yC-Ukp"/>
                                 </constraints>
                                 <items>
+                                    <barButtonItem systemItem="bookmarks" id="XDw-zR-kk7">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="bookmarkButtonPressed:" destination="BYZ-38-t0r" id="Muf-cS-rwK"/>
+                                            <segue destination="mpY-aQ-APF" kind="presentation" identifier="bookmarkSegue" id="BI9-dh-W52"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jgh-LE-z3N"/>
+                                    <barButtonItem title="Incognito" image="lock" catalog="system" id="Rjc-jc-8YZ">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="terminateSession:" destination="BYZ-38-t0r" id="eEC-H6-iI8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="K0Y-lV-9Ta"/>
                                     <barButtonItem title="Item" image="chevron.left" catalog="system" id="LDI-XW-frr">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
@@ -391,27 +406,12 @@
                                             <action selector="forwardButtonPressed:" destination="BYZ-38-t0r" id="ywo-wh-F6t"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="jgh-LE-z3N"/>
-                                    <barButtonItem title="Incognito" image="lock" catalog="system" id="Rjc-jc-8YZ">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <action selector="terminateSession:" destination="BYZ-38-t0r" id="eEC-H6-iI8"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="K0Y-lV-9Ta"/>
-                                    <barButtonItem systemItem="bookmarks" id="XDw-zR-kk7">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <action selector="bookmarkButtonPressed:" destination="BYZ-38-t0r" id="Muf-cS-rwK"/>
-                                            <segue destination="mpY-aQ-APF" kind="presentation" identifier="bookmarkSegue" id="BI9-dh-W52"/>
-                                        </connections>
-                                    </barButtonItem>
                                 </items>
-                                <color key="barTintColor" red="0.019607843137254902" green="0.035294117647058823" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.019607843137254902" green="0.035294117647058823" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="bQP-el-qBP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0M8-Tt-0W0"/>
@@ -458,17 +458,17 @@
                                     <constraint firstAttribute="height" constant="45" id="yv1-8G-yNw"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="cancel" id="7Vs-Eg-MxA">
+                                    <barButtonItem systemItem="add" id="zmU-81-KU2">
                                         <connections>
-                                            <action selector="cancelButtonPressed:" destination="mpY-aQ-APF" id="dBp-6M-JyF"/>
+                                            <segue destination="tHP-Uj-vOX" kind="show" identifier="NewBMSegue" id="eX6-og-9OR"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="glF-0f-fQB"/>
                                     <barButtonItem enabled="NO" title="Bookmarks" id="EB7-88-FfB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PO8-9m-lA3"/>
-                                    <barButtonItem systemItem="add" id="zmU-81-KU2">
+                                    <barButtonItem systemItem="cancel" id="7Vs-Eg-MxA">
                                         <connections>
-                                            <segue destination="tHP-Uj-vOX" kind="show" identifier="NewBMSegue" id="eX6-og-9OR"/>
+                                            <action selector="cancelButtonPressed:" destination="mpY-aQ-APF" id="dBp-6M-JyF"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -510,15 +510,15 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="juI-qA-dX3" userLabel="BottomToolbar">
                                 <rect key="frame" x="0.0" y="759" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Edit" id="WHB-qL-wio">
-                                        <connections>
-                                            <action selector="editMode:" destination="mpY-aQ-APF" id="qvz-GU-qPn"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OAI-8z-Gdh"/>
                                     <barButtonItem title="New Folder" id="yTK-fw-IzY">
                                         <connections>
                                             <action selector="NewFolderButton:" destination="mpY-aQ-APF" id="ZHy-ev-H7p"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OAI-8z-Gdh"/>
+                                    <barButtonItem title="Edit" id="WHB-qL-wio">
+                                        <connections>
+                                            <action selector="editMode:" destination="mpY-aQ-APF" id="qvz-GU-qPn"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -745,7 +745,7 @@
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="chevron.up" catalog="system" width="128" height="72"/>
+        <image name="chevron.up" catalog="system" width="32" height="32"/>
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="lock" catalog="system" width="128" height="128"/>
         <systemColor name="scrollViewTexturedBackgroundColor">
