@@ -311,7 +311,7 @@
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search or enter URL" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-T3-Tqj">
                                         <rect key="frame" x="8" y="0.0" width="382" height="56"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="URL" textContentType="url"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" textContentType="url"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
                                             <string>Title</string>
@@ -473,7 +473,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="glF-0f-fQB"/>
                                     <barButtonItem enabled="NO" title="Bookmarks" id="EB7-88-FfB"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PO8-9m-lA3"/>
-                                    <barButtonItem systemItem="cancel" id="7Vs-Eg-MxA">
+                                    <barButtonItem systemItem="done" id="7Vs-Eg-MxA">
                                         <connections>
                                             <action selector="cancelButtonPressed:" destination="mpY-aQ-APF" id="dBp-6M-JyF"/>
                                         </connections>
@@ -571,17 +571,17 @@
                                             <constraint firstAttribute="height" constant="45" id="aKn-de-3vG"/>
                                         </constraints>
                                         <items>
-                                            <barButtonItem systemItem="cancel" id="LT1-Hd-cNT">
+                                            <barButtonItem systemItem="save" id="SHy-yY-pev">
                                                 <connections>
-                                                    <action selector="cancelButtonPressed:" destination="tHP-Uj-vOX" id="9LP-cL-dhR"/>
+                                                    <action selector="saveButtonPressed:" destination="tHP-Uj-vOX" id="mFL-1M-UCP"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="2Fj-Ff-kUj"/>
                                             <barButtonItem enabled="NO" title="New Bookmark" id="aWZ-rV-Gvh"/>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="59Z-2P-WFh"/>
-                                            <barButtonItem systemItem="save" id="SHy-yY-pev">
+                                            <barButtonItem systemItem="cancel" id="LT1-Hd-cNT">
                                                 <connections>
-                                                    <action selector="saveButtonPressed:" destination="tHP-Uj-vOX" id="mFL-1M-UCP"/>
+                                                    <action selector="cancelButtonPressed:" destination="tHP-Uj-vOX" id="9LP-cL-dhR"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
