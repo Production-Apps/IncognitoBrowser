@@ -17,9 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wallpaper 9" translatesAutoresizingMaskIntoConstraints="NO" id="3bo-re-E0z">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="WCD-FK-Q2v">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
@@ -266,15 +263,12 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JMt-5F-rzv"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3bo-re-E0z" secondAttribute="bottom" id="8Tn-jB-0QK"/>
                             <constraint firstItem="WCD-FK-Q2v" firstAttribute="top" secondItem="JMt-5F-rzv" secondAttribute="top" id="EaR-US-IJs"/>
-                            <constraint firstItem="3bo-re-E0z" firstAttribute="top" secondItem="AbI-qO-Wfw" secondAttribute="top" id="IhQ-Uf-bif"/>
-                            <constraint firstItem="3bo-re-E0z" firstAttribute="leading" secondItem="JMt-5F-rzv" secondAttribute="leading" id="OYw-yS-efG"/>
                             <constraint firstItem="JMt-5F-rzv" firstAttribute="bottom" secondItem="WCD-FK-Q2v" secondAttribute="bottom" id="QmV-Mo-89B"/>
                             <constraint firstItem="JMt-5F-rzv" firstAttribute="trailing" secondItem="WCD-FK-Q2v" secondAttribute="trailing" id="YgP-dn-wCi"/>
                             <constraint firstItem="WCD-FK-Q2v" firstAttribute="leading" secondItem="JMt-5F-rzv" secondAttribute="leading" id="srb-fq-01t"/>
-                            <constraint firstItem="3bo-re-E0z" firstAttribute="trailing" secondItem="JMt-5F-rzv" secondAttribute="trailing" id="uHt-Nt-9pu"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="6Yu-Ml-J0Z" appends="YES" id="ckh-8U-4Dj"/>
@@ -754,7 +748,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Wallpaper 9" width="1080" height="2340"/>
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>

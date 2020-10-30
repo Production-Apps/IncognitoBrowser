@@ -96,12 +96,27 @@ class CalculatorViewController: UIViewController {
         
         if sender.state == .ended {
             if displayLabel.text == passCode {
-                //Create segue
-                print("Correct passcode")
+                provideFeedback(success: true)
                 performSegue(withIdentifier: "BrowserSegue", sender: nil)
             }else{
-                print("Incorrect passcode")
+                provideFeedback(success: false)
+                
             }
+        }
+    }
+    
+    //MARK: - Private MEthods
+    private func provideFeedback(success: Bool) {
+        let feedback = UINotificationFeedbackGenerator()
+        
+        if success{
+            print("Correct passcode")
+            displayLabel.textColor = .white
+            feedback.notificationOccurred(.success)
+        }else{
+            print("Incorrect passcode")
+            displayLabel.textColor = .red
+            feedback.notificationOccurred(.error)
         }
     }
 }
