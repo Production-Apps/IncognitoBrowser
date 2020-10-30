@@ -79,8 +79,13 @@ class BrowserViewController: UIViewController {
         webView.goForward()
     }
     
-    @IBAction func goUpOptionalButton(_ sender: UIButton) {
-        webView.evaluateJavaScript("window.scrollTo(0,0)", completionHandler: nil)
+    @IBAction func scrollUp(_ sender: UIButton) {
+
+        UIView.animate(withDuration: 0.4) {
+            //self.webView.evaluateJavaScript("window.scrollTo({top: 0, behavior: 'smooth'})", completionHandler: nil)
+            self.webView.scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        }
+        
     }
     
     
