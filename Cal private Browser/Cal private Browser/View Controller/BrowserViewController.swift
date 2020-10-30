@@ -64,6 +64,10 @@ class BrowserViewController: UIViewController {
     
     @IBAction func terminateSession(_ sender: UIBarButtonItem) {
         cleanData()
+        
+        //Add taptic feedback when the lock button is pressed
+        let feedback = UINotificationFeedbackGenerator()
+        feedback.notificationOccurred(.success)
     }
     
     @IBAction func backOptionalButton(_ sender: UIButton) {
