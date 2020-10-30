@@ -25,6 +25,7 @@ class BrowserViewController: UIViewController {
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var toolBar: UIToolbar!
     
+    @IBOutlet weak var sideNavButtonView: UIView!
     @IBOutlet weak var forwardDragButton: UIButton!
     @IBOutlet weak var backDragButton: UIButton!
     
@@ -87,6 +88,9 @@ class BrowserViewController: UIViewController {
     }
     
     private func setupUI(){
+        
+        sideNavButtonView.layer.cornerRadius = 15
+        sideNavButtonView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
         
         webView.allowsBackForwardNavigationGestures = true
         

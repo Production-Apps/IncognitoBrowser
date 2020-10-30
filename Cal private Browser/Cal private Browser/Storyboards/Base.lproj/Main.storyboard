@@ -303,6 +303,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <wkWebView contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-Rc-u0B">
+                                <rect key="frame" x="0.0" y="106.5" width="414" height="763.5"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Calculator">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bQP-el-qBP">
                                 <rect key="frame" x="8" y="44" width="398" height="62.5"/>
                                 <subviews>
@@ -324,53 +333,6 @@
                                     <constraint firstAttribute="trailing" secondItem="Mdf-Nt-O83" secondAttribute="trailing" id="NR8-SM-Z6h"/>
                                     <constraint firstAttribute="trailing" secondItem="gOT-T3-Tqj" secondAttribute="trailing" constant="8" id="hq3-eW-GFE"/>
                                 </constraints>
-                            </stackView>
-                            <wkWebView contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb3-Rc-u0B">
-                                <rect key="frame" x="0.0" y="106.5" width="414" height="763.5"/>
-                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <gestureRecognizers/>
-                                <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="Calculator">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gDO-kP-dqV">
-                                <rect key="frame" x="8" y="301" width="30" height="120"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ff-KT-tlm">
-                                        <rect key="frame" x="0.0" y="4.5" width="30" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="Ean-x2-MDK"/>
-                                            <constraint firstAttribute="height" constant="30" id="vAZ-5b-zvp"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="chevron.up" catalog="system"/>
-                                        <connections>
-                                            <action selector="goUpOptionalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CGd-Yt-3GB"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8A-KV-yC4">
-                                        <rect key="frame" x="0.0" y="47" width="30" height="26.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="f7e-eS-wId"/>
-                                            <constraint firstAttribute="height" constant="30" id="leo-Lx-oZ8"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="chevron.left" catalog="system"/>
-                                        <connections>
-                                            <action selector="backOptionalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5Z-FP-jsH"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-VZ-ICW">
-                                        <rect key="frame" x="0.0" y="92" width="30" height="26.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="DiP-vi-fH9"/>
-                                            <constraint firstAttribute="width" constant="30" id="JSD-ny-kr5"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="chevron.right" catalog="system"/>
-                                        <connections>
-                                            <action selector="forwardOptinalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JFD-aG-eQY"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zs1-Gy-k6T">
                                 <rect key="frame" x="0.0" y="821" width="414" height="60"/>
@@ -409,6 +371,56 @@
                                 </items>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8MC-QY-S86">
+                                <rect key="frame" x="5" y="236.5" width="35" height="130"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gDO-kP-dqV">
+                                        <rect key="frame" x="2.5" y="5" width="30" height="120"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ff-KT-tlm">
+                                                <rect key="frame" x="0.0" y="4.5" width="30" height="20.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="Ean-x2-MDK"/>
+                                                    <constraint firstAttribute="height" constant="30" id="vAZ-5b-zvp"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="chevron.up" catalog="system"/>
+                                                <connections>
+                                                    <action selector="goUpOptionalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CGd-Yt-3GB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8A-KV-yC4">
+                                                <rect key="frame" x="0.0" y="47" width="30" height="26.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="f7e-eS-wId"/>
+                                                    <constraint firstAttribute="height" constant="30" id="leo-Lx-oZ8"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="chevron.left" catalog="system"/>
+                                                <connections>
+                                                    <action selector="backOptionalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5Z-FP-jsH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbv-VZ-ICW">
+                                                <rect key="frame" x="0.0" y="92" width="30" height="26.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="DiP-vi-fH9"/>
+                                                    <constraint firstAttribute="width" constant="30" id="JSD-ny-kr5"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="chevron.right" catalog="system"/>
+                                                <connections>
+                                                    <action selector="forwardOptinalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JFD-aG-eQY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="8SH-Gh-qE9"/>
+                                    <constraint firstItem="gDO-kP-dqV" firstAttribute="centerY" secondItem="8MC-QY-S86" secondAttribute="centerY" id="Nyi-89-jqh"/>
+                                    <constraint firstItem="gDO-kP-dqV" firstAttribute="centerX" secondItem="8MC-QY-S86" secondAttribute="centerX" id="Rau-4x-KsR"/>
+                                    <constraint firstAttribute="height" constant="130" id="mld-j2-Qvy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -419,13 +431,13 @@
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4Q3-Yo-YKZ"/>
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="7yr-FV-7rP"/>
                             <constraint firstItem="bQP-el-qBP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Ej5-dg-T8h"/>
-                            <constraint firstItem="Zs1-Gy-k6T" firstAttribute="top" secondItem="gDO-kP-dqV" secondAttribute="bottom" constant="400" id="F1D-6C-FjN"/>
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="top" secondItem="bQP-el-qBP" secondAttribute="bottom" id="Ldn-wc-i6S"/>
+                            <constraint firstItem="8MC-QY-S86" firstAttribute="top" secondItem="bQP-el-qBP" secondAttribute="bottom" constant="130" id="Qmq-FZ-ecr"/>
                             <constraint firstItem="Zs1-Gy-k6T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UA3-gL-Dsb"/>
                             <constraint firstItem="Zs1-Gy-k6T" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="aYM-Zf-qU8"/>
-                            <constraint firstItem="gDO-kP-dqV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="dIF-EH-fQh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gb3-Rc-u0B" secondAttribute="bottomMargin" id="n97-qy-OgT"/>
                             <constraint firstAttribute="bottom" secondItem="Zs1-Gy-k6T" secondAttribute="bottom" constant="15" id="qmf-Ky-kEq"/>
+                            <constraint firstItem="8MC-QY-S86" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="teU-i0-fQv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="gab-hy-Jbr"/>
@@ -436,6 +448,7 @@
                         <outlet property="forwardDragButton" destination="Qbv-VZ-ICW" id="4GZ-xh-n1E"/>
                         <outlet property="progressView" destination="Mdf-Nt-O83" id="2V2-PE-SvE"/>
                         <outlet property="searchBar" destination="gOT-T3-Tqj" id="hAK-P1-g6p"/>
+                        <outlet property="sideNavButtonView" destination="8MC-QY-S86" id="Wba-ae-63o"/>
                         <outlet property="toolBar" destination="Zs1-Gy-k6T" id="M9K-70-rjz"/>
                         <outlet property="webView" destination="gb3-Rc-u0B" id="Vj9-WP-puG"/>
                     </connections>
