@@ -30,6 +30,7 @@ class CalculatorViewController: UIViewController {
             displayLabel.text = newValue.withCommas()
         }
     }
+    
     private var tempValue: String = ""
 
     //MARK: - View Lifecyle
@@ -87,7 +88,6 @@ class CalculatorViewController: UIViewController {
         
     }
     
-    
     //Triggered to enter browser upon correct PIN
     @IBAction func SwipeActionTriggered(_ sender: UISwipeGestureRecognizer) {
         
@@ -110,12 +110,23 @@ class CalculatorViewController: UIViewController {
         let feedback = UINotificationFeedbackGenerator()
         
         if success{
-            print("Correct passcode")
+            //print("Correct passcode")
             displayLabel.textColor = .white
             feedback.notificationOccurred(.success)
         }else{
-            print("Incorrect passcode")
-            displayLabel.textColor = .red
+           
+            UIView.transition(with: displayLabel, duration: 0.7, options: .transitionCrossDissolve) {
+                self.displayLabel.textColor = .red
+            } completion: { (nil) in
+                self.displayLabel.textColor = .white
+                
+                //Set display to zero
+                self.tempValue = "0"
+                self.displayValue = 0.0
+            }
+
+            
+            //Init taptic feedback
             feedback.notificationOccurred(.error)
         }
     }

@@ -121,7 +121,8 @@ class BrowserViewController: UIViewController {
     
     private func fullScreen(_ isEnable: Bool) {
         self.searchBar.isHidden = isEnable
-        self.toolBar.isHidden = isEnable
+      self.toolBar.isHidden = isEnable
+
         if isEnable{
             webView.frame = self.view.frame
         }

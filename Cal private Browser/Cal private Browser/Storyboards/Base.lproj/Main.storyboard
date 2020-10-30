@@ -63,7 +63,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbH-tc-7va">
-                                                <rect key="frame" x="195.66666666666663" y="0.0" width="96.666666666666657" height="126.66666666666667"/>
+                                                <rect key="frame" x="195.66666666666666" y="0.0" width="96.666666666666657" height="126.66666666666667"/>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
                                                 <state key="normal" title="%">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -108,7 +108,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieY-8P-TFd">
-                                                <rect key="frame" x="195.66666666666663" y="0.0" width="96.666666666666657" height="127"/>
+                                                <rect key="frame" x="195.66666666666666" y="0.0" width="96.666666666666657" height="127"/>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
                                                 <state key="normal" title="9">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -153,7 +153,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeB-cg-P5q">
-                                                <rect key="frame" x="195.66666666666663" y="0.0" width="96.666666666666657" height="126.66666666666667"/>
+                                                <rect key="frame" x="195.66666666666666" y="0.0" width="96.666666666666657" height="126.66666666666667"/>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
                                                 <state key="normal" title="6">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -198,7 +198,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pWY-JI-Pi3">
-                                                <rect key="frame" x="195.66666666666663" y="0.0" width="96.666666666666657" height="127"/>
+                                                <rect key="frame" x="195.66666666666666" y="0.0" width="96.666666666666657" height="127"/>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
                                                 <state key="normal" title="3">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -328,7 +328,7 @@
                                     <constraint firstAttribute="trailing" secondItem="gOT-T3-Tqj" secondAttribute="trailing" constant="8" id="hq3-eW-GFE"/>
                                 </constraints>
                             </stackView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zs1-Gy-k6T">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="Zs1-Gy-k6T">
                                 <rect key="frame" x="0.0" y="769" width="390" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Mrz-yC-Ukp"/>
