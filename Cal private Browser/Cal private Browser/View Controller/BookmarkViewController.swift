@@ -87,6 +87,7 @@ class BookmarkViewController: UIViewController {
         alert.addTextField { (textField) in
             textField.text = folder?.title//Set the title to current title
             textField.placeholder = "Please enter a title"
+            textField.autocapitalizationType = .words
             titleTextField = textField
         }
         
