@@ -434,7 +434,6 @@
                             <constraint firstItem="8MC-QY-S86" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="teU-i0-fQv"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="gab-hy-Jbr"/>
                     <connections>
                         <outlet property="backButton" destination="LDI-XW-frr" id="AbK-YM-Pte"/>
                         <outlet property="backDragButton" destination="l8A-KV-yC4" id="cAP-3t-4Ea"/>
