@@ -15,6 +15,7 @@ class BrowserViewController: UIViewController {
     private var observation: NSKeyValueObservation?
     private var homePage: String?
     private let notification = NotificationCenter.default
+ 
 
     
     //MARK: - Outlets
@@ -28,6 +29,7 @@ class BrowserViewController: UIViewController {
     @IBOutlet weak var sideNavButtonView: UIView!
     @IBOutlet weak var forwardDragButton: UIButton!
     @IBOutlet weak var backDragButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     
     //MARK: - View Life Cycle
@@ -100,6 +102,8 @@ class BrowserViewController: UIViewController {
         
         sideNavButtonView.layer.cornerRadius = 15
         sideNavButtonView.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+        
+        errorLabel.isHidden = true
         
         webView.allowsBackForwardNavigationGestures = true
         
@@ -192,6 +196,12 @@ class BrowserViewController: UIViewController {
             print("URL could not be loaded!")
         }
     }
+    
+    private func displayError(shouldShow: Bool){
+        webView.isHidden = shouldShow
+        errorLabel.isHidden = !shouldShow
+        
+    }
 
     //MARK: - General overwrite methods
     // Observe value
@@ -255,12 +265,15 @@ extension BrowserViewController: WKNavigationDelegate{
         //Set searchbar text to the current url
         searchBar.text = webView.url?.absoluteString
         progressView.isHidden = !webView.isLoading
+        
          searchBar.setImage(UIImage(systemName: webView.isLoading ? "xmark" : "arrow.counterclockwise"), for: .bookmark, state: .normal)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         updateViews()
         progressView.isHidden = !webView.isLoading
+        //Handle internet connection errors
+        displayError(shouldShow: false)
         searchBar.setImage(UIImage(systemName: webView.isLoading ? "xmark" : "arrow.counterclockwise"), for: .bookmark, state: .normal)
     }
     
@@ -274,6 +287,16 @@ extension BrowserViewController: WKNavigationDelegate{
         }else{
             //When user explicitly types an URL
             decisionHandler(.allow)
+        }
+    }
+    
+    //TODO:Handle internet connection errors
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        let errorDesc = error.localizedDescription.description
+        if errorDesc != ""{
+            displayError(shouldShow: true)
+            errorLabel.text = errorDesc
+      
         }
     }
 }

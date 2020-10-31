@@ -309,7 +309,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bQP-el-qBP">
                                 <rect key="frame" x="8" y="44" width="374" height="62.666666666666657"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search or enter URL" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-T3-Tqj">
+                                    <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="Search or enter URL" translatesAutoresizingMaskIntoConstraints="NO" id="gOT-T3-Tqj">
                                         <rect key="frame" x="8" y="0.0" width="358" height="56"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" textContentType="url"/>
                                         <scopeButtonTitles>
@@ -379,7 +379,7 @@
                                                 </constraints>
                                                 <state key="normal" backgroundImage="chevron.up" catalog="system"/>
                                                 <connections>
-                                                    <action selector="goUpOptionalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CGd-Yt-3GB"/>
+                                                    <action selector="scrollUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kwj-j4-8su"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8A-KV-yC4">
@@ -415,6 +415,12 @@
                                     <constraint firstAttribute="height" constant="130" id="mld-j2-Qvy"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crr-oW-Roj">
+                                <rect key="frame" x="177.33333333333334" y="413.66666666666669" width="35.333333333333343" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -422,6 +428,7 @@
                         <constraints>
                             <constraint firstItem="bQP-el-qBP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0M8-Tt-0W0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bQP-el-qBP" secondAttribute="trailing" constant="8" id="1hx-5y-VMi"/>
+                            <constraint firstItem="Crr-oW-Roj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1pi-OP-fea"/>
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4Q3-Yo-YKZ"/>
                             <constraint firstItem="gb3-Rc-u0B" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="7yr-FV-7rP"/>
                             <constraint firstItem="bQP-el-qBP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Ej5-dg-T8h"/>
@@ -430,6 +437,7 @@
                             <constraint firstItem="Zs1-Gy-k6T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UA3-gL-Dsb"/>
                             <constraint firstItem="Zs1-Gy-k6T" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="aYM-Zf-qU8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gb3-Rc-u0B" secondAttribute="bottomMargin" id="n97-qy-OgT"/>
+                            <constraint firstItem="Crr-oW-Roj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="njD-Xj-kH6"/>
                             <constraint firstAttribute="bottom" secondItem="Zs1-Gy-k6T" secondAttribute="bottom" constant="15" id="qmf-Ky-kEq"/>
                             <constraint firstItem="8MC-QY-S86" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="teU-i0-fQv"/>
                         </constraints>
@@ -437,6 +445,7 @@
                     <connections>
                         <outlet property="backButton" destination="LDI-XW-frr" id="AbK-YM-Pte"/>
                         <outlet property="backDragButton" destination="l8A-KV-yC4" id="cAP-3t-4Ea"/>
+                        <outlet property="errorLabel" destination="Crr-oW-Roj" id="ep8-qB-e1O"/>
                         <outlet property="forwardButton" destination="LWT-Iu-2fa" id="5dj-Re-MK7"/>
                         <outlet property="forwardDragButton" destination="Qbv-VZ-ICW" id="4GZ-xh-n1E"/>
                         <outlet property="progressView" destination="Mdf-Nt-O83" id="2V2-PE-SvE"/>
@@ -750,7 +759,7 @@
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="chevron.up" catalog="system" width="32" height="32"/>
+        <image name="chevron.up" catalog="system" width="128" height="72"/>
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="lock" catalog="system" width="128" height="128"/>
         <systemColor name="scrollViewTexturedBackgroundColor">
