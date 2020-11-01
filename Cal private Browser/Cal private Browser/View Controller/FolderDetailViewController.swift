@@ -30,6 +30,7 @@ class FolderDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var titleLabel: UIBarButtonItem!
     
     
     //MARK: - View lifecycle
@@ -37,6 +38,8 @@ class FolderDetailViewController: UIViewController {
         super.viewDidLoad()
         setDelegates()
         loadBookmarks()
+        //set title
+        titleLabel.title = folder?.title
     }
     
     //MARK: - Actions

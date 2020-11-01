@@ -748,6 +748,7 @@
                         <outlet property="cancelButton" destination="IDl-VM-crV" id="jQb-UK-NJP"/>
                         <outlet property="editButton" destination="kGS-mJ-d7Z" id="vF9-1F-BHa"/>
                         <outlet property="tableView" destination="UJS-j3-XD8" id="e6B-2f-1sF"/>
+                        <outlet property="titleLabel" destination="iJS-fp-xlX" id="cbq-Xm-6gO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frC-ZE-o9p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
