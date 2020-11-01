@@ -8,13 +8,22 @@
 
 import UIKit
 
+
+enum HandlePasscode {
+    case create
+    case reset
+}
+
 class CalculatorViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var displayLabel: UILabel!
     
-    //MARK: - Propertieslet numberFormatter = NumberFormatter()
+    //MARK: - Properties
+    
     private var calculatorController = CalculatorController()
+    
+    private let defaults = UserDefaults.standard
     
     private var isFinishTypingNumber: Bool = true
     
@@ -32,6 +41,8 @@ class CalculatorViewController: UIViewController {
     }
     
     private var tempValue: String = ""
+    
+    private var passcodeFailCounter = 0
 
     //MARK: - View Lifecyle
     
@@ -91,15 +102,26 @@ class CalculatorViewController: UIViewController {
     //Triggered to enter browser upon correct PIN
     @IBAction func SwipeActionTriggered(_ sender: UISwipeGestureRecognizer) {
         
-        //TODO: Implement userdefaults to save password and retrive it
-        let passCode = "1,234"
-        
+        //Read saved passcode to authenticate user
+        let passcode = defaults.string(forKey: "Passcode")
+        //Remove comas from the user entry
+        let providedPasscode = displayLabel.text?.replacingOccurrences(of: ",", with: "")
         if sender.state == .ended {
-            if displayLabel.text == passCode {
+            if providedPasscode == passcode {
                 provideFeedback(success: true)
                 performSegue(withIdentifier: "BrowserSegue", sender: nil)
             }else{
+                
                 provideFeedback(success: false)
+                passcodeFailCounter += 1
+                if passcodeFailCounter >= 3 {
+                    //Show alert to reset passcode
+                    //Show disclosure that if passcode is reset all data will be wipe
+                    shouldAlert(type: .reset)
+                    //reset counter to zero
+                    passcodeFailCounter = 0
+                }//Create else statement see if a userdefault for first run exist
+                print(passcodeFailCounter)
                 
             }
         }
@@ -129,6 +151,40 @@ class CalculatorViewController: UIViewController {
             //Init taptic feedback
             feedback.notificationOccurred(.error)
         }
+    }
+    
+    private func shouldAlert(type: HandlePasscode)  {
+        let alert = UIAlertController(title: "Do you want to reset your passcode?", message: "If you reset your passcode all your saved data will be wipe.", preferredStyle: .alert)
+        var passcodeTextField: UITextField?
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Enter a new passcode"
+            textField.keyboardType = .decimalPad
+            passcodeTextField = textField
+            
+        }
+        
+        
+       
+        
+        let savePasscodeAction = UIAlertAction(title: "Save", style: .default) { (_) in
+            //Save new passcode to Userdefaults
+            
+            //Check if the textfield is populated and if  the lenght is 4
+            guard let passcodeTextField = passcodeTextField, let passcode = passcodeTextField.text else{
+                return
+            }
+            self.defaults.setValue(passcode, forKey: "Passcode")
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        //savePasscodeAction.isEnabled = newPasscode.count == 4
+            
+        alert.addAction(savePasscodeAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
