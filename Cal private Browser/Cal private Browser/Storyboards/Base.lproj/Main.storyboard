@@ -297,6 +297,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2a-e8-rDI">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="662"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="aDa-xO-o0Y"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="zjY-8U-nYP"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="L1h-07-EkN">
+                                <rect key="frame" x="32" y="670" width="326" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="m40-Sw-eer"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemOrangeColor"/>
+                                <connections>
+                                    <action selector="pageChanged:" destination="EAf-6A-M4Z" eventType="valueChanged" id="Lfe-ZF-yEA"/>
+                                </connections>
+                            </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZx-Hm-XoT">
                                 <rect key="frame" x="32" y="750" width="326" height="40"/>
                                 <constraints>
@@ -305,19 +321,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Next"/>
                             </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="L1h-07-EkN">
-                                <rect key="frame" x="32" y="670" width="326" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="m40-Sw-eer"/>
-                                </constraints>
-                                <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="currentPageIndicatorTintColor" systemColor="systemOrangeColor"/>
-                            </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2a-e8-rDI">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="662"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="aDa-xO-o0Y"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="zjY-8U-nYP"/>
-                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CDa-Zm-Xf6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -334,6 +337,11 @@
                             <constraint firstItem="a2a-e8-rDI" firstAttribute="top" secondItem="reI-Sa-NHe" secondAttribute="top" id="eWI-jR-mDY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="L1h-07-EkN" id="45F-w1-tCj"/>
+                        <outlet property="scrollView" destination="a2a-e8-rDI" id="P6X-dE-c87"/>
+                        <outlet property="startButton" destination="BZx-Hm-XoT" id="sfc-qS-t3d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SfG-H9-ZzS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
