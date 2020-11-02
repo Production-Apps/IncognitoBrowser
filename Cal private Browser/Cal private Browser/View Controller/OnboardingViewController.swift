@@ -22,46 +22,52 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     
     //MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScrollView()
-        setupSlide()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollWidth = scrollView.frame.size.width
+        scrollHeight = scrollView.frame.size.height
     }
     
     //MARK: - Private methods
     private func setupScrollView() {
         scrollView.delegate = self
-        scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
     }
     
-    private func setupSlide(){
-        
+    private func setIndiactorForCurrentPage(){
+        let page = scrollView.contentOffset.x / scrollWidth
+        pageControl.currentPage = Int(page)
     }
     
     //MARK: - Actions
     @IBAction func pageChanged(_ sender: UIPageControl) {
+//        scrollView.scrollRectToVisible(CGRect(x: scrollWidth * CGFloat(pageControl.currentPage), y: 0, width: scrollWidth, height: scrollHeight), animated: true)
+        print("Page change \(sender.currentPage)")
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func startButtonPressed(_ sender: UIButton) {
+        //Move next
     }
-    */
-
+    
 }
 
     //MARK: - UIScrollViewDelegate
 extension OnboardingViewController: UIScrollViewDelegate{
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("Hello")
+    }
     
 }
