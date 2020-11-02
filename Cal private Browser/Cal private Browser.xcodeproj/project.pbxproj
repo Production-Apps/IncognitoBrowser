@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		043169C924C4651300006830 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043169C824C4651300006830 /* CalculatorViewController.swift */; };
+		043BEAB22550484900693A0A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BEAB12550484900693A0A /* OnboardingViewController.swift */; };
 		0457B8F124EE6E5300A05761 /* CalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457B8F024EE6E5300A05761 /* CalculatorController.swift */; };
 		04C29C0724C9DCFB00625C15 /* BookmarkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0624C9DCFB00625C15 /* BookmarkController.swift */; };
 		04C29C0B24C9F74B00625C15 /* PrivateBrowser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04C29C0924C9F74B00625C15 /* PrivateBrowser.xcdatamodeld */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		043169C824C4651300006830 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		043BEAB12550484900693A0A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		0457B8F024EE6E5300A05761 /* CalculatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorController.swift; sourceTree = "<group>"; };
 		04C29C0624C9DCFB00625C15 /* BookmarkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkController.swift; sourceTree = "<group>"; };
 		04C29C0A24C9F74B00625C15 /* PrivateBrowser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrivateBrowser.xcdatamodel; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		04CF26D124C04556006DC218 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				043BEAB12550484900693A0A /* OnboardingViewController.swift */,
 				043169C824C4651300006830 /* CalculatorViewController.swift */,
 				04CF26A524C02589006DC218 /* BrowserViewController.swift */,
 				04C29C1524CEF45800625C15 /* BookmarkViewController.swift */,
@@ -356,6 +359,7 @@
 				04CF26A224C02589006DC218 /* AppDelegate.swift in Sources */,
 				04C29C1824CF0B8900625C15 /* CreateBookmarkViewController.swift in Sources */,
 				04C29C0724C9DCFB00625C15 /* BookmarkController.swift in Sources */,
+				043BEAB22550484900693A0A /* OnboardingViewController.swift in Sources */,
 				04CF26A424C02589006DC218 /* SceneDelegate.swift in Sources */,
 				04C29C1A24CF24F800625C15 /* Folder+Convenience.swift in Sources */,
 			);

@@ -289,6 +289,56 @@
             </objects>
             <point key="canvasLocation" x="211.59420289855075" y="112.5"/>
         </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="UdU-Ah-VDJ">
+            <objects>
+                <viewController id="EAf-6A-M4Z" customClass="OnboardingViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="reI-Sa-NHe">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZx-Hm-XoT">
+                                <rect key="frame" x="32" y="750" width="326" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jXu-Yn-Zyl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Next"/>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="L1h-07-EkN">
+                                <rect key="frame" x="32" y="670" width="326" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="m40-Sw-eer"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemOrangeColor"/>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2a-e8-rDI">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="662"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="aDa-xO-o0Y"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="zjY-8U-nYP"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CDa-Zm-Xf6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a2a-e8-rDI" firstAttribute="trailing" secondItem="CDa-Zm-Xf6" secondAttribute="trailing" id="09t-sM-u4T"/>
+                            <constraint firstItem="CDa-Zm-Xf6" firstAttribute="bottom" secondItem="BZx-Hm-XoT" secondAttribute="bottom" constant="20" id="8a6-xc-Mgg"/>
+                            <constraint firstItem="BZx-Hm-XoT" firstAttribute="top" secondItem="L1h-07-EkN" secondAttribute="bottom" constant="50" id="FAt-K7-BVe"/>
+                            <constraint firstItem="CDa-Zm-Xf6" firstAttribute="trailing" secondItem="L1h-07-EkN" secondAttribute="trailing" constant="32" id="SUE-YZ-C1E"/>
+                            <constraint firstItem="L1h-07-EkN" firstAttribute="leading" secondItem="CDa-Zm-Xf6" secondAttribute="leading" constant="32" id="So9-Nm-Aih"/>
+                            <constraint firstItem="a2a-e8-rDI" firstAttribute="leading" secondItem="CDa-Zm-Xf6" secondAttribute="leading" id="Thj-Ut-oK0"/>
+                            <constraint firstItem="L1h-07-EkN" firstAttribute="top" secondItem="a2a-e8-rDI" secondAttribute="bottom" constant="8" id="ada-Kn-bLt"/>
+                            <constraint firstItem="BZx-Hm-XoT" firstAttribute="leading" secondItem="CDa-Zm-Xf6" secondAttribute="leading" constant="32" id="b0r-cx-151"/>
+                            <constraint firstItem="CDa-Zm-Xf6" firstAttribute="trailing" secondItem="BZx-Hm-XoT" secondAttribute="trailing" constant="32" id="dwH-V1-qi8"/>
+                            <constraint firstItem="a2a-e8-rDI" firstAttribute="top" secondItem="reI-Sa-NHe" secondAttribute="top" id="eWI-jR-mDY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SfG-H9-ZzS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="210.76923076923077" y="948.34123222748815"/>
+        </scene>
         <!--Browser View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -768,6 +818,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

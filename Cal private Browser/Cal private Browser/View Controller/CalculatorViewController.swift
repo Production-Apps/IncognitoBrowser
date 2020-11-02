@@ -42,7 +42,7 @@ class CalculatorViewController: UIViewController {
     
     private var tempValue: String = ""
     
-    private var passcodeFailCounter = 0
+    private var wrongPasscodeCounter = 0
 
     //MARK: - View Lifecyle
     
@@ -113,15 +113,15 @@ class CalculatorViewController: UIViewController {
             }else{
                 
                 provideFeedback(success: false)
-                passcodeFailCounter += 1
-                if passcodeFailCounter >= 3 {
+                wrongPasscodeCounter += 1
+                if wrongPasscodeCounter >= 3 {
                     //Show alert to reset passcode
                     //Show disclosure that if passcode is reset all data will be wipe
                     shouldAlert(type: .reset)
                     //reset counter to zero
-                    passcodeFailCounter = 0
+                    wrongPasscodeCounter = 0
                 }//Create else statement see if a userdefault for first run exist
-                print(passcodeFailCounter)
+                print(wrongPasscodeCounter)
                 
             }
         }
@@ -154,11 +154,15 @@ class CalculatorViewController: UIViewController {
     }
     
     private func shouldAlert(type: HandlePasscode)  {
-        let alert = UIAlertController(title: "Do you want to reset your passcode?", message: "If you reset your passcode all your saved data will be wipe.", preferredStyle: .alert)
+        
+        //TODO:Sanitized passcode checking if is a four digit passcode
+        //Erase all bookmarks if passcode is succesfuly reset
+        
+        let alert = UIAlertController(title: "Reset Passcode.", message: "If you reset your passcode all your saved data will be erease.", preferredStyle: .alert)
         var passcodeTextField: UITextField?
         
         alert.addTextField { (textField) in
-            textField.placeholder = "Enter a new passcode"
+            textField.placeholder = "Enter new passcode"
             textField.keyboardType = .decimalPad
             passcodeTextField = textField
             
