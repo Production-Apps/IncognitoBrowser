@@ -14,9 +14,6 @@ class OnboardingViewController: UIViewController {
     private var titles:[String] =  ["Welcome","1.Create a passcode","2.Enter passcode and swipe"]
     private var desc: [String] = ["","Please create a numeric passcode after the welcome screen.","When you want to browse the web, simply enter passcode and swipe left to right."]
     
-    private var scrollWidth: CGFloat! = 0.0
-    private var scrollHeight: CGFloat! = 0.0
-    
     
     //MARK: - Oulets
     @IBOutlet weak var scrollView: UIScrollView!
@@ -34,12 +31,6 @@ class OnboardingViewController: UIViewController {
         setupScrollView()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        scrollWidth = scrollView.frame.size.width
-        scrollHeight = scrollView.frame.size.height
-    }
-    
     //MARK: - Private methods
     private func setupScrollView() {
         scrollView.delegate = self
@@ -47,10 +38,7 @@ class OnboardingViewController: UIViewController {
         scrollView.showsVerticalScrollIndicator = false
     }
     
-    private func setIndiactorForCurrentPage(){
-        let page = scrollView.contentOffset.x / scrollWidth
-        pageControl.currentPage = Int(page)
-    }
+ 
     
     //MARK: - Actions
     @IBAction func pageChanged(_ sender: UIPageControl) {
