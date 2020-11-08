@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0403A8A62558541C00C35594 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403A8A52558541C00C35594 /* Core.swift */; };
 		043169C924C4651300006830 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043169C824C4651300006830 /* CalculatorViewController.swift */; };
 		043BEAB22550484900693A0A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BEAB12550484900693A0A /* OnboardingViewController.swift */; };
 		0457B8F124EE6E5300A05761 /* CalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457B8F024EE6E5300A05761 /* CalculatorController.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0403A8A52558541C00C35594 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
 		043169C824C4651300006830 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		043BEAB12550484900693A0A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		0457B8F024EE6E5300A05761 /* CalculatorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				04C29C0C24CA03E300625C15 /* Bookmark+Conviniece.swift */,
 				04C29C1924CF24F800625C15 /* Folder+Convenience.swift */,
 				04C29C0E24CA04D600625C15 /* CoreDataStack.swift */,
+				0403A8A52558541C00C35594 /* Core.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				04C29C1624CEF45800625C15 /* BookmarkViewController.swift in Sources */,
 				0457B8F124EE6E5300A05761 /* CalculatorController.swift in Sources */,
 				043169C924C4651300006830 /* CalculatorViewController.swift in Sources */,
+				0403A8A62558541C00C35594 /* Core.swift in Sources */,
 				04C29C0D24CA03E300625C15 /* Bookmark+Conviniece.swift in Sources */,
 				04CF26A624C02589006DC218 /* BrowserViewController.swift in Sources */,
 				04C29C0F24CA04D600625C15 /* CoreDataStack.swift in Sources */,
