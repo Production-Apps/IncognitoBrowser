@@ -51,6 +51,16 @@ class CalculatorViewController: UIViewController {
 
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if Core.shared.isNewUser(){
+            //Show onboarding/Welcome screen
+            let vc = storyboard?.instantiateViewController(identifier: "Welcome") as! WelcomeViewController
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        }
+    }
+    
     //MARK: - Actions
     
     @IBAction func calcButtonPressed(_ sender: UIButton){
