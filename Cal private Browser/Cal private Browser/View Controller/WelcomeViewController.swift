@@ -11,7 +11,14 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     //MARK: - Properties
-    private var titles = ["Create a passcode","Enter passcode", "Swipe right to access"]
+    private var titles = ["Welcome","Easy to use","Security & Privacy","Create a passcode", "Access browser"]
+    private var desc = ["The best private browser in the app store.",
+        "One hand navigation, use hand gestures to go back and foward or simply use the easy nav controls.",
+                        "Tap the lock icon to clear browser history and go back to calculator view.",
+        "",
+                        "Enter passcode and Swipe from left to right to access the browser."
+    ]
+    
     private let scrollView = UIScrollView()
     
     //MARK: - Outlets
@@ -34,7 +41,7 @@ class WelcomeViewController: UIViewController {
         scrollView.frame = holderView.bounds
         holderView.addSubview(scrollView)
         
-        for x in 0..<3{
+        for x in 0..<titles.count{
             let pageView = UIView(frame: CGRect(x: CGFloat(x) * holderView.frame.width, y: 0, width: holderView.frame.width, height: holderView.frame.height))
             scrollView.addSubview(pageView)
             
@@ -58,11 +65,12 @@ class WelcomeViewController: UIViewController {
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .black
             
-            button.setTitle("Get started", for: .normal)
+            button.setTitle("Continue", for: .normal)
             
-            if x == 1{
-                button.setTitle("Continue", for: .normal)
+            if x == titles.count{
+                button.setTitle("Get started", for: .normal)
             }
+            
             button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
             button.tag = x+1
             pageView.addSubview(button)
@@ -75,7 +83,7 @@ class WelcomeViewController: UIViewController {
     }
     
     @objc private func didTapButton(_ button: UIButton) {
-        guard button.tag < 3 else {
+        guard button.tag < titles.count else {
             //dismiss if is not
             Core.shared.setIsNotNewUser()
             dismiss(animated: true, completion: nil)
