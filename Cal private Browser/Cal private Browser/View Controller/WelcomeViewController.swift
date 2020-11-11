@@ -12,6 +12,7 @@ class WelcomeViewController: UIViewController {
     
     //MARK: - Properties
     private var titles = ["Create a passcode","Enter passcode", "Swipe right to access"]
+    private let scrollView = UIScrollView()
     
     //MARK: - Outlets
     @IBOutlet var holderView: UIView! 
@@ -30,7 +31,7 @@ class WelcomeViewController: UIViewController {
     //MARK: - Private methods
     private func configure()  {
         //Setup the scroll view
-        let scrollView = UIScrollView(frame: holderView.bounds)
+        scrollView.frame = holderView.bounds
         holderView.addSubview(scrollView)
         
         for x in 0..<3{
@@ -50,7 +51,7 @@ class WelcomeViewController: UIViewController {
             
             //Configure image view
             imageView.contentMode = .scaleAspectFit
-            imageView.image = UIImage(named: "welcome\(x)")
+            imageView.image = UIImage(named: "welcome\(x + 1)")
             pageView.addSubview(imageView)
             
             //Configure button
@@ -63,6 +64,7 @@ class WelcomeViewController: UIViewController {
                 button.setTitle("Continue", for: .normal)
             }
             button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+            button.tag = x+1
             pageView.addSubview(button)
             
         }
@@ -73,7 +75,14 @@ class WelcomeViewController: UIViewController {
     }
     
     @objc private func didTapButton(_ button: UIButton) {
-        
+        guard button.tag < 3 else {
+            //dismiss if is not
+            Core.shared.setIsNotNewUser()
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        //scroll to next page
+        scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag) , y: 0), animated: true)
     }
     
 
