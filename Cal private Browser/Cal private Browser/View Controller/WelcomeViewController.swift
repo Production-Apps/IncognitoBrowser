@@ -67,6 +67,9 @@ class WelcomeViewController: UIViewController {
             
         }
         
+        scrollView.contentSize = CGSize(width: holderView.frame.width * 3, height: 0)
+        scrollView.isPagingEnabled = true
+        
     }
     
     @objc private func didTapButton(_ button: UIButton) {
