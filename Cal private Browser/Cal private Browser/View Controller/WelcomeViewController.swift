@@ -11,8 +11,9 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     //MARK: - Properties
-    private var titles = ["Welcome","Easy to use","Security & Privacy","Create a passcode", "Access browser"]
-    private var desc = ["The best private browser in the app store.",
+    private var titles = ["Secure Browsing","Easy to use","Security & Privacy","Create a passcode", "Access browser"]
+    
+    private var desc = ["Fully erase your browsing history and keep your bookmarks secured.",
         "One hand navigation, use hand gestures to go back and foward or simply use the easy nav controls.",
                         "Tap the lock icon to clear browser history and go back to calculator view.",
         "",
@@ -46,15 +47,26 @@ class WelcomeViewController: UIViewController {
             scrollView.addSubview(pageView)
             
             //Setup title, image and button
-            let label = UILabel(frame: CGRect(x: 10, y: 10, width: pageView.frame.width - 20, height: 120))
-            let imageView = UIImageView(frame: CGRect(x: 10, y: 140, width: pageView.frame.width - 20, height: pageView.frame.height - 205))
+            let title = UILabel(frame: CGRect(x: 10, y: 10, width: pageView.frame.width - 20, height: 120))
+            let imageView = UIImageView(frame: CGRect(x: 10, y: 140, width: pageView.frame.width - 20, height: pageView.frame.height - 305))
+            
+            let detail = UILabel(frame: CGRect(x: 10, y: pageView.frame.height - 205, width: pageView.frame.width - 20, height: 120))
+            
             let button = UIButton(frame: CGRect(x: 10, y: pageView.frame.height-60, width: pageView.frame.width - 20, height: 50))
             
-            //Configure label
-            label.textAlignment = .center
-            label.font = UIFont(name: "Helvetica-Bold", size: 32)
-            label.text = titles[x]
-            pageView.addSubview(label)
+            //Configure title
+            title.textAlignment = .center
+            title.font = UIFont(name: "Helvetica-Bold", size: 32)
+            title.text = titles[x]
+            pageView.addSubview(title)
+            
+            
+            //Configure Detail
+            detail.textAlignment = .center
+            detail.numberOfLines = 10
+            detail.font = UIFont(name: "Helvetica-Bold", size: 18)
+            detail.text = desc[x]
+            pageView.addSubview(detail)
             
             //Configure image view
             imageView.contentMode = .scaleAspectFit
@@ -85,7 +97,8 @@ class WelcomeViewController: UIViewController {
     @objc private func didTapButton(_ button: UIButton) {
         guard button.tag < titles.count else {
             //dismiss if is not
-            Core.shared.setIsNotNewUser()
+            //TODO: Uncomment after testing 
+            //Core.shared.setIsNotNewUser()
             dismiss(animated: true, completion: nil)
             return
         }
