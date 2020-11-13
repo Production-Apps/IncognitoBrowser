@@ -17,14 +17,15 @@ class WelcomeViewController: UIViewController {
         "One hand navigation, use hand gestures to go back and foward or simply use the easy nav controls.",
                         "Tap the lock icon to clear browser history and go back to calculator view.",
         "",
-                        "Enter passcode and Swipe from left to right to access the browser."
+                        "1.Enter passcode \n2.Swipe from right to left to access the browser."
     ]
     
     private let scrollView = UIScrollView()
+    private let textField = UITextField()
+
     
     //MARK: - Outlets
-    @IBOutlet var holderView: UIView! 
-
+    @IBOutlet var holderView: UIView!
     
     //MARK: - View lifecycle
     override func viewDidLoad() {
@@ -50,9 +51,13 @@ class WelcomeViewController: UIViewController {
             let title = UILabel(frame: CGRect(x: 10, y: 10, width: pageView.frame.width - 20, height: 120))
             let imageView = UIImageView(frame: CGRect(x: 10, y: 140, width: pageView.frame.width - 20, height: pageView.frame.height - 305))
             
-            let detail = UILabel(frame: CGRect(x: 10, y: pageView.frame.height - 205, width: pageView.frame.width - 20, height: 120))
+            let textField = UITextField(frame: CGRect(x: 10, y: pageView.center.y, width: pageView.frame.width - 20, height: 40))
+            
+            let detail = UILabel(frame: CGRect(x: 10, y: pageView.frame.height - 180, width: pageView.frame.width - 20, height: 120))
             
             let button = UIButton(frame: CGRect(x: 10, y: pageView.frame.height-60, width: pageView.frame.width - 20, height: 50))
+            
+            let setCodebutton = UIButton(frame: CGRect(x: pageView.frame.width - 40, y: pageView.center.y, width: 30, height: 40))
             
             //Configure title
             title.textAlignment = .center
@@ -62,11 +67,36 @@ class WelcomeViewController: UIViewController {
             
             
             //Configure Detail
-            detail.textAlignment = .center
+            detail.textAlignment = .left
             detail.numberOfLines = 10
             detail.font = UIFont(name: "Helvetica-Bold", size: 18)
             detail.text = desc[x]
             pageView.addSubview(detail)
+            
+            //Configure Textfield to create passcode
+            textField.textAlignment = .center
+            textField.placeholder = "Enter New Passcode"
+            textField.keyboardType = .decimalPad
+            textField.borderStyle = .roundedRect
+            textField.font = UIFont(name: "Helvetica-Bold", size: 24)
+            
+            //Configure button
+            setCodebutton.setTitleColor(.white, for: .normal)
+            setCodebutton.backgroundColor = .black
+            setCodebutton.setTitle(">", for: .normal)
+            setCodebutton.layer.cornerRadius = 5
+            
+            if x == 3{
+                pageView.addSubview(textField)
+                pageView.addSubview(setCodebutton)
+                textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+
+                button.isHidden = true
+                
+                setCodebutton.addTarget(self, action: #selector(setPasscode(_:)), for: .touchUpInside)
+                
+            }
+
             
             //Configure image view
             imageView.contentMode = .scaleAspectFit
@@ -76,10 +106,9 @@ class WelcomeViewController: UIViewController {
             //Configure button
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .black
-            
             button.setTitle("Continue", for: .normal)
             
-            if x == titles.count{
+            if x == titles.count - 1{
                 button.setTitle("Get started", for: .normal)
             }
             
@@ -94,18 +123,48 @@ class WelcomeViewController: UIViewController {
         
     }
     
-    @objc private func didTapButton(_ button: UIButton) {
-        guard button.tag < titles.count else {
+    @objc private func didTapButton(_ sender: UIButton) {
+        guard sender.tag < titles.count else {
             //dismiss if is not
             //TODO: Uncomment after testing 
             //Core.shared.setIsNotNewUser()
             dismiss(animated: true, completion: nil)
             return
         }
-        //scroll to next page
-        scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(button.tag) , y: 0), animated: true)
+        
+        moveToNextPage(sender.tag)
     }
     
+    private func moveToNextPage(_ currentPage: Int){
+        //scroll to next page
+        scrollView.setContentOffset(CGPoint(x: holderView.frame.size.width * CGFloat(currentPage) , y: 0), animated: true)
+    }
 
+    @objc private func setPasscode(_ sender: UIButton){
+        self.view.endEditing(true)
+        
+        guard let passcode = textField.text else { return }
+
+        if  passcode.count > 0{
+            print("New passcode: \(passcode)")
+            //save passcode and move to next screen
+            moveToNextPage(4)
+        }else{
+            print("No passcode: \(passcode)")
+        }
+    }
+    
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        guard let passcode = textField.text else {
+        return
+        }
+        if passcode.count < 6 && passcode.count > 0{
+            self.textField.text = passcode
+        }
+    }
  
 }
+
+
+
