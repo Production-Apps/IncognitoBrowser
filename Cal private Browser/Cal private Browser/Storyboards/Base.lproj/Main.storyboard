@@ -338,7 +338,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="bookmarkButtonPressed:" destination="BYZ-38-t0r" id="Muf-cS-rwK"/>
-                                            <segue destination="mpY-aQ-APF" kind="presentation" identifier="bookmarkSegue" id="BI9-dh-W52"/>
+                                            <segue destination="mpY-aQ-APF" kind="presentation" identifier="bookmarkSegue" modalPresentationStyle="automatic" id="BI9-dh-W52"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jgh-LE-z3N"/>
@@ -565,13 +565,13 @@
         <!--Create Bookmark View Controller-->
         <scene sceneID="vaV-jV-lgg">
             <objects>
-                <viewController id="tHP-Uj-vOX" customClass="CreateBookmarkViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="tHP-Uj-vOX" customClass="CreateBookmarkViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SJl-3w-SPM">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="wpL-dm-fy8">
-                                <rect key="frame" x="8" y="20" width="374" height="444"/>
+                                <rect key="frame" x="8" y="44" width="374" height="444"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8j8-IK-OsN">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
@@ -639,7 +639,7 @@
                         <constraints>
                             <constraint firstItem="wpL-dm-fy8" firstAttribute="leading" secondItem="JhU-j4-tDk" secondAttribute="leading" constant="8" id="VEs-Lm-31t"/>
                             <constraint firstItem="JhU-j4-tDk" firstAttribute="trailing" secondItem="wpL-dm-fy8" secondAttribute="trailing" constant="8" id="cIC-mb-E1W"/>
-                            <constraint firstItem="wpL-dm-fy8" firstAttribute="top" secondItem="JhU-j4-tDk" secondAttribute="top" constant="20" id="usm-Wu-z6u"/>
+                            <constraint firstItem="wpL-dm-fy8" firstAttribute="top" secondItem="JhU-j4-tDk" secondAttribute="top" id="usm-Wu-z6u"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qmN-U7-ChW"/>
@@ -674,7 +674,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="W1f-Kd-q8A">
             <objects>
-                <viewController storyboardIdentifier="Welcome" id="iY1-dO-Hcc" customClass="WelcomeViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Welcome" interfaceStyle="light" id="iY1-dO-Hcc" customClass="WelcomeViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="56c-h9-RNb">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

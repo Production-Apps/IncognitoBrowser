@@ -124,7 +124,7 @@ class BrowserViewController: UIViewController {
     
     private func loadHomePage() {
         //TODO: Add user defaults to save
-        homePage = "http://www.fritzgt.com"
+        homePage = "http://www.google.com"
         webView.load(URLRequest(url: URL(string: homePage!)!))
     }
     

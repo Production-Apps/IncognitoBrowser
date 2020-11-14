@@ -17,12 +17,12 @@ class WelcomeViewController: UIViewController {
         "One hand navigation, use hand gestures to go back and foward or simply use the easy nav controls.",
                         "Tap the lock icon to clear browser history and go back to calculator view.",
         "",
-                        "1.Enter passcode \n2.Swipe from right to left to access the browser."
+                        "1. Enter passcode \n2. Swipe from right to left to access the browser."
     ]
     
     private let scrollView = UIScrollView()
     private let textField = UITextField()
-
+    private let defaults = UserDefaults.standard
     
     //MARK: - Outlets
     @IBOutlet var holderView: UIView!
@@ -67,7 +67,7 @@ class WelcomeViewController: UIViewController {
             
             
             //Configure Detail
-            detail.textAlignment = .left
+            detail.textAlignment = .center
             detail.numberOfLines = 10
             detail.font = UIFont(name: "Helvetica-Bold", size: 18)
             detail.text = desc[x]
@@ -126,8 +126,7 @@ class WelcomeViewController: UIViewController {
     @objc private func didTapButton(_ sender: UIButton) {
         guard sender.tag < titles.count else {
             //dismiss if is not
-            //TODO: Uncomment after testing 
-            //Core.shared.setIsNotNewUser()
+            Core.shared.setIsNotNewUser()
             dismiss(animated: true, completion: nil)
             return
         }
@@ -145,15 +144,15 @@ class WelcomeViewController: UIViewController {
         
         guard let passcode = textField.text else { return }
 
-        if  passcode.count > 0{
-            print("New passcode: \(passcode)")
+        if  !passcode.isEmpty{
             //save passcode and move to next screen
+            defaults.set(passcode, forKey: "Passcode")
             moveToNextPage(4)
         }else{
-            print("No passcode: \(passcode)")
+            //TODO: Let user know that a passcode must be create
+//            self.textField.attributedPlaceholder = NSAttributedString(string: "Create a passcode", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
         }
     }
-    
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         guard let passcode = textField.text else {
