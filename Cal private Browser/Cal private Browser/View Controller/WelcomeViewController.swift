@@ -89,8 +89,9 @@ class WelcomeViewController: UIViewController {
             if x == 3{
                 pageView.addSubview(textField)
                 pageView.addSubview(setCodebutton)
+                //Will pass the value of the testfield
                 textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-
+             
                 button.isHidden = true
                 
                 setCodebutton.addTarget(self, action: #selector(setPasscode(_:)), for: .touchUpInside)
@@ -126,7 +127,7 @@ class WelcomeViewController: UIViewController {
     @objc private func didTapButton(_ sender: UIButton) {
         guard sender.tag < titles.count else {
             //dismiss if is not
-            Core.shared.setIsNotNewUser()
+           // Core.shared.setIsNotNewUser()
             dismiss(animated: true, completion: nil)
             return
         }
@@ -145,12 +146,16 @@ class WelcomeViewController: UIViewController {
         guard let passcode = textField.text else { return }
 
         if  !passcode.isEmpty{
+            
             //save passcode and move to next screen
             defaults.set(passcode, forKey: "Passcode")
             moveToNextPage(4)
         }else{
             //TODO: Let user know that a passcode must be create
-//            self.textField.attributedPlaceholder = NSAttributedString(string: "Create a passcode", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+//            DispatchQueue.main.async {
+//                self.textField.attributedPlaceholder = NSAttributedString(string: "Create a passcode", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])}
+//             
+//            print("No passcode")
         }
     }
     
@@ -158,9 +163,7 @@ class WelcomeViewController: UIViewController {
         guard let passcode = textField.text else {
         return
         }
-        if passcode.count < 6 && passcode.count > 0{
-            self.textField.text = passcode
-        }
+        self.textField.text = passcode
     }
  
 }
