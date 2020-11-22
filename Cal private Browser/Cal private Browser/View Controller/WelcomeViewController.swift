@@ -91,6 +91,7 @@ class WelcomeViewController: UIViewController {
                 pageView.addSubview(setCodebutton)
                 //Will pass the value of the testfield
                 textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+//                textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingDidEnd)
              
                 button.isHidden = true
                 
@@ -151,21 +152,25 @@ class WelcomeViewController: UIViewController {
             defaults.set(passcode, forKey: "Passcode")
             moveToNextPage(4)
         }else{
-            //TODO: Let user know that a passcode must be create
-//            DispatchQueue.main.async {
-//                self.textField.attributedPlaceholder = NSAttributedString(string: "Create a passcode", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])}
-//             
-//            print("No passcode")
+//  TODO: Let user know that a passcode must be create
+//  DispatchQueue.main.async {
+//  self.textField.attributedPlaceholder = NSAttributedString(string: "Create a passcode", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])}
+//  print("No passcode")
+            
         }
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
+        
         guard let passcode = textField.text else {
         return
         }
-        self.textField.text = passcode
+        
+        if passcode.count < 4{
+            //print("Got code \(passcode)")
+            self.textField.text = passcode
+        }
     }
- 
 }
 
 
