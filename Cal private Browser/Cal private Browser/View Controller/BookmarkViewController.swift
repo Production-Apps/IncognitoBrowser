@@ -20,6 +20,8 @@ class BookmarkViewController: UIViewController {
         }
     }
     private var isEditModeEnable: Bool = false
+   
+    private let defaults = UserDefaults.standard
     
     var bookmark: (title: String, url: URL)?
     var browserVC: BrowserViewController?//Use to set as delegate to load web url when bookmark is selected
@@ -37,6 +39,19 @@ class BookmarkViewController: UIViewController {
         bookmarkController.delegate = self
         fetchFolders()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        let lastSelectedRow = defaults.integer(forKey: "lastSelectedRow")
+        print("lastSelectedRow: ", lastSelectedRow)
+        
+        if lastSelectedRow >= 0{
+           //performSegue(withIdentifier: "FolderDetailSegue", sender: nil)
+          
+        }
+
     }
     
     //MARK: - Actions
@@ -125,6 +140,7 @@ class BookmarkViewController: UIViewController {
         }else if segue.identifier == "FolderDetailSegue"{
             if let detailVC = segue.destination as? FolderDetailViewController{
                 guard let folders = folderArray, let indexPath = tableView.indexPathForSelectedRow, let browserVC = browserVC else { return }
+                
                 let selectedFolder = folders[indexPath.row]
                 detailVC.folder = selectedFolder
                 //Pass the incetance of browserVC as delegate to load the selected URL
@@ -181,6 +197,10 @@ extension BookmarkViewController: UITableViewDataSource{
             let selectedFolder = folderArray[indexPath.row]
             manageFolder(for: selectedFolder)
         }
+        
+ 
+        defaults.set(indexPath.row, forKey: "lastSelectedRow")
+
     }
 }
 

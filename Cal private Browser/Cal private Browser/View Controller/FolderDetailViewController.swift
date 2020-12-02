@@ -17,6 +17,7 @@ class FolderDetailViewController: UIViewController {
     //MARK: - Properties
     var folder: Folder?
     var delegate: SelectedBookmarkDelegate?
+    private let defaults = UserDefaults.standard
     
     private var isEditModeEnable: Bool = false
     private let bookmarkController =  BookmarkController()
@@ -45,6 +46,7 @@ class FolderDetailViewController: UIViewController {
     //MARK: - Actions
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+        defaults.set(-1, forKey: "lastSelectedRow")
     }
     
     @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {

@@ -20,9 +20,11 @@ class WelcomeViewController: UIViewController {
                         "1. Enter passcode \n2. Swipe from right to left to access the browser."
     ]
     
+    private var pageView = UIView()
     private let scrollView = UIScrollView()
     private let textField = UITextField()
     private let defaults = UserDefaults.standard
+    private var passcodeError = UILabel()
     
     //MARK: - Outlets
     @IBOutlet var holderView: UIView!
@@ -44,7 +46,7 @@ class WelcomeViewController: UIViewController {
         holderView.addSubview(scrollView)
         
         for x in 0..<titles.count{
-            let pageView = UIView(frame: CGRect(x: CGFloat(x) * holderView.frame.width, y: 0, width: holderView.frame.width, height: holderView.frame.height))
+             pageView = UIView(frame: CGRect(x: CGFloat(x) * holderView.frame.width, y: 0, width: holderView.frame.width, height: holderView.frame.height))
             scrollView.addSubview(pageView)
             
             //Setup title, image and button
@@ -58,6 +60,8 @@ class WelcomeViewController: UIViewController {
             let button = UIButton(frame: CGRect(x: 10, y: pageView.frame.height-60, width: pageView.frame.width - 20, height: 50))
             
             let setCodebutton = UIButton(frame: CGRect(x: pageView.frame.width - 40, y: pageView.center.y, width: 30, height: 40))
+            
+            passcodeError = UILabel(frame: CGRect(x: 10, y: pageView.frame.height - 100, width: pageView.frame.width - 20, height: 40))
             
             //Configure title
             title.textAlignment = .center
@@ -110,6 +114,15 @@ class WelcomeViewController: UIViewController {
             button.backgroundColor = .black
             button.setTitle("Continue", for: .normal)
             
+            
+            //Configure passcode error
+            passcodeError.textAlignment = .center
+            passcodeError.font = UIFont(name: "Helvetica-Bold", size: 16)
+            passcodeError.textColor = .red
+            passcodeError.text = "Passcode missing"
+            pageView.addSubview(passcodeError)
+            passcodeError.isHidden = true
+            
             if x == titles.count - 1{
                 button.setTitle("Get started", for: .normal)
             }
@@ -127,8 +140,8 @@ class WelcomeViewController: UIViewController {
     
     @objc private func didTapButton(_ sender: UIButton) {
         guard sender.tag < titles.count else {
-            //dismiss if is not
-           // Core.shared.setIsNotNewUser()
+            //TODO: Set as welcome completed to prevent runging again
+            Core.shared.setIsNotNewUser()
             dismiss(animated: true, completion: nil)
             return
         }
@@ -152,12 +165,11 @@ class WelcomeViewController: UIViewController {
             defaults.set(passcode, forKey: "Passcode")
             moveToNextPage(4)
         }else{
-//  TODO: Let user know that a passcode must be create
-//  DispatchQueue.main.async {
-//  self.textField.attributedPlaceholder = NSAttributedString(string: "Create a passcode", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])}
-//  print("No passcode")
-            
+            //  TODO: Let user know that a passcode must be create
+            DispatchQueue.main.async {
+                self.passcodeError.isHidden = false
         }
+    }
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
@@ -165,11 +177,7 @@ class WelcomeViewController: UIViewController {
         guard let passcode = textField.text else {
         return
         }
-        
-        if passcode.count < 4{
-            //print("Got code \(passcode)")
-            self.textField.text = passcode
-        }
+        self.textField.text = passcode
     }
 }
 
