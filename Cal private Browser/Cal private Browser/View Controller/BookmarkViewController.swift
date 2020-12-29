@@ -20,7 +20,8 @@ class BookmarkViewController: UIViewController {
         }
     }
     private var isEditModeEnable: Bool = false
-   
+    private var lastSelectedRow: Int?
+    
     private let defaults = UserDefaults.standard
     
     var bookmark: (title: String, url: URL)?
@@ -44,7 +45,11 @@ class BookmarkViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        let lastSelectedRow = defaults.integer(forKey: "lastSelectedRow")
+        lastSelectedRow = defaults.integer(forKey: "lastSelectedRow")
+        
+        guard let lastSelectedRow = lastSelectedRow else {
+            return
+        }
         print("lastSelectedRow: ", lastSelectedRow)
         
         if lastSelectedRow > 0{
@@ -140,8 +145,21 @@ class BookmarkViewController: UIViewController {
             if let detailVC = segue.destination as? FolderDetailViewController{
                 guard let folders = folderArray, let indexPath = tableView.indexPathForSelectedRow, let browserVC = browserVC else { return }
                 
+               
+                
                 let selectedFolder = folders[indexPath.row]
+                
                 detailVC.folder = selectedFolder
+                
+                
+//                //Use to keep open the last selected folder
+//                guard let lastSelectedRow = lastSelectedRow else {
+//                    print("Last prepare: \(self.lastSelectedRow!)")
+//                    return
+//                }
+//                detailVC.folder = folders[lastSelectedRow]
+//                
+                
                 //Pass the incetance of browserVC as delegate to load the selected URL
                 detailVC.delegate = browserVC
             }

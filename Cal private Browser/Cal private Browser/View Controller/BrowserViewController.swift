@@ -150,6 +150,9 @@ class BrowserViewController: UIViewController {
     }
     
     private func cleanData() {
+        //Clear last selected folder
+        UserDefaults.standard.set(-1, forKey: "lastSelectedRow")
+        
         navigationController?.popViewController(animated: true)
         
         HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)

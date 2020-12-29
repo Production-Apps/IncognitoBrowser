@@ -46,6 +46,7 @@ class FolderDetailViewController: UIViewController {
     //MARK: - Actions
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+        //Use to clear the last selected folder
         defaults.set(-1, forKey: "lastSelectedRow")
     }
     
