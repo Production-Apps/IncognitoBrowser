@@ -26,7 +26,7 @@ class FolderDetailViewController: UIViewController {
             tableView.reloadData()
         }
     }
-    
+    private var bookmarkVC = BookmarkViewController()
     //MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -37,10 +37,13 @@ class FolderDetailViewController: UIViewController {
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setDelegates()
         loadBookmarks()
         //set title
         titleLabel.title = folder?.title
+        
+
     }
     
     //MARK: - Actions
@@ -123,3 +126,6 @@ extension FolderDetailViewController: UITableViewDataSource{
     }
     
 }
+    
+    
+

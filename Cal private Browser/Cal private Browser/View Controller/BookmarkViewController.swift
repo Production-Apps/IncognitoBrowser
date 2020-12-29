@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class BookmarkViewController: UIViewController {
     
     //MARK: - Properties
@@ -21,7 +23,6 @@ class BookmarkViewController: UIViewController {
     }
     private var isEditModeEnable: Bool = false
     private var lastSelectedRow: Int?
-    
     private let defaults = UserDefaults.standard
     
     var bookmark: (title: String, url: URL)?
@@ -50,11 +51,9 @@ class BookmarkViewController: UIViewController {
         guard let lastSelectedRow = lastSelectedRow else {
             return
         }
-        print("lastSelectedRow: ", lastSelectedRow)
         
         if lastSelectedRow > 0{
-           performSegue(withIdentifier: "FolderDetailSegue", sender: nil)
-          
+            performSegue(withIdentifier: "FolderDetailSegue", sender: self)
         }
     }
     
@@ -135,6 +134,7 @@ class BookmarkViewController: UIViewController {
     
     //MARK: - Overwrite methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
         if segue.identifier == "NewBMSegue"{
             if let createBookmarkVC = segue.destination as? CreateBookmarkViewController{
                 createBookmarkVC.newBookmarkData = bookmark
@@ -143,24 +143,24 @@ class BookmarkViewController: UIViewController {
             }
         }else if segue.identifier == "FolderDetailSegue"{
             if let detailVC = segue.destination as? FolderDetailViewController{
-                guard let folders = folderArray, let indexPath = tableView.indexPathForSelectedRow, let browserVC = browserVC else { return }
+                
+                
+                guard let lastSelectedRow = lastSelectedRow, let folderArray = folderArray else {
+                    return
+                }
+                
+                if lastSelectedRow > 0 {
+                    detailVC.folder = folderArray[lastSelectedRow]
+                }
+                
+                guard let indexPath = tableView.indexPathForSelectedRow, let browserVC = browserVC else { return }
                 
                
                 
-                let selectedFolder = folders[indexPath.row]
+                let selectedFolder = folderArray[indexPath.row]
                 
                 detailVC.folder = selectedFolder
                 
-                
-//                //Use to keep open the last selected folder
-//                guard let lastSelectedRow = lastSelectedRow else {
-//                    print("Last prepare: \(self.lastSelectedRow!)")
-//                    return
-//                }
-//                detailVC.folder = folders[lastSelectedRow]
-//                
-                
-                //Pass the incetance of browserVC as delegate to load the selected URL
                 detailVC.delegate = browserVC
             }
         }
