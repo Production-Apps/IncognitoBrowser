@@ -47,11 +47,10 @@ class BookmarkViewController: UIViewController {
         let lastSelectedRow = defaults.integer(forKey: "lastSelectedRow")
         print("lastSelectedRow: ", lastSelectedRow)
         
-        if lastSelectedRow >= 0{
-           //performSegue(withIdentifier: "FolderDetailSegue", sender: nil)
+        if lastSelectedRow > 0{
+           performSegue(withIdentifier: "FolderDetailSegue", sender: nil)
           
         }
-
     }
     
     //MARK: - Actions
