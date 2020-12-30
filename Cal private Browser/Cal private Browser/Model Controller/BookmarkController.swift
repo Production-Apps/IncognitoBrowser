@@ -21,6 +21,11 @@ class BookmarkController {
     func loadFoldersFromPersistentStore(completion: @escaping ([Folder]?,Error?) -> Void) {
         
         let fetchRequest:NSFetchRequest<Folder> = Folder.fetchRequest()
+        
+        let sort = NSSortDescriptor(key: #keyPath(Folder.title), ascending: true)
+        
+        fetchRequest.sortDescriptors = [sort]
+        
         do {
            //Return the fetch request which will be add it to the bookmarks array above due to the computed property
            let data = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
