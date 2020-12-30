@@ -48,11 +48,13 @@ class BookmarkViewController: UIViewController {
         
         lastSelectedRow = defaults.integer(forKey: "lastSelectedRow")
         
+        //print("Selected folder: \(lastSelectedRow)")
+        
         guard let lastSelectedRow = lastSelectedRow else {
             return
         }
         
-        if lastSelectedRow > 0{
+        if lastSelectedRow != -1{
             performSegue(withIdentifier: "FolderDetailSegue", sender: self)
         }
     }
@@ -145,23 +147,25 @@ class BookmarkViewController: UIViewController {
             if let detailVC = segue.destination as? FolderDetailViewController{
                 
                 
-                guard let lastSelectedRow = lastSelectedRow, let folderArray = folderArray else {
+                guard let lastSelectedRow = lastSelectedRow, let folderArray = folderArray, let browserVC = browserVC else {
                     return
                 }
                 
+                //pass the instance of the VC to use the delegate protocol to load the selected bookmark into the browser
+                detailVC.delegate = browserVC
+                
                 if lastSelectedRow > 0 {
+                    //pass the last selected folder so user dont have to reselect again
                     detailVC.folder = folderArray[lastSelectedRow]
+                    
                 }
                 
-                guard let indexPath = tableView.indexPathForSelectedRow, let browserVC = browserVC else { return }
-                
-               
-                
+                guard let indexPath = tableView.indexPathForSelectedRow else { return }
+
                 let selectedFolder = folderArray[indexPath.row]
                 
+                //Pass the selected folder
                 detailVC.folder = selectedFolder
-                
-                detailVC.delegate = browserVC
             }
         }
     }
@@ -212,6 +216,7 @@ extension BookmarkViewController: UITableViewDataSource{
             //Show alert to with current folder name to rename folder
             guard let folderArray = folderArray else {return}
             let selectedFolder = folderArray[indexPath.row]
+            
             manageFolder(for: selectedFolder)
         }
         
