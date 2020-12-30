@@ -48,7 +48,6 @@ class BookmarkViewController: UIViewController {
         
         lastSelectedRow = defaults.integer(forKey: "lastSelectedRow")
         
-        //print("Selected folder: \(lastSelectedRow)")
         
         guard let lastSelectedRow = lastSelectedRow else {
             return
@@ -154,7 +153,7 @@ class BookmarkViewController: UIViewController {
                 //pass the instance of the VC to use the delegate protocol to load the selected bookmark into the browser
                 detailVC.delegate = browserVC
                 
-                if lastSelectedRow > 0 {
+                if lastSelectedRow != -1 {
                     //pass the last selected folder so user dont have to reselect again
                     detailVC.folder = folderArray[lastSelectedRow]
                     
@@ -164,6 +163,9 @@ class BookmarkViewController: UIViewController {
 
                 let selectedFolder = folderArray[indexPath.row]
                 
+                //save last selected folder
+                defaults.set(indexPath.row, forKey: "lastSelectedRow")
+                print("Selected: \(indexPath.row)")
                 //Pass the selected folder
                 detailVC.folder = selectedFolder
             }
@@ -221,7 +223,7 @@ extension BookmarkViewController: UITableViewDataSource{
         }
         
  
-        defaults.set(indexPath.row, forKey: "lastSelectedRow")
+//        defaults.set(indexPath.row, forKey: "lastSelectedRow")
 
     }
 }
