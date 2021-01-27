@@ -22,9 +22,11 @@ class BookmarkController {
         
         let fetchRequest:NSFetchRequest<Folder> = Folder.fetchRequest()
         
-        let sort = NSSortDescriptor(key: #keyPath(Folder.title), ascending: true)
+        let sortFolder = NSSortDescriptor(key: #keyPath(Folder.title), ascending: true)
         
-        fetchRequest.sortDescriptors = [sort]
+        let sortBookmarks = NSSortDescriptor(key: #keyPath(Bookmark.title), ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortFolder,sortBookmarks]
         
         do {
            //Return the fetch request which will be add it to the bookmarks array above due to the computed property

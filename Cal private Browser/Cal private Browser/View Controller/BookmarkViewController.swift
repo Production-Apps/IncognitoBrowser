@@ -92,6 +92,7 @@ class BookmarkViewController: UIViewController {
                 return
             }
             if let data = data{
+                
                 self.folderArray = data
             }
         })

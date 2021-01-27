@@ -42,7 +42,7 @@ class CalculatorViewController: UIViewController {
     
     private var tempValue: String = ""
     
-    private var wrongPasscodeCounter = 0
+    private var wrongPasscodeCounter = 0//if gets to 3x then it will show alert to reset passcode
 
     //MARK: - View Lifecyle
     
@@ -137,7 +137,7 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    //MARK: - Private MEthods
+    //MARK: - Private Methods
     private func provideFeedback(success: Bool) {
         let feedback = UINotificationFeedbackGenerator()
         

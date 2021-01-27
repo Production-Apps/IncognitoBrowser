@@ -43,8 +43,9 @@ class BrowserViewController: UIViewController {
         
         setupObservers()
         setupNotifications()
-        
-        
+        //Set the last selected folder to none or -1 to prevent the app from crashing on the first run
+        //Because otherwise it would look for index 0 which does not exist
+        UserDefaults.standard.set(-1, forKey: "lastSelectedRow")
     }
     
     deinit {
@@ -299,7 +300,7 @@ extension BrowserViewController: WKNavigationDelegate{
         if errorDesc != ""{
             displayError(shouldShow: true)
             errorLabel.text = errorDesc
-      
+            print("Connection Error: \(errorDesc)")
         }
     }
 }
